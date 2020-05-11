@@ -1,0 +1,32 @@
+{
+  "name": "next-ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phenom84/next-ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Phenom84/next-ecommerce/issues"
+  },
+  "homepage": "https://github.com/Phenom84/next-ecommerce#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.9.13",
+    "@popperjs/core": "^2.4.0",
+    "clsx": "^1.1.0",
+    "next": "^9.4.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
