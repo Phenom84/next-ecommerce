@@ -1,11 +1,13 @@
 import React from 'react';
-import Navigation from '../components/Navigation'
+import { Button } from '@material-ui/core';
+
+
 
 export default () => {
+    
     return (
         <div>
-            <Navigation />
-           <h1>Cart</h1> 
+            <h1>Your shopping bag</h1>
         </div>
     );
 };

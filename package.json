@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "build": "next build",
+    "build ": "next build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,9 +22,11 @@
   "homepage": "https://github.com/Phenom84/next-ecommerce#readme",
   "dependencies": {
     "@material-ui/core": "^4.9.13",
+    "@material-ui/icons": "^4.9.1",
     "@popperjs/core": "^2.4.0",
     "clsx": "^1.1.0",
     "next": "^9.4.0",
+    "nvm": "0.0.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
