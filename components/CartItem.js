@@ -1,32 +1,24 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import {
-  Button,
-  Card,
-  CardActionArea,
+  Grid,
+  Typography,
   CardActions,
   CardContent,
   CardMedia,
-  Grid,
-  Typography,
-  Divider
+  Card,
+  CardActionArea,
+  Button,
 } from '@material-ui/core';
+import { useGlobal } from '../src/context/GlobalContext';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { makeStyles } from '@material-ui/core/styles';
-import { useGlobal } from '../src/context/GlobalContext';
-
 
 const useStyles = makeStyles((theme) => ({
   media: {
-    height: 400,
-    [theme.breakpoints.only('md')]: {
-      height: 580,
-    },
-    [theme.breakpoints.only('sm')]: {
-      height: 850,
-    },
-    [theme.breakpoints.only('xs')]: {
-      height: 550,
+    height: 250,
+    [theme.breakpoints.up('md')]: {
+      height: 300,
     },
   },
   card: {
@@ -34,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }), { name: 'ProductItem' });
 
-export default function ProductItem({ product }) {
+export default function CartItem({ product }) {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
 
@@ -55,8 +47,7 @@ export default function ProductItem({ product }) {
               {product.description}
             </Typography>
             <Typography variant="body2" component="p" align="center" fontSize={16}>
-              <Divider />
-              <strong>{product.price}</strong>
+              {product.price}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -67,23 +58,22 @@ export default function ProductItem({ product }) {
                 size="small"
                 color="primary"
                 variant="contained"
-                endIcon={<ShoppingCartIcon />}
                 fullWidth
+                endIcon={<ShoppingCartIcon />}
                 onClick={(evt) => {
                   if (evt) {
                     evt.preventDefault();
                   }
 
                   dispatch({
-                    type: 'ADD_TO_BAG',
+                    type: 'REMOVE_FROM_BAG',
                     payload: {
                       id: product.id,
-                      qty: 1
                     }
                   });
                 }}
               >
-                Add to cart
+                Remove from
               </Button>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -91,23 +81,10 @@ export default function ProductItem({ product }) {
                 size="small"
                 color="primary"
                 variant="contained"
-                endIcon={<FavoriteIcon />}
                 fullWidth
-                onClick={(evt) => {
-                  if (evt) {
-                    evt.preventDefault();
-                  }
-
-                  dispatch({
-                    type: 'ADD_TO_WISHLIST',
-                    payload: {
-                      id: product.id,
-                      qty: 1
-                    }
-                  });
-                }}
+                endIcon={<FavoriteIcon />}
               >
-                Add to wishlist
+                Move to
               </Button>
             </Grid>
           </Grid>

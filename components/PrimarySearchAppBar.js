@@ -11,11 +11,13 @@ import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+// import MailIcon from '@material-ui/icons/Mail';
+// import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Link from '../src/Link';
+import { useGlobal } from '../src/context/GlobalContext';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme) => ({
@@ -87,6 +89,9 @@ export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [state] = useGlobal();
+  const cartCounter = state.cart.length;
+  const wishListCounter = state.wishlist.length;
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -135,6 +140,22 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      {/* <MenuItem>
+        <IconButton aria-label="show 4 new mails" color="inherit">
+          <Badge badgeContent={4} color="secondary">
+            <MailIcon />
+          </Badge>
+        </IconButton>
+        <p>Messages</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton aria-label="show 11 new notifications" color="inherit">
+          <Badge badgeContent={11} color="secondary">
+            <NotificationsIcon />
+          </Badge>
+        </IconButton>
+        <p>Notifications</p>
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -146,34 +167,26 @@ export default function PrimarySearchAppBar() {
         </IconButton>
         <p>Profile</p>
       </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="1 new favorite product" color="inherit">
-          <Badge badgeContent={1} color="secondary">
-            <FavoriteIcon />
-          </Badge>
-        </IconButton>
-        <p>Favorites</p>
-      </MenuItem>
-      <MenuItem>
-        <Link href="/cart">
-          <IconButton aria-label="show 2 product" color="inherit">
-            <Badge badgeContent={2} color="secondary">
+      <Link href="/wish-list">
+        <MenuItem>
+          <IconButton aria-label={`show ${wishListCounter} product`} color="inherit">
+            <Badge badgeContent={wishListCounter} color="secondary">
+              <FavoriteIcon />
+            </Badge>
+          </IconButton>
+          <p>Wishlist</p>
+        </MenuItem>
+      </Link>
+      <Link href="/cart">
+        <MenuItem>
+          <IconButton aria-label={`show ${cartCounter} product`} color="inherit">
+            <Badge badgeContent={cartCounter} color="secondary">
               <ShoppingCartIcon />
             </Badge>
           </IconButton>
-        </Link>
-        <Link href="/cart">
           <p>Cart</p>
-        </Link>
-      </MenuItem>
+        </MenuItem>
+      </Link>
     </Menu>
   );
 
@@ -193,7 +206,7 @@ export default function PrimarySearchAppBar() {
             <HomeIcon color="inherit" />
           </Link>
           <Link href="/products">
-            <Typography className={classes.title} variant="h6" >
+            <Typography className={classes.title} variant="h6">
               Products
             </Typography>
           </Link>
@@ -212,19 +225,26 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            {/* <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="1 new favorite product" color="inherit">
-              <Badge badgeContent={1} color="secondary">
-                <FavoriteIcon />
+            <IconButton aria-label="show 17 new notifications" color="inherit">
+              <Badge badgeContent={17} color="secondary">
+                <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
+            <Link href="/wish-list">
+              <IconButton aria-label={`show ${wishListCounter} product`} color="inherit">
+                <Badge badgeContent={wishListCounter} color="secondary">
+                  <FavoriteIcon />
+                </Badge>
+              </IconButton>
+            </Link>
             <Link href="/cart">
-              <IconButton aria-label="show 2 product" color="inherit">
-                <Badge badgeContent={2} color="secondary">
+              <IconButton aria-label={`show ${cartCounter} product`} color="inherit">
+                <Badge badgeContent={cartCounter} color="secondary">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
@@ -255,6 +275,6 @@ export default function PrimarySearchAppBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-    </div >
+    </div>
   );
 }

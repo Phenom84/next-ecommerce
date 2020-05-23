@@ -3,7 +3,7 @@ import React from 'react';
 export default () => {
     return (
         <div>
-           <h1>Contact Us</h1> 
+            <h1>Constact us</h1>
         </div>
     );
 };

@@ -1,23 +1,19 @@
 import React from 'react';
 import { Grid, Container } from '@material-ui/core';
 import { useGlobal } from '../src/context/GlobalContext';
-import CartItem from '../components/CartItem';
+import ProductItem from '../components/ProductItem';
 
 export default () => {
-  const [state, dispatch] = useGlobal();
+  const [ state, dispatch ] = useGlobal();
 
   return (
     <Container maxWidth="lg">
-      <h1>Cart</h1>
+      <h1>Products</h1>
 
       <Grid container spacing={3}
         alignItems="stretch"
       >
-        {!state.cart.length &&
-          <h2>Your cart is empty</h2>
-        }
-
-        {state.cart.map((product, index) => <CartItem key={index} product={product} />)}
+        {state.products.map((product, index) => <ProductItem key={index} product={product}/>)}
       </Grid>
     </Container>
   );
