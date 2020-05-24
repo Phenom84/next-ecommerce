@@ -66,7 +66,7 @@ export default function CartItem({ product }) {
                   }
 
                   dispatch({
-                    type: 'REMOVE_FROM_BAG',
+                    type: 'REMOVE_FROM_CART',
                     payload: {
                       id: product.id,
                     }
@@ -83,6 +83,25 @@ export default function CartItem({ product }) {
                 variant="contained"
                 fullWidth
                 endIcon={<FavoriteIcon />}
+                onClick={(evt) => {
+                  if (evt) {
+                    evt.preventDefault();
+                  }
+
+                  dispatch({
+                    type: 'REMOVE_FROM_CART',
+                    payload: {
+                      id: product.id,
+                    }
+                  });
+                  dispatch({
+                    type: 'ADD_TO_WISHLIST',
+                    payload: {
+                      id: product.id,
+                      qty: 1
+                    }
+                  });
+                }}
               >
                 Move to
               </Button>

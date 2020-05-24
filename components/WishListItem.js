@@ -80,6 +80,24 @@ export default function WishListItem({ product }) {
                 variant="contained"
                 fullWidth
                 endIcon={<ShoppingCartIcon />}
+                onClick={(evt) => {
+                  if (evt) {
+                    evt.preventDefault();
+                  }
+
+                  dispatch({
+                    type: 'REMOVE_FROM_WISHLIST',
+                    payload: {
+                      id: product.id,
+                    }
+                  });
+                  dispatch({
+                    type: 'ADD_TO_CART',
+                    payload: {
+                      id: product.id,
+                    }
+                  });
+                }}
               >
                 Move to
               </Button>

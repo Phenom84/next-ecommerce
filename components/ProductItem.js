@@ -75,7 +75,7 @@ export default function ProductItem({ product }) {
                   }
 
                   dispatch({
-                    type: 'ADD_TO_BAG',
+                    type: 'ADD_TO_CART',
                     payload: {
                       id: product.id,
                       qty: 1

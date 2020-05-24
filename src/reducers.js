@@ -7,7 +7,7 @@ export function globalReducer(state, action) {
     } = action;
 
     switch (type) {
-        case 'ADD_TO_BAG': {
+        case 'ADD_TO_CART': {
             const addedProduct = state.products.find(product => product.id === payload.id);
             let updatedCart = [...state.cart];
             updatedCart.push({
@@ -19,7 +19,7 @@ export function globalReducer(state, action) {
                 cart: updatedCart
             }
         }
-        case 'REMOVE_FROM_BAG': {
+        case 'REMOVE_FROM_CART': {
             const updatedCart = state.cart.filter(cartItem => cartItem.id !== payload.id);
             return {
                 ...state,
