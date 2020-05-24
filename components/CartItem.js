@@ -16,15 +16,21 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const useStyles = makeStyles((theme) => ({
   media: {
-    height: 250,
-    [theme.breakpoints.up('md')]: {
-      height: 300,
+    height: 400,
+    [theme.breakpoints.only('md')]: {
+      height: 580,
+    },
+    [theme.breakpoints.only('sm')]: {
+      height: 850,
+    },
+    [theme.breakpoints.only('xs')]: {
+      height: 550,
     },
   },
   card: {
     height: '100%',
   }
-}), { name: 'ProductItem' });
+}));
 
 export default function CartItem({ product }) {
   const classes = useStyles();

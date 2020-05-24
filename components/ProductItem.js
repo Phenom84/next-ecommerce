@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   card: {
     height: '100%',
   }
-}), { name: 'ProductItem' });
+}));
 
 export default function ProductItem({ product }) {
   const classes = useStyles();

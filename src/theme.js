@@ -12,9 +12,9 @@ const theme = createMuiTheme({
       color: "inherit",
     },
     MuiPaper: {
-      square: false,
-    }
-  }
+      square: false
+    },
+  },
 });
 
 export default theme;
