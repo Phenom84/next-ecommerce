@@ -65,7 +65,7 @@ export default () => {
         </TableCell>
         <TableCell align="center">{product.name}</TableCell>
         <TableCell align="center">{product.price}</TableCell>
-        <TableCell align="center"><Counter initialCount={product.qty}/></TableCell>
+        <TableCell align="center"><Counter initialCount={product.qty} initialStep={1} id={product.id}/></TableCell>
         <TableCell align="center">$ {Number(product.price.slice(1)) * Number(product.qty)}</TableCell>
         <TableCell align="center" style={{ width: '2rem' }}>
         <IconButton
