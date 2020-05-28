@@ -1,5 +1,3 @@
-
-
 export function globalReducer(state, action) {
     const {
         type,
@@ -8,17 +6,20 @@ export function globalReducer(state, action) {
 
     switch (type) {
         case 'ADD_TO_CART': {
-            const addedProduct = state.products.find(product => product.id === payload.id);
+            let addedProduct = state.products.find(product => product.id === payload.id);
             let updatedCart = [...state.cart];
             let cartItemExist = updatedCart.find(product => product.id == payload.id);
             if (cartItemExist) {
                 cartItemExist.qty += payload.qty
+                addedProduct.count = 1
             } else {
                 updatedCart.push({
                     ...addedProduct,
                     qty: payload.qty
                 });
+                addedProduct.count = 1
             }
+            
             return {
                 ...state,
                 cart: updatedCart

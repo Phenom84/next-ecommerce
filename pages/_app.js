@@ -9,6 +9,7 @@ import { GlobalProvider } from '../src/context/GlobalContext';
 import Box from '@material-ui/core/Box';
 import Footer from "../components/Footer"
 
+
 export default function MyApp(props) {
   const { Component, pageProps } = props;
 

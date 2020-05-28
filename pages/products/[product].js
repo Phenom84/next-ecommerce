@@ -34,6 +34,7 @@ const StyledRating = withStyles({
     },
 })(Rating);
 
+
 const ProductPage = (props) => {
     const [{ products }, dispatch] = useGlobal();
     const [qty, setQty] = React.useState(1);
@@ -97,7 +98,7 @@ const ProductPage = (props) => {
                             <Typography align="center">
                                 Quantity
                             </Typography>
-                            <Counter initialCount={1} initialStep={1} />
+                            <Counter initialCount={1} initialStep={1} id={product.id} />
                         </Grid>
                         <Grid item container spacing={1}>
                             <Grid item xs={6}>
@@ -116,9 +117,9 @@ const ProductPage = (props) => {
                                             type: 'ADD_TO_CART',
                                             payload: {
                                                 id: product.id,
-                                                qty: parseInt(localStorage.getItem('count'))
+                                                qty: product.count
                                             }
-                                        });console.log(parseInt(localStorage.getItem('count')));
+                                        });console.log(product.count)
                                     }}
                                 >
                                     Add to cart

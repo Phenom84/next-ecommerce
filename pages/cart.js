@@ -12,6 +12,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import ClearIcon from '@material-ui/icons/Clear';
 import Counter from '../components/Counter'
+import Link from '../src/Link';
 
 const useStyles = makeStyles({
   table: {
@@ -58,12 +59,14 @@ export default () => {
         {state.cart.map((product) => (
         <TableRow key={product.name}>
         <TableCell style={{ width: '8rem' }} align="right">
+        <Link href="/products/[product]" as={`/products/${product.id}`}>
         <Avatar variant="square" alt={product.name} src={product.image} className={classes.cartAvatar}/>
+        </Link>
         </TableCell>
         <TableCell align="center">{product.name}</TableCell>
         <TableCell align="center">{product.price}</TableCell>
         <TableCell align="center"><Counter initialCount={product.qty}/></TableCell>
-        <TableCell align="center">0</TableCell>
+        <TableCell align="center">$ {Number(product.price.slice(1)) * Number(product.qty)}</TableCell>
         <TableCell align="center" style={{ width: '2rem' }}>
         <IconButton
                 size="small"
