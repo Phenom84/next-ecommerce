@@ -203,7 +203,9 @@ export default function PrimarySearchAppBar() {
             <MenuIcon />
           </IconButton>
           <Link href="/">
-            <HomeIcon color="inherit" />
+            <IconButton aria-label="Back to home page" color="inherit">
+              <HomeIcon color="inherit" />
+            </IconButton>
           </Link>
           <Link href="/products">
             <Typography className={classes.title} variant="h6">

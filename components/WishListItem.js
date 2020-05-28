@@ -93,15 +93,15 @@ export default function WishListItem({ product }) {
                   if (evt) {
                     evt.preventDefault();
                   }
-
                   dispatch({
-                    type: 'REMOVE_FROM_WISHLIST',
+                    type: 'ADD_TO_CART',
                     payload: {
                       id: product.id,
+                      qty: 1,
                     }
                   });
                   dispatch({
-                    type: 'ADD_TO_CART',
+                    type: 'REMOVE_FROM_WISHLIST',
                     payload: {
                       id: product.id,
                     }

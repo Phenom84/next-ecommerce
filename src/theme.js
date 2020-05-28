@@ -6,13 +6,29 @@ const theme = createMuiTheme({
     primary: { 
       main: '#404040' 
     },
+    primary: { 
+      main: '#404040' 
+    },
+    secondary: {
+      main: '#ff9100',
+    },
   },
   props: {
     MuiLink: {
-      color: "inherit",
+      color: "inherit"
     },
     MuiPaper: {
       square: false
+    },
+  },
+  overrides: {
+    // Style sheet name ⚛️
+    MuiButton: {
+      // Name of the rule
+      textPrimary: {
+        // Some CSS
+        fontSize: 16,
+      },
     },
   },
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Container } from '@material-ui/core';
+import { Grid, Container, Typography, Box } from '@material-ui/core';
 import { useGlobal } from '../src/context/GlobalContext';
 import WishListItem from '../components/WishListItem';
 
@@ -8,7 +8,11 @@ export default () => {
 
   return (
     <Container maxWidth="lg">
-      <h1>Wishlist</h1>
+      <Typography variant="h5" align="center">
+        <Box lineHeight={3} m={1}>
+          Your wishlist
+        </Box>
+      </Typography>
 
       <Grid container spacing={3}
         alignItems="stretch"

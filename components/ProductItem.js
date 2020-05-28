@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Button,
+  IconButton,
   Card,
   CardActionArea,
   CardActions,
@@ -14,61 +15,55 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { makeStyles } from '@material-ui/core/styles';
 import { useGlobal } from '../src/context/GlobalContext';
+import Link from '../src/Link';
 
 
 const useStyles = makeStyles((theme) => ({
-  media: {
-    height: 400,
-    [theme.breakpoints.only('md')]: {
-      height: 580,
-    },
-    [theme.breakpoints.only('sm')]: {
-      height: 850,
-    },
-    [theme.breakpoints.only('xs')]: {
-      height: 550,
-    },
-  },
   card: {
     height: '100%',
   }
-}));
+}), { name: 'ProductItem' });
 
 export default function ProductItem({ product }) {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
 
   return (
-    <Grid item xs={12} md={6} lg={4}>
+    <Grid item xs={12} sm = {6} md={4} lg={3}>
       <Card className={classes.card}>
         <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={product.image}
-            title={product.name}
-          />
-          <CardContent>
+          <Link href="/products/[product]" as={`/products/${product.id}`}>
+          <CardMedia component="img"
+                                className={classes.media}
+                                image={product.image}
+                                title={product.name}
+                            />
+          </Link>
+          <CardContent align="center">
             <Typography gutterBottom variant="h5" component="h2">
               {product.name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {product.description}
+            <Typography 
+              variant="caption" 
+              display="block" 
+              gutterBottom 
+              color={"textSecondary"}
+              >
+                Category: {product.category}
             </Typography>
-            <Typography variant="body2" component="p" align="center" fontSize={16}>
-              <Divider />
-              <strong>{product.price}</strong>
+            <Divider variant="middle" />
+            <Typography align="center" fontSize={24} color="secondary">
+              {product.price}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Grid container spacing={1}>
-            <Grid item xs={12} md={6}>
-              <Button
+          <Grid container spacing={1} >
+            <Grid item xs={6} align='center'>
+              <IconButton
                 size="small"
                 color="primary"
-                variant="contained"
-                endIcon={<ShoppingCartIcon />}
-                fullWidth
+                aria-label="Add to cart"
                 onClick={(evt) => {
                   if (evt) {
                     evt.preventDefault();
@@ -83,16 +78,14 @@ export default function ProductItem({ product }) {
                   });
                 }}
               >
-                Add to cart
-              </Button>
+                <ShoppingCartIcon />
+              </IconButton>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <Button
+            <Grid item xs={6} align='center'>
+              <IconButton
                 size="small"
                 color="primary"
-                variant="contained"
-                endIcon={<FavoriteIcon />}
-                fullWidth
+                aria-label="Add to wishlist"
                 onClick={(evt) => {
                   if (evt) {
                     evt.preventDefault();
@@ -107,8 +100,8 @@ export default function ProductItem({ product }) {
                   });
                 }}
               >
-                Add to wishlist
-              </Button>
+                <FavoriteIcon />
+              </IconButton>
             </Grid>
           </Grid>
         </CardActions>
