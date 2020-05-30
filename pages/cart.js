@@ -1,27 +1,33 @@
 import React from 'react';
-import { Grid, Container, Box, Typography, CardMedia, Avatar, IconButton } from '@material-ui/core';
+import {
+  Grid,
+  Container,
+  Box,
+  Typography,
+  Avatar,
+  IconButton,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@material-ui/core';
+import { FormattedMessage } from 'react-intl';
 import { useGlobal } from '../src/context/GlobalContext';
 import { makeStyles } from '@material-ui/core/styles';
-import CartItem from '../components/CartItem1';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import ClearIcon from '@material-ui/icons/Clear';
 import Counter from '../components/Counter'
 import Link from '../src/Link';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 500,
+    minWidth: 630
   },
   cartAvatar: {
-    width: "8rem",
-    height: "8rem",
-    
+    width: "7rem",
+    height: "7rem",
   },
 });
 
@@ -31,68 +37,62 @@ export default () => {
 
   return (
     <Container maxWidth="lg">
-      <Grid container spacing={3}
-        justify="center"
-        alignItems="center"
-      >
+      <Grid container spacing={3} justify="center" alignItems="center">
         <Grid item xs={12}>
-        <Typography variant="h5" align="center">
-        <Box lineHeight={3} m={1}>
-          Your cart {!state.cart.length && 'is empty...'}
-        </Box>
-      </Typography>
+          <Typography variant="h5" align="center">
+            <Box lineHeight={3} m={1}>
+              <FormattedMessage id='cart.page.title' /> {!state.cart.length && <FormattedMessage id='cart.page.title.empty' />}
+            </Box>
+          </Typography>
         </Grid>
         <Grid item xs={12} md={10} lg={8}>
-        <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="Shoping cart">
-        <TableHead>
-          <TableRow>
-            <TableCell style={{ width: '8rem' }}></TableCell>
-            <TableCell align="center">Name</TableCell>
-            <TableCell align="center">Price</TableCell>
-            <TableCell align="center">Quantity</TableCell>
-            <TableCell align="center">Amount</TableCell>
-            <TableCell align="center" style={{ width: '2rem' }}></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-        {state.cart.map((product) => (
-        <TableRow key={product.name}>
-        <TableCell style={{ width: '8rem' }} align="right">
-        <Link href="/products/[product]" as={`/products/${product.id}`}>
-        <Avatar variant="square" alt={product.name} src={product.image} className={classes.cartAvatar}/>
-        </Link>
-        </TableCell>
-        <TableCell align="center">{product.name}</TableCell>
-        <TableCell align="center">{product.price}</TableCell>
-        <TableCell align="center"><Counter initialCount={product.qty} initialStep={1} id={product.id}/></TableCell>
-        <TableCell align="center">$ {Number(product.price.slice(1)) * Number(product.qty)}</TableCell>
-        <TableCell align="center" style={{ width: '2rem' }}>
-        <IconButton
-                size="small"
-                color="primary"
-                variant="contained"
-                onClick={(evt) => {
-                  if (evt) {
-                    evt.preventDefault();
-                  }
+          <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="Shoping cart">
+              <TableHead>
+                <TableRow>
+                  <TableCell></TableCell>
+                  <TableCell align="center"><FormattedMessage id='cart.product.name' /></TableCell>
+                  <TableCell align="center"><FormattedMessage id='cart.product.price' /></TableCell>
+                  <TableCell align="center"><FormattedMessage id='cart.product.quantity' /></TableCell>
+                  <TableCell align="center"><FormattedMessage id='cart.product.amount' /></TableCell>
+                  <TableCell align="center" style={{ width: '2rem' }}></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {state.cart.map((cartItem) => (
+                  <TableRow key={cartItem.name}>
+                    <TableCell align="right">
+                      <Link href="/products/[product]" as={`/products/${cartItem.id}`}>
+                        <Avatar variant="square" alt={cartItem.name} src={cartItem.image} className={classes.cartAvatar} />
+                      </Link>
+                    </TableCell>
+                    <TableCell align="center">{cartItem.name}</TableCell>
+                    <TableCell align="center">{cartItem.price}</TableCell>
+                    <TableCell align="center"><Counter initialCount={cartItem.qty} initialStep={1} id={cartItem.id} /></TableCell>
+                    <TableCell align="center">$ {Number(cartItem.price.slice(1)) * Number(cartItem.qty)}</TableCell>
+                    <TableCell align="center">
+                      <IconButton size="small" color="primary" variant="contained"
+                        onClick={(evt) => {
+                          if (evt) {
+                            evt.preventDefault();
+                          }
 
-                  dispatch({
-                    type: 'REMOVE_FROM_CART',
-                    payload: {
-                      id: product.id,
-                    }
-                  });
-                }}
-              >
-                <ClearIcon/>
-              </IconButton>
-        </TableCell>
-      </TableRow>
-    ))}
-        </TableBody>
-        </Table>
-        </TableContainer>
+                          dispatch({
+                            type: 'REMOVE_FROM_CART',
+                            payload: {
+                              id: cartItem.id,
+                            }
+                          });
+                        }}
+                      >
+                        <ClearIcon />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Grid>
       </Grid>
     </Container>

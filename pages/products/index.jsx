@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Container,Typography,Box } from '@material-ui/core';
 import { useGlobal } from '../../src/context/GlobalContext';
 import ProductItem from '../../components/ProductItem';
+import { FormattedMessage } from 'react-intl';
 
 export default () => {
   const [ state, dispatch ] = useGlobal();
@@ -10,7 +11,7 @@ export default () => {
     <Container maxWidth="lg">
       <Typography variant="h5" align="center">
         <Box lineHeight={3} m={1}>
-          Products
+          <FormattedMessage id='product.menu.label' />
         </Box>
       </Typography>
 

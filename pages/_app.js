@@ -1,4 +1,6 @@
-import React from 'react';
+import 'typeface-roboto'
+import React, { useState } from 'react';
+import { IntlProvider } from 'react-intl';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -8,10 +10,13 @@ import PrimarySearchAppBar from '../components/PrimarySearchAppBar';
 import { GlobalProvider } from '../src/context/GlobalContext';
 import Box from '@material-ui/core/Box';
 import Footer from "../components/Footer"
+import translations from '../components/translations';
 
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
+  const [locale, setLocale] = useState('en');
+  const handleChangeLocale = ({ target: { value } }) => setLocale(value);
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -31,23 +36,19 @@ export default function MyApp(props) {
         <GlobalProvider>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
-
-          <Box
-            display="flex"
-            flexDirection="column"
-            height="98vh"
-          >
-            <Box>
-              <PrimarySearchAppBar />
+          <IntlProvider locale={locale} messages={translations[locale]}>
+            <Box display="flex" flexDirection="column" height="98vh">
+              <Box>
+                <PrimarySearchAppBar locale={locale} handleChangeLocale={handleChangeLocale} />
+              </Box>
+              <Box flexGrow={1}>
+                <Component {...pageProps} />
+              </Box>
+              <Box>
+                <Footer />
+              </Box>
             </Box>
-            <Box flexGrow={1}>
-              <Component {...pageProps} />
-            </Box>
-            <Box>
-              <Footer />
-            </Box>
-          </Box>
-
+          </IntlProvider>
         </GlobalProvider>
       </ThemeProvider>
     </React.Fragment>

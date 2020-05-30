@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Button,
   IconButton,
   Card,
   CardActionArea,
@@ -16,6 +15,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { makeStyles } from '@material-ui/core/styles';
 import { useGlobal } from '../src/context/GlobalContext';
 import Link from '../src/Link';
+import { FormattedMessage } from 'react-intl';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -49,7 +49,7 @@ export default function ProductItem({ product }) {
               gutterBottom 
               color={"textSecondary"}
               >
-                Category: {product.category}
+                <FormattedMessage id='category' />: {product.category}
             </Typography>
             <Divider variant="middle" />
             <Typography align="center" fontSize={24} color="secondary">

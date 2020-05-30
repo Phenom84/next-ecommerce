@@ -13,26 +13,16 @@ import {
 import { useGlobal } from '../src/context/GlobalContext';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { FormattedMessage } from 'react-intl';
+import Link from '../src/Link';
 
 const useStyles = makeStyles((theme) => ({
-  media: {
-    height: 400,
-    [theme.breakpoints.only('md')]: {
-      height: 580,
-    },
-    [theme.breakpoints.only('sm')]: {
-      height: 850,
-    },
-    [theme.breakpoints.only('xs')]: {
-      height: 550,
-    },
-  },
   card: {
     height: '100%',
   }
 }));
 
-export default function CartItem({ product }) {
+export default function WishListItem({ product }) {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
 
@@ -40,51 +30,24 @@ export default function CartItem({ product }) {
     <Grid item xs={12} md={6} lg={4}>
       <Card className={classes.card}>
         <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={product.image}
-            title={product.name}
-          />
-          <CardContent>
+          <Link href="/products/[product]" as={`/products/${product.id}`}>
+            <CardMedia component="img"
+              className={classes.media}
+              image={product.image}
+              title={product.name}
+            />
+          </Link>
+          <CardContent align="center">
             <Typography gutterBottom variant="h5" component="h2">
               {product.name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {product.description}
-            </Typography>
             <Typography variant="body2" component="p" align="center" fontSize={16}>
               {product.price}
-            </Typography>
-            <Typography variant="body2" component="p" align="center" fontSize={16}>
-              Quntity:{product.qty}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Grid container spacing={1}>
-            <Grid item xs={12} md={6}>
-              <Button
-                size="small"
-                color="primary"
-                variant="contained"
-                fullWidth
-                endIcon={<ShoppingCartIcon />}
-                onClick={(evt) => {
-                  if (evt) {
-                    evt.preventDefault();
-                  }
-
-                  dispatch({
-                    type: 'REMOVE_FROM_CART',
-                    payload: {
-                      id: product.id,
-                    }
-                  });
-                }}
-              >
-                Remove from
-              </Button>
-            </Grid>
             <Grid item xs={12} md={6}>
               <Button
                 size="small"
@@ -98,21 +61,43 @@ export default function CartItem({ product }) {
                   }
 
                   dispatch({
-                    type: 'REMOVE_FROM_CART',
+                    type: 'REMOVE_FROM_WISHLIST',
                     payload: {
                       id: product.id,
-                    }
-                  });
-                  dispatch({
-                    type: 'ADD_TO_WISHLIST',
-                    payload: {
-                      id: product.id,
-                      qty: 1
                     }
                   });
                 }}
               >
-                Move to
+                <FormattedMessage id='remove.from.wishlist.button' />
+              </Button>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Button
+                size="small"
+                color="primary"
+                variant="contained"
+                fullWidth
+                endIcon={<ShoppingCartIcon />}
+                onClick={(evt) => {
+                  if (evt) {
+                    evt.preventDefault();
+                  }
+                  dispatch({
+                    type: 'ADD_TO_CART',
+                    payload: {
+                      id: product.id,
+                      qty: 1,
+                    }
+                  });
+                  dispatch({
+                    type: 'REMOVE_FROM_WISHLIST',
+                    payload: {
+                      id: product.id,
+                    }
+                  });
+                }}
+              >
+                <FormattedMessage id='move.to.cart.button' />
               </Button>
             </Grid>
           </Grid>

@@ -1,10 +1,14 @@
 import React from 'react';
+import { Typography } from '@material-ui/core';
+import { FormattedMessage } from 'react-intl';
 
 export default () => {
-    
+
     return (
         <div>
-            <h1>Home page</h1>
+            <Typography variant="h4" component="h1" align="center" gutterBottom>
+                <FormattedMessage id='home.page.title' />
+            </Typography>
         </div>
     );
 };

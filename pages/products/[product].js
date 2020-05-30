@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'next/router';
-import { Grid, Container, CardMedia, CircularProgress, Divider, Box, Button, Paper, ListItemSecondaryAction } from '@material-ui/core';
+import {
+    Grid,
+    Container,
+    CardMedia,
+    CircularProgress,
+    Divider,
+    Box,
+    Button,
+    Paper,
+    Tabs,
+    Tab,
+    Typography
+} from '@material-ui/core';
 import { useGlobal } from '../../src/context/GlobalContext';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import TabPanel from '../../components/TabPanel';
 import Rating from '@material-ui/lab/Rating';
 import Counter from '../../components/Counter'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { FormattedMessage } from 'react-intl';
+import SlideShow from '../../components/SlideShow';
 
 
 function a11yProps(index) {
@@ -26,6 +37,12 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         backgroundColor: theme.palette.background.paper,
     },
+    // media: {
+    //     height: 250,
+    //     [theme.breakpoints.up('md')]: {
+    //         height: 500,
+    //     },
+    // },
 }));
 
 const StyledRating = withStyles({
@@ -38,11 +55,9 @@ const StyledRating = withStyles({
 const ProductPage = (props) => {
     const [{ products }, dispatch] = useGlobal();
     const [qty, setQty] = React.useState(1);
-
     const product = products.find(item => item.id === props.router.query.product)
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
-
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -50,22 +65,20 @@ const ProductPage = (props) => {
     return (
         product ?
             <Container maxWidth="lg">
-                <Typography variant="h5" align="center">
-                    <Box lineHeight={3} m={1}>
-                        Product page
-                    </Box>
+                <Typography variant="h4" component="h1" align="center" gutterBottom>
+                    {product.name}
                 </Typography>
-                <Grid
-                    container
-                    spacing={4}
-                    justify="center"
-                    alignItems="flex-start">
-                    <Grid xs={12} sm={11} md={6} item>
+                <Grid container spacing={4} justify="center" alignItems="flex-start">
+                    <Grid xs={12} sm={6} md={4} item>
                         <Paper>
-                            <CardMedia component="img"
+                            {/* <CardMedia component="img"
                                 className={classes.media}
                                 image={product.image}
                                 title={product.name}
+                            /> */}
+                            <SlideShow
+                                slides={product.images}
+                                thumbnails={product.images}
                             />
                         </Paper>
                     </Grid>
@@ -75,16 +88,16 @@ const ProductPage = (props) => {
                                 {product.name}
                             </Typography>
                             <Typography variant="caption" display="block" gutterBottom color={"textSecondary"}>
-                                Category: {product.category}
+                                <FormattedMessage id='category' />: {product.category}
                             </Typography>
                         </Grid>
                         <Grid item>
                             <StyledRating name="half-rating-read" defaultValue={product.rating} precision={0.1} readOnly />
                             <Box fontWeight="fontWeightBold" fontSize={24}>
-                                <Typography gutterBottom color={"secondary"}> 
+                                <Typography gutterBottom color={"secondary"}>
                                     {product.price}
                                 </Typography>
-                                </Box>
+                            </Box>
                         </Grid>
                         <Grid item>
                             <Typography paragraph variant="body2">
@@ -96,18 +109,14 @@ const ProductPage = (props) => {
                         </Grid>
                         <Grid item>
                             <Typography align="center">
-                                Quantity
+                                <FormattedMessage id='cart.product.quantity' />
                             </Typography>
                             <Counter initialCount={1} initialStep={1} id={product.id} />
                         </Grid>
                         <Grid item container spacing={1}>
                             <Grid item xs={6}>
-                                <Button
-                                    size="small"
-                                    color="primary"
-                                    variant="contained"
+                                <Button size="small" color="primary" variant="contained" fullWidth
                                     endIcon={<ShoppingCartIcon />}
-                                    fullWidth
                                     onClick={(evt) => {
                                         if (evt) {
                                             evt.preventDefault();
@@ -119,19 +128,15 @@ const ProductPage = (props) => {
                                                 id: product.id,
                                                 qty: product.count
                                             }
-                                        });console.log(product.count)
+                                        });
                                     }}
                                 >
-                                    Add to cart
-              </Button>
+                                    <FormattedMessage id='add.to.card.button' />
+                                </Button>
                             </Grid>
                             <Grid item xs={6}>
-                                <Button
-                                    size="small"
-                                    color="primary"
-                                    variant="contained"
+                                <Button size="small" color="primary" variant="contained" fullWidth
                                     endIcon={<FavoriteIcon />}
-                                    fullWidth
                                     onClick={(evt) => {
                                         if (evt) {
                                             evt.preventDefault();
@@ -146,8 +151,8 @@ const ProductPage = (props) => {
                                         });
                                     }}
                                 >
-                                    Add to wishlist
-              </Button>
+                                    <FormattedMessage id='add.to.wishlist.button' />
+                                </Button>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -175,7 +180,6 @@ const ProductPage = (props) => {
                         Related products
                     </Grid>
                 </Grid>
-
             </Container>
             : <CircularProgress />
     );

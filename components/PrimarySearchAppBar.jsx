@@ -1,4 +1,6 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -11,14 +13,15 @@ import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-// import MailIcon from '@material-ui/icons/Mail';
-// import NotificationsIcon from '@material-ui/icons/Notifications';
+import Select from '@material-ui/core/Select';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Link from '../src/Link';
 import { useGlobal } from '../src/context/GlobalContext';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import HomeIcon from '@material-ui/icons/Home';
+
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -83,9 +86,16 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  languageSelect: {
+    color: "#FFFFFF",
+    '& svg': {
+      color: "#FFFFFF",
+    }
+  }
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({handleChangeLocale, locale}) {
+  const intl = useIntl();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -124,8 +134,8 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}><FormattedMessage id='account' /></MenuItem>
+      <MenuItem onClick={handleMenuClose}><FormattedMessage id='logout' /></MenuItem>
     </Menu>
   );
 
@@ -140,22 +150,6 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      {/* <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -209,7 +203,7 @@ export default function PrimarySearchAppBar() {
           </Link>
           <Link href="/products">
             <Typography className={classes.title} variant="h6">
-              Products
+              <FormattedMessage id='product.menu.label' />
             </Typography>
           </Link>
           <div className={classes.search}>
@@ -217,7 +211,7 @@ export default function PrimarySearchAppBar() {
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder= { intl.formatMessage({ id: 'serch.field' })}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -226,17 +220,20 @@ export default function PrimarySearchAppBar() {
             />
           </div>
           <div className={classes.grow} />
+          <Select className={classes.languageSelect}
+            disableUnderline
+            label="Choose language"
+              labelId="change language"
+              id="select"
+              autoWidth
+              value={locale}
+              onChange={handleChangeLocale}
+            >
+              <MenuItem value="ro">RO</MenuItem>
+              <MenuItem value="ru">RU</MenuItem>
+              <MenuItem value="en">EN</MenuItem>
+            </Select>
           <div className={classes.sectionDesktop}>
-            {/* <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
             <Link href="/wish-list">
               <IconButton aria-label={`show ${wishListCounter} product`} color="inherit">
                 <Badge badgeContent={wishListCounter} color="secondary">
