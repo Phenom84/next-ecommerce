@@ -1,6 +1,6 @@
 export const ru = {
   'logout': 'Выйти',
-  'account': 'Мой аккаунт',
+  'account': 'Aккаунт',
   'category': 'Категория',
   'serch.field': 'Поиск...',
   'product.menu.label': 'Товары',

@@ -1,6 +1,6 @@
 export const en = {
   'logout': 'Log out',
-  'account': 'My Account',
+  'account': 'Account',
   'category': 'Category',
   'serch.field': 'Search...',
   'product.menu.label': 'Products',
@@ -16,7 +16,7 @@ export const en = {
   'cart.page.title': 'Your cart',
   'cart.page.title.empty': 'is empty...',
 
-  'wishlist.page.title': 'Your wishlist',
+  'wishlist.page.title': 'Wishlist',
   'wishlist.page.title.empty': 'is empty...',
 
   'add.to.card.button': 'Add to cart',

@@ -235,21 +235,27 @@ export default function PrimarySearchAppBar({handleChangeLocale, locale}) {
             </Select>
           <div className={classes.sectionDesktop}>
             <Link href="/wish-list">
-              <IconButton aria-label={`show ${wishListCounter} product`} color="inherit">
+              <IconButton 
+                title={ intl.formatMessage({ id: 'wishlist.page.title' })}
+                aria-label={`show ${wishListCounter} product`} 
+                color="inherit">
                 <Badge badgeContent={wishListCounter} color="secondary">
                   <FavoriteIcon />
                 </Badge>
               </IconButton>
             </Link>
             <Link href="/cart">
-              <IconButton aria-label={`show ${cartCounter} product`} color="inherit">
+              <IconButton 
+                title={ intl.formatMessage({ id: 'cart.page.title' })}
+                aria-label={`show ${cartCounter} product`} 
+                color="inherit">
                 <Badge badgeContent={cartCounter} color="secondary">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
             </Link>
             <IconButton
-              edge="end"
+              title={ intl.formatMessage({ id: 'account' })}
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"

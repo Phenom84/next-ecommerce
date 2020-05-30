@@ -1,6 +1,6 @@
 export const ro = {
   'logout': 'Ieșire',
-  'account': 'Contul meu',
+  'account': 'Contul',
   'category': 'Categorie',
   'serch.field': 'Căutare...',
   'product.menu.label': 'Producte',
@@ -16,7 +16,7 @@ export const ro = {
   'cart.page.title': 'Cosul dvs.',
   'cart.page.title.empty': 'este gol...',
 
-  'wishlist.page.title': 'Lista dvs. de dorințe',
+  'wishlist.page.title': 'Lista de dorințe',
   'wishlist.page.title.empty': 'este goală...',
 
   'add.to.card.button': 'Adaugă în coș',
