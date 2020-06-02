@@ -4,33 +4,25 @@ const theme = createMuiTheme({
   palette: {
     type: "light" ,
     primary: { 
-      main: '#404040' 
-    },
-    primary: { 
-      main: '#404040' 
+      main: '#363636',
     },
     secondary: {
-      main: '#ff9100',
+      main: '#F79548',
     },
   },
   props: {
     MuiLink: {
       color: "inherit"
     },
-    MuiPaper: {
-      square: false
-    },
   },
   overrides: {
-    // Style sheet name ⚛️
-    MuiButton: {
-      // Name of the rule
-      textPrimary: {
-        // Some CSS
-        fontSize: 16,
-      },
-    },
-  },
+    MuiDivider: {
+      root: {
+        backgroundColor: '#F79548',
+        margin: '16px auto',
+      }
+    }
+  }
 });
 
 export default theme;

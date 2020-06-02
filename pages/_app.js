@@ -6,11 +6,11 @@ import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
-import PrimarySearchAppBar from '../components/PrimarySearchAppBar';
 import { GlobalProvider } from '../src/context/GlobalContext';
 import Box from '@material-ui/core/Box';
 import Footer from "../components/Footer"
 import translations from '../components/translations';
+import Header from '../components/Header'
 
 
 export default function MyApp(props) {
@@ -39,7 +39,7 @@ export default function MyApp(props) {
           <IntlProvider locale={locale} messages={translations[locale]}>
             <Box display="flex" flexDirection="column" height="98vh">
               <Box>
-                <PrimarySearchAppBar locale={locale} handleChangeLocale={handleChangeLocale} />
+                <Header locale={locale} handleChangeLocale={handleChangeLocale} />
               </Box>
               <Box flexGrow={1}>
                 <Component {...pageProps} />

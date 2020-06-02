@@ -8,15 +8,28 @@ export function globalReducer(state, action) {
             let cartItem = updatedCart.find(product => product.id == payload.id);
             if (cartItem) {
                 cartItem.qty += payload.qty
-                addedProduct.count = 1
+                
             } else {
                 updatedCart.push({
                     ...addedProduct,
                     qty: payload.qty
                 });
-                addedProduct.count = 1
+                
             }
 
+            return {
+                ...state,
+                cart: updatedCart
+            }
+        }
+        case 'REMOVE_FROM_CART_ONE_ITEM': {
+            let addedProduct = state.products.find(product => product.id === payload.id);
+            let updatedCart = [...state.cart];
+            let cartItem = updatedCart.find(product => product.id == payload.id);
+            if (cartItem.qty > 1) {
+                cartItem.qty -= payload.qty
+                
+            } 
             return {
                 ...state,
                 cart: updatedCart
@@ -29,27 +42,29 @@ export function globalReducer(state, action) {
                 cart: updatedCart
             }
         }
-        case 'ADD_TO_WISHLIST': {
+        case 'WISHLIST_HANDLE': {
             const addedProduct = state.products.find(product => product.id === payload.id);
             let updatedWishlist = [...state.wishlist];
             let wishlistItemExist = updatedWishlist.find(product => product.id === payload.id);
-            if (!wishlistItemExist) {
-                updatedWishlist.push({
-                    ...addedProduct,
-                    qty: 1
-                });
+            if (wishlistItemExist) {
+                updatedWishlist = state.wishlist.filter(wishlistItem => wishlistItem.id !== payload.id);
+            } else {
+                updatedWishlist.push({ ...addedProduct, qty: 1 });
             }
             return {
                 ...state,
                 wishlist: updatedWishlist
             }
         }
-        case 'REMOVE_FROM_WISHLIST': {
-            const updatedWishlist = state.wishlist.filter(wishlistItem => wishlistItem.id !== payload.id);
-
+        case 'COUNTER_HANDLE': {
+            const addedProduct = state.products.find(product => product.id === payload.id);
+            let updatedProducts = [...state.products];
+            if (addedProduct) {
+                addedProduct.count = payload.count
+            }
             return {
                 ...state,
-                wishlist: updatedWishlist
+                products: updatedProducts
             }
         }
         default:

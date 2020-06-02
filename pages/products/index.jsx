@@ -15,7 +15,7 @@ export default () => {
         </Box>
       </Typography>
 
-      <Grid container spacing={3}
+      <Grid container spacing={2}
         justify="center"
         alignItems="center"
       >

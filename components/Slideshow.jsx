@@ -2,40 +2,44 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
-  Typography,
   CardMedia,
   IconButton,
+  Button
 } from '@material-ui/core';
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import ArrowBackIosOutlinedIcon from '@material-ui/icons/ArrowBackIosOutlined';
+import ArrowForwardIosOutlinedIcon from '@material-ui/icons/ArrowForwardIosOutlined';
 
 
 const useStyles = makeStyles((theme) => ({
+  svg: {
+    color: '#FFFFFF',
+  },
   relative: {
     position: "relative",
   },
   arrowLeft: {
     position: "absolute",
-    top: '40%',
-    left:'0'
+    top: '0',
+    left: '0',
+    bottom: '10vw',
+    [theme.breakpoints.up('md')]: {
+      bottom: '75px',
+    },
   },
   arrowRight: {
     position: "absolute",
-    top: '40%',
-    right:'0'
-  },
-  media: {
-
-    height: 480,
+    top: '0',
+    right: '0',
+    bottom: '10vw',
     [theme.breakpoints.up('md')]: {
-      height: 380,
+      bottom: '75px',
     },
   },
   thumbnail: {
-    height: 80,
-    opacity: 0.3,
+    height: '10vw',
+    opacity: 0.5,
     [theme.breakpoints.up('md')]: {
-      height: 60,
+      height: 75,
     },
   },
   active: {
@@ -69,23 +73,22 @@ const SlideShow = ({
           image={slides[activeSlide].src}
           title={slides[activeSlide].alt}
         />
-
-
       </Grid>
       <Grid container
-        justify='center' spacing={0}>
+        justify='center'>
         <Grid item>
-          <IconButton className={classes.arrowLeft}
+          <Button className={classes.arrowLeft}
+            disableRipple
             onClick={() =>
               setActiveSlide(activeSlide - 1 < 0 ? slides.length - 1 : activeSlide - 1)
             }
           >
-            <KeyboardArrowLeftIcon />
-          </IconButton>
+            <ArrowBackIosOutlinedIcon fontSize='large' className={classes.svg} />
+          </Button>
         </Grid>
         {thumbnails.map((thumbnail, index) => {
           return (
-            <Grid xs={2} item>
+            <Grid item xs={2}>
               <CardMedia
                 className={`${classes.thumbnail} ${activeSlide === index ? classes.active : ''}`}
                 image={thumbnail.src}
@@ -96,16 +99,18 @@ const SlideShow = ({
           )
         })}
         <Grid item>
-          <IconButton className={classes.arrowRight}
+          <Button className={classes.arrowRight}
+            disableRipple
             onClick={() =>
               setActiveSlide(activeSlide + 1 === slides.length ? 0 : activeSlide + 1)
             }
           >
-            <KeyboardArrowRightIcon />
-          </IconButton>
+            <ArrowForwardIosOutlinedIcon fontSize='large' className={classes.svg} />
+          </Button>
         </Grid>
       </Grid>
     </Grid>
   );
 };
+
 export default SlideShow; 

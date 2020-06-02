@@ -17,6 +17,10 @@ export default function Counter(props) {
 
   const { step = 1 } = props;
   const product = state.products.find(product => product.id === id);
+  const cart = state.cart.find(product => product.id === id);
+  product.count = count;
+  console.log(product.count)
+  if(cart){console.log('cart',cart.qty)}
   let nextCount = count;
 
   return (
@@ -35,6 +39,13 @@ export default function Counter(props) {
             nextCount = count - step;
             nextCount < 1 ? product.count = 1 : product.count = nextCount;
             setCount(nextCount < 1 ? 1 : nextCount);
+            dispatch({
+              type: 'COUNTER_HANDLE',
+              payload: {
+                id: product.id,
+                count: product.count
+              }
+            });
           }
           }
         >
@@ -59,6 +70,13 @@ export default function Counter(props) {
             nextCount = count + step;
             product.count = nextCount
             setCount(count + step)
+            dispatch({
+              type: 'COUNTER_HANDLE',
+              payload: {
+                id: product.id,
+                count: product.count
+              }
+            });
           }
           }
         >

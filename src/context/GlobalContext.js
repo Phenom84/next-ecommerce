@@ -67,6 +67,45 @@ export const initialState = {
         alt: 'Back view'
       }],
     },
+    
+    // {
+    //   id: '4',
+    //   category: 'Pano',
+    //   name: 'Silk',
+    //   price: '$ 22.60',
+    //   description: 'Silk design belongs to the line of DOUBLE panels, which means that the picture is doubled and occupies two panels, due to this, the repeatability effect is noticeable only on very large installations. 3D panels for walls of the Silk series amaze with the elegance and grace of wavy lines and bends. The material creates an atmosphere of calm and serenity. It seems that these bends are endless, as if they are a continuation of the natural lines of nature. The wall, decorated with decorative plaster, becomes an independent interior item; it does not require decoration or additional processing. At the same time, panels with such a laconic pattern can become an excellent background for original lamps or paintings. To create a unique interior, designers often paint wall panels in a wide variety of colors or use several colors at once. Having decorated the wall with such panels, you can be sure that the interior of your home or office will be unique.',
+    //   rating: 4.9,
+    //   dimentions: '600mm X 600mm X 25mm',
+    //   weight: '5,3 kg',
+    //   src: '/silk_model.png',
+    //   layout:'/silk_layout.png',
+    //   images: [
+    //     {
+    //       src: '/silk_main.png',
+    //       alt: 'Silk 3d panel picture'
+    //     },
+    //     {
+    //       src: '/1.png',
+    //       alt: 'Silk 3d panel picture'
+    //     },
+    //     {
+    //       src: '/2.png',
+    //       alt: 'Silk 3d panel picture'
+    //     },
+    //     {
+    //       src: '/3.png',
+    //       alt: 'Silk 3d panel picture'
+    //     },
+    //     {
+    //       src: '/4.png',
+    //       alt: 'Silk 3d panel picture'
+    //     },
+    //     {
+    //       src: '/5.png',
+    //       alt: 'Silk 3d panel picture'
+    //     },
+    //   ],
+    // },
     {
       id: '5',
       category: 'IQ Puzzle',

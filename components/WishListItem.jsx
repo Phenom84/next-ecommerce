@@ -61,7 +61,7 @@ export default function WishListItem({ product }) {
                   }
 
                   dispatch({
-                    type: 'REMOVE_FROM_WISHLIST',
+                    type: 'WISHLIST_HANDLE',
                     payload: {
                       id: product.id,
                     }
@@ -90,7 +90,7 @@ export default function WishListItem({ product }) {
                     }
                   });
                   dispatch({
-                    type: 'REMOVE_FROM_WISHLIST',
+                    type: 'WISHLIST_HANDLE',
                     payload: {
                       id: product.id,
                     }
