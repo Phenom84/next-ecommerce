@@ -21,7 +21,7 @@ export const ru = {
   'wishlist.page.title.empty': 'отсутствуют...',
 
   'add.to.card.button': 'В козину',
-  'add.to.wishlist.button':'В избранное',
+  'add.to.wishlist.button': 'В избранное',
   'move.to.cart.button': 'Переместить в',
   'remove.from.wishlist.button': 'Удалить из',
   'main.menu.area.label': 'Показать главное меню',

@@ -31,9 +31,9 @@ const ProductItem = ({ product }) => {
   const intl = useIntl();
 
   const wishListIcon =
-    (state.wishlist.find(item => item.id === product.id)) 
-    ? <FavoriteIcon color='secondary'/> 
-    : <FavoriteBorderOutlinedIcon />
+    (state.wishlist.find(item => item.id === product.id))
+      ? <FavoriteIcon color='secondary' />
+      : <FavoriteBorderOutlinedIcon />
 
 
   return (
@@ -73,7 +73,7 @@ const ProductItem = ({ product }) => {
                 variant='outlined'
                 fullWidth
                 aria-label={intl.formatMessage({ id: 'add.to.cart' })}
-                endIcon = {<ShoppingCartIcon/>}
+                endIcon={<ShoppingCartIcon />}
                 onClick={(evt) => {
                   if (evt) {
                     evt.preventDefault();
@@ -88,7 +88,7 @@ const ProductItem = ({ product }) => {
                   });
                 }}
               >
-               <FormattedMessage id='add.to.cart' /> 
+                <FormattedMessage id='add.to.cart' />
               </Button>
             </Grid>
             <Grid item xs={2} align='center'>

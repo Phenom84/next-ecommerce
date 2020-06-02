@@ -3,12 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
   CardMedia,
-  IconButton,
   Button
 } from '@material-ui/core';
 import ArrowBackIosOutlinedIcon from '@material-ui/icons/ArrowBackIosOutlined';
 import ArrowForwardIosOutlinedIcon from '@material-ui/icons/ArrowForwardIosOutlined';
-
 
 const useStyles = makeStyles((theme) => ({
   svg: {
@@ -88,7 +86,9 @@ const SlideShow = ({
         </Grid>
         {thumbnails.map((thumbnail, index) => {
           return (
-            <Grid item xs={2}>
+            <Grid
+              key={thumbnail.key}
+              item xs={2}>
               <CardMedia
                 className={`${classes.thumbnail} ${activeSlide === index ? classes.active : ''}`}
                 image={thumbnail.src}

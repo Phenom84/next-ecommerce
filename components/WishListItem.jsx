@@ -16,7 +16,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { FormattedMessage } from 'react-intl';
 import Link from '../src/Link';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   card: {
     height: '100%',
   }

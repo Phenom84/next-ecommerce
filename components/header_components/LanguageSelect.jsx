@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const LanguageSelect = ({ handleChangeLocale, locale }) => {
-  
+
   const classes = useStyles();
   const intl = useIntl();
 

@@ -1,12 +1,10 @@
 import React from 'react'
 import { useIntl } from 'react-intl';
-import { AppBar, Toolbar, CardMedia, Box } from '@material-ui/core';
+import { AppBar, Toolbar, Box } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MainMenu from '../components/header_components/MainMenu'
-import Link from '../src/Link';
 import LanguageSelect from './header_components/LanguageSelect';
 import IconGrup from './header_components/IconGrup';
 

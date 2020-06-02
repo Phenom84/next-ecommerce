@@ -1,11 +1,11 @@
 import React from 'react';
-import { Grid, Container,Typography,Box } from '@material-ui/core';
+import { Grid, Container, Typography, Box } from '@material-ui/core';
 import { useGlobal } from '../../src/context/GlobalContext';
 import ProductItem from '../../components/ProductItem';
 import { FormattedMessage } from 'react-intl';
 
 export default () => {
-  const [ state, dispatch ] = useGlobal();
+  const [state, dispatch] = useGlobal();
 
   return (
     <Container maxWidth="lg">
@@ -19,7 +19,7 @@ export default () => {
         justify="center"
         alignItems="center"
       >
-        {state.products.map((product, index) => <ProductItem key={index} product={product}/>)}
+        {state.products.map((product, index) => <ProductItem key={index} product={product} />)}
       </Grid>
     </Container>
   );

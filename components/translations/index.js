@@ -3,10 +3,8 @@ import { ru } from "./ru";
 import { ro } from "./ro";
 
 export default {
-    en, 
+    en,
     'en-US': en,
-    ru,
     'ru': ru,
-    ro,
     'ro': ro
 }; 

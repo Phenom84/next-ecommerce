@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const IconGrup = () => {
-  
+
   const intl = useIntl();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);

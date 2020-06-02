@@ -22,7 +22,7 @@ export const en = {
   'wishlist.page.title.empty': 'is empty...',
 
   'add.to.card.button': 'Add to cart',
-  'add.to.wishlist.button':'Add to ',
+  'add.to.wishlist.button': 'Add to ',
   'move.to.cart.button': 'Move to',
   'remove.from.wishlist.button': 'Remove from',
   'main.menu.area.label': 'Open main menu',

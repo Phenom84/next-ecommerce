@@ -1,34 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { withRouter } from 'next/router';
 import {
     Grid,
     Container,
-    CardMedia,
     CircularProgress,
     Divider,
     Box,
     Button,
     Paper,
-    Tabs,
-    Tab,
     Typography,
-    Toolbar,
-    Table,
-    TableContainer,
-    TableBody,
-    TableRow,
-    TableCell
+    Toolbar
 } from '@material-ui/core';
 import { useGlobal } from '../../src/context/GlobalContext';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import TabPanel from '../../components/TabPanel';
-import Rating from '@material-ui/lab/Rating';
+import { withStyles } from '@material-ui/core/styles';
 import Counter from '../../components/Counter'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { FormattedMessage } from 'react-intl';
 import SlideShow from '../../components/SlideShow';
+import Rating from '@material-ui/lab/Rating';
 
 
 function a11yProps(index) {
@@ -37,20 +28,6 @@ function a11yProps(index) {
         'aria-controls': `scrollable-auto-tabpanel-${index}`,
     };
 }
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        width: '100%',
-        backgroundColor: theme.palette.background.paper,
-    },
-    description: {
-        '& td': {
-            borderBottom: 'none',
-            padding: '4px 0 4px 4px',
-        }
-    }
-}));
 
 const StyledRating = withStyles({
     iconFilled: {
@@ -62,21 +39,17 @@ const StyledRating = withStyles({
 const ProductPage = (props) => {
     const [{ products, wishlist }, dispatch] = useGlobal();
     const product = products.find(item => item.id === props.router.query.product)
-    const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
-    const wishListIcon = 
-    (wishlist.find(item => item.id === product.id)) 
-    ? <FavoriteIcon color='secondary'/> 
-    : <FavoriteBorderOutlinedIcon />
 
-    const wishListButtonText = 
-    (wishlist.find(item => item.id === product.id)) 
-    ? <FormattedMessage id='remove.from.wishlist.button' /> 
-    : <FormattedMessage id='add.to.wishlist.button' />
-    
+    const wishListIcon =
+        (wishlist.find(item => item.id === product.id))
+            ? <FavoriteIcon color='secondary' />
+            : <FavoriteBorderOutlinedIcon />
+
+    const wishListButtonText =
+        (wishlist.find(item => item.id === product.id))
+            ? <FormattedMessage id='remove.from.wishlist.button' />
+            : <FormattedMessage id='add.to.wishlist.button' />
+
 
     return (
         product ?
@@ -97,7 +70,7 @@ const ProductPage = (props) => {
                         </Paper>
                     </Grid>
                     <Grid item xs={12} md={6}
-                        container spacing={4}
+                        container
                         direction="column"
                         justify='space-evenly'
                         alignItems='center'

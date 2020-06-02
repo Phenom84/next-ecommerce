@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Grid, IconButton, Button } from '@material-ui/core';
 import { useGlobal } from '../src/context/GlobalContext';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
-export default function Counter(props) {
+const Counter = (props) => {
   const [state, dispatch] = useGlobal();
-  const [count, setCount] = useState(
-    props.initialCount || 1,
-  );
-  let id = props.id;
-
-  useEffect(() => {
-    localStorage.setItem("count", count);
-  }, [count]);
-
+  const [count, setCount] = useState(props.initialCount || 1);
+  const id = props.id;
   const { step = 1 } = props;
-  const product = state.products.find(product => product.id === id);
-  const cart = state.cart.find(product => product.id === id);
-  product.count = count;
-  console.log(product.count)
-  if(cart){console.log('cart',cart.qty)}
+
+  const currentProduct = state.products.find(product => product.id === id);
+  currentProduct.count = count;
+
+  const currentCartItem = state.cart.find(product => product.id === id);
   let nextCount = count;
+  const currentPath = window.location.pathname.toString();
 
   return (
     <Grid
@@ -37,15 +31,26 @@ export default function Counter(props) {
           color="primary"
           onClick={() => {
             nextCount = count - step;
-            nextCount < 1 ? product.count = 1 : product.count = nextCount;
+            nextCount < 1 ? currentProduct.count = 1 : currentProduct.count = nextCount;
             setCount(nextCount < 1 ? 1 : nextCount);
-            dispatch({
-              type: 'COUNTER_HANDLE',
-              payload: {
-                id: product.id,
-                count: product.count
-              }
-            });
+            if (currentPath === '/cart') {
+              dispatch({
+                type: 'REMOVE_FROM_CART_ONE_ITEM',
+                payload: {
+                  id: currentCartItem.id,
+                  qty: 1
+                }
+              });
+            } else {
+              dispatch({
+                type: 'COUNTER_HANDLE',
+                payload: {
+                  id: currentProduct.id,
+                  count: currentProduct.count
+                }
+              })
+
+            }
           }
           }
         >
@@ -68,15 +73,25 @@ export default function Counter(props) {
           color="primary"
           onClick={() => {
             nextCount = count + step;
-            product.count = nextCount
+            currentProduct.count = nextCount
             setCount(count + step)
-            dispatch({
-              type: 'COUNTER_HANDLE',
-              payload: {
-                id: product.id,
-                count: product.count
-              }
-            });
+            if (currentPath === '/cart') {
+              dispatch({
+                type: 'ADD_TO_CART',
+                payload: {
+                  id: currentCartItem.id,
+                  qty: 1
+                }
+              });
+            } else {
+              dispatch({
+                type: 'COUNTER_HANDLE',
+                payload: {
+                  id: currentProduct.id,
+                  count: currentProduct.count
+                }
+              });
+            }
           }
           }
         >
@@ -86,3 +101,4 @@ export default function Counter(props) {
     </Grid >
   );
 }
+export default Counter;

@@ -20,7 +20,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ClearIcon from '@material-ui/icons/Clear';
 
 import Link from '../src/Link';
-import CartCounter from './../components/CartCounter';
+import Counter from './../components/Counter';
 
 const useStyles = makeStyles({
   table: {
@@ -69,7 +69,7 @@ export default () => {
                     </TableCell>
                     <TableCell align="center">{cartItem.name}</TableCell>
                     <TableCell align="center">{cartItem.price}</TableCell>
-                    <TableCell align="center"><CartCounter initialCount={cartItem.qty} id={cartItem.id} /></TableCell>
+                    <TableCell align="center"><Counter initialCount={cartItem.qty} id={cartItem.id} /></TableCell>
                     <TableCell align="center">$ {Number(cartItem.price.slice(1)) * Number(cartItem.qty)}</TableCell>
                     <TableCell align="center">
                       <IconButton size="small" color="primary" variant="contained"

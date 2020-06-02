@@ -20,7 +20,7 @@ export const ro = {
   'wishlist.page.title.empty': 'este goală...',
 
   'add.to.card.button': 'Adaugă în coș',
-  'add.to.wishlist.button':'Adaugă la favorite',
+  'add.to.wishlist.button': 'Adaugă la favorite',
   'move.to.cart.button': 'Еrece la',
   'remove.from.wishlist.button': 'Scos din',
 }; 
