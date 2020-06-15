@@ -1,14 +1,52 @@
 import React from "react";
-import { Typography, Toolbar } from "@material-ui/core";
-import { FormattedMessage } from "react-intl";
+import { Toolbar, Divider } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { CardMedia } from "@material-ui/core";
 
-export default () => {
+const useStyles = makeStyles(() => ({
+  card: {
+    height: "100vw",
+  },
+}));
+
+export const Index = () => {
+  const classes = useStyles();
   return (
     <React.Fragment>
       <Toolbar />
-      <Typography variant="h4" component="h1" align="center" gutterBottom>
-        <FormattedMessage id="home.page.title" />
-      </Typography>
+      <CardMedia
+        component="img"
+        className={classes.media}
+        image="/Header-IQ-Puzzle2.png"
+        title="Product picture"
+        alt="Product picture"
+      />
+      <Divider />
+      <CardMedia
+        component="img"
+        className={classes.media}
+        image="/with_family.png"
+        title="Product picture"
+        alt="Product picture"
+      />
+      <Divider />
+      <CardMedia
+        component="img"
+        className={classes.media}
+        image="/with_colleagues.png"
+        title="Product picture"
+        alt="Product picture"
+      />
+      <Divider />
+      <CardMedia
+        component="img"
+        className={classes.media}
+        image="/with_frends.png"
+        title="Product picture"
+        alt="Product picture"
+      />
     </React.Fragment>
   );
 };
+
+module.exports = Index;

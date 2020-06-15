@@ -1,32 +1,31 @@
-import { fade, createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette: {
     type: "dark",
     secondary: {
-      main: '#F79548',
+      main: "#F79548",
     },
     // background: {
     //   paper:'rgba(42, 42, 42, 0.66)',
-    // } 
+    // }
   },
   props: {
     MuiLink: {
       color: "inherit",
-      underline:'none'
+      underline: "none",
     },
   },
   overrides: {
     MuiContainer: {
       root: {
-        paddingTop: '24px',
+        paddingTop: "24px",
       },
     },
     MuiCssBaseline: {
       "@global": {
         body: {
-          backgroundImage:
-            "url(back.jpg)",
+          backgroundImage: "url(back.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "top center",
         },
@@ -34,11 +33,10 @@ const theme = createMuiTheme({
     },
     MuiDivider: {
       root: {
-        backgroundColor: '#F79548',
-        margin: '16px auto',
+        backgroundColor: "#F79548",
       },
     },
-  }
+  },
 });
 
 export default theme;

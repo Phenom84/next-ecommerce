@@ -15,8 +15,9 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { FormattedMessage } from "react-intl";
 import Link from "../src/Link";
+import PropTypes from "prop-types";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   card: {
     height: "100%",
   },
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function WishListItem({ product }) {
   const classes = useStyles();
-  const [state, dispatch] = useGlobal();
+  const [state,dispatch] = useGlobal();
 
   !product ? (product = "") : product;
   const defaultImg =
@@ -34,15 +35,15 @@ export default function WishListItem({ product }) {
     <Grid item xs={12} md={6} lg={4}>
       <Card className={classes.card}>
         <CardActionArea>
-          {/* <Link href="/products/[product]" as={`/products/${product.id}`}> */}
-          <CardMedia
-            component="img"
-            className={classes.media}
-            image={product.image || defaultImg}
-            title={product.name || "Product picture"}
-            alt={product.name || "Product picture"}
-          />
-          {/* </Link> */}
+          <Link href="/products/[product]" as={`/products/${product.id}`}>
+            <CardMedia
+              component="img"
+              className={classes.media}
+              image={product.image || defaultImg}
+              title={product.name || "Product picture"}
+              alt={product.name || "Product picture"}
+            />
+          </Link>
           <CardContent align="center">
             <Typography gutterBottom variant="h5" component="h2">
               {product.name || "Product name"}
@@ -115,3 +116,7 @@ export default function WishListItem({ product }) {
     </Grid>
   );
 }
+
+WishListItem.propTypes = {
+  product: PropTypes.object,
+};

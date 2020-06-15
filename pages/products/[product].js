@@ -1,28 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { withRouter } from "next/router";
 import {
   Grid,
   Container,
-  CardMedia,
   CircularProgress,
   Divider,
   Box,
   Button,
-  Paper,
-  Tabs,
-  Tab,
   Typography,
   Toolbar,
-  Table,
-  TableContainer,
-  TableBody,
-  TableRow,
-  TableCell,
-  Card,
 } from "@material-ui/core";
 import { useGlobal } from "../../src/context/GlobalContext";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import TabPanel from "../../components/TabPanel";
+import { withStyles } from "@material-ui/core/styles";
 import Rating from "@material-ui/lab/Rating";
 import Counter from "../../components/Counter";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -30,27 +19,6 @@ import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutline
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { FormattedMessage } from "react-intl";
 import SlideShow from "../../components/SlideShow";
-
-function a11yProps(index) {
-  return {
-    id: `scrollable-auto-tab-${index}`,
-    "aria-controls": `scrollable-auto-tabpanel-${index}`,
-  };
-}
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    width: "100%",
-    backgroundColor: theme.palette.background.paper,
-  },
-  description: {
-    "& td": {
-      borderBottom: "none",
-      padding: "4px 0 4px 4px",
-    },
-  },
-}));
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -63,11 +31,6 @@ const ProductPage = (props) => {
   const product = products.find(
     (item) => item.id === props.router.query.product
   );
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
   const wishListIcon = wishlist.find((item) => item.id === product.id) ? (
     <FavoriteIcon color="secondary" />
   ) : (
@@ -98,11 +61,10 @@ const ProductPage = (props) => {
           xs={12}
           md={6}
           container
-          spacing={4}
+          spacing={1}
           direction="column"
           justify="space-evenly"
           alignItems="center"
-          spacing={1}
         >
           <Grid item xs={12}>
             <Typography variant="h4">{product.name}</Typography>
@@ -146,7 +108,7 @@ const ProductPage = (props) => {
               <Typography align="center">
                 <FormattedMessage id="cart.product.quantity" />
               </Typography>
-              <Counter initialCount={1} initialStep={1} id={product.id} />
+              <Counter id={product.id} />
             </Grid>
           </Grid>
           <Grid item container spacing={1}>

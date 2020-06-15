@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { globalReducer } from "../reducers";
+import { PropTypes } from "prop-types";
 
 export const initialState = {
   products: [
@@ -203,4 +204,8 @@ export const GlobalProvider = ({ children }) => {
       </GlobalDispatchContext.Provider>
     </GlobalStateContext.Provider>
   );
+};
+
+GlobalProvider.propTypes = {
+  children: PropTypes.array.isRequired,
 };

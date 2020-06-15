@@ -1,11 +1,10 @@
 import React from "react";
-import { Grid, Container, Typography, Box, Toolbar } from "@material-ui/core";
+import { Grid, Container, Typography, Toolbar } from "@material-ui/core";
 import { useGlobal } from "../../src/context/GlobalContext";
 import ProductItem from "../../components/ProductItem";
-import { FormattedMessage } from "react-intl";
 
-export default () => {
-  const [state, dispatch] = useGlobal();
+export const Index = () => {
+  const [state] = useGlobal();
 
   return (
     <Container maxWidth="lg">
@@ -24,3 +23,4 @@ export default () => {
     </Container>
   );
 };
+module.exports = Index;

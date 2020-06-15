@@ -17,4 +17,4 @@ export const descendingBubbleSort = (arr) => {
     }
   }
   return sortedArr;
-}
+};

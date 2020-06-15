@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 
-export default () => {
-    return (
-        <div>
-            <h1>Constact us</h1>
-        </div>
-    );
+export const ContactUs = () => {
+  return (
+    <div>
+      <h1>Constact us</h1>
+    </div>
+  );
 };
+module.exports = ContactUs;

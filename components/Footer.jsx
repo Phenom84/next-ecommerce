@@ -5,7 +5,7 @@ import { Grid, Typography, Divider } from "@material-ui/core";
 const Footer = () => {
   return (
     <React.Fragment>
-      <Divider style={{ width: "92%" }} />
+      <Divider style={{ width: "92%", margin: "-1px auto 16px auto" }} />
       <Grid
         container
         style={{ margin: "0px auto" }}

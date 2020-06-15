@@ -9,8 +9,12 @@ import MainMenu from "../components/header_components/MainMenu";
 import Link from "../src/Link";
 import LanguageSelect from "./header_components/LanguageSelect";
 import IconGrup from "./header_components/IconGrup";
+import HomeIcon from "@material-ui/icons/Home";
 
 const useStyles = makeStyles((theme) => ({
+  homeIcon: {
+    marginTop: "-4px",
+  },
   logo: {
     position: "fixed",
     top: 0,
@@ -76,6 +80,7 @@ const Header = ({ handleChangeLocale, locale }) => {
               aria-label={intl.formatMessage({ id: "logo.title" })}
               color="inherit"
             >
+              <HomeIcon className={classes.homeIcon}/>
               <CardMedia
                 component="img"
                 image="/iq_Puzzle.webp"

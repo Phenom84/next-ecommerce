@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, CardMedia, IconButton, Button, Card } from "@material-ui/core";
+import { Grid, CardMedia, Button, Card } from "@material-ui/core";
 import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
 import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
 
@@ -86,7 +86,7 @@ const SlideShow = ({ slides = [], thumbnails = [], initialSlide = 0 }) => {
         </Grid>
         {thumbnails.map((thumbnail, index) => {
           return (
-            <Grid item xs={2}>
+            <Grid key={index} item xs={2}>
               <CardMedia
                 className={`${classes.thumbnail} ${
                   activeSlide === index ? classes.active : ""

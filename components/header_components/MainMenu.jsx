@@ -1,7 +1,7 @@
 import React from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import { IconButton, Typography, Box } from "@material-ui/core";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import Link from "../../src/Link";
 
@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     order: 1,
     flexGrow: 1,
     "& svg": {
-      color: "#1EA1C2",
       color: theme.palette.secondary.main,
     },
   },

@@ -3,18 +3,17 @@ import { Grid, IconButton, Button } from "@material-ui/core";
 import { useGlobal } from "../src/context/GlobalContext";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
+import PropTypes from "prop-types";
 
-const Counter = (props) => {
+const Counter = ({ initialCount = 1, step = 1, id }) => {
   const [state, dispatch] = useGlobal();
-  const [count, setCount] = useState(props.initialCount || 1);
-  const id = props.id;
-  const { step = 1 } = props;
+  const [currentCount, setcurrentCount] = useState(initialCount);
 
   const currentProduct = state.products.find((product) => product.id === id);
-  currentProduct.count = count;
+  currentProduct.currentCount = currentCount;
 
   const currentCartItem = state.cart.find((product) => product.id === id);
-  let nextCount = count;
+  let counterValue = currentCount;
   const currentPath = window.location.pathname.toString();
 
   return (
@@ -24,11 +23,11 @@ const Counter = (props) => {
           size="small"
           color="secondary"
           onClick={() => {
-            nextCount = count - step;
-            nextCount < 1
-              ? (currentProduct.count = 1)
-              : (currentProduct.count = nextCount);
-            setCount(nextCount < 1 ? 1 : nextCount);
+            counterValue = currentCount - step;
+            counterValue < 1
+              ? (currentProduct.currentCount = 1)
+              : (currentProduct.currentCount = counterValue);
+            setcurrentCount(counterValue < 1 ? 1 : counterValue);
             if (currentPath === "/cart") {
               dispatch({
                 type: "REMOVE_FROM_CART_ONE_ITEM",
@@ -42,7 +41,7 @@ const Counter = (props) => {
                 type: "COUNTER_HANDLE",
                 payload: {
                   id: currentProduct.id,
-                  count: currentProduct.count,
+                  count: currentProduct.currentCount,
                 },
               });
             }
@@ -52,8 +51,8 @@ const Counter = (props) => {
         </IconButton>
       </Grid>
       <Grid item>
-        <Button variant="text" color="textPrimary" disableRipple>
-          {count}
+        <Button variant="text" disableRipple>
+          {counterValue}
         </Button>
       </Grid>
       <Grid item>
@@ -61,9 +60,9 @@ const Counter = (props) => {
           size="small"
           color="secondary"
           onClick={() => {
-            nextCount = count + step;
-            currentProduct.count = nextCount;
-            setCount(count + step);
+            counterValue = currentCount + step;
+            currentProduct.currentCount = counterValue;
+            setcurrentCount(currentCount + step);
             if (currentPath === "/cart") {
               dispatch({
                 type: "ADD_TO_CART",
@@ -77,7 +76,7 @@ const Counter = (props) => {
                 type: "COUNTER_HANDLE",
                 payload: {
                   id: currentProduct.id,
-                  count: currentProduct.count,
+                  count: currentProduct.currentCount,
                 },
               });
             }
@@ -89,4 +88,11 @@ const Counter = (props) => {
     </Grid>
   );
 };
+
 export default Counter;
+
+Counter.propTypes = {
+  initialCount: PropTypes.number,
+  step: PropTypes.number,
+  id: PropTypes.string.isRequired,
+};

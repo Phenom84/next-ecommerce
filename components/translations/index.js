@@ -6,7 +6,5 @@ export default {
   en,
   "en-US": en,
   ru,
-  ru: ru,
   ro,
-  ro: ro,
 };
