@@ -1,12 +1,18 @@
 {
-  "name": "next-ecommerce",
+  "name": "first_react_project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "npx jest --collectCoverage",
+    "test:watch": "npx jest --watchAll",
     "dev": "next dev",
     "start": "next start",
-    "build": "next build"
+    "build": "next build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "lint:check": "eslint  --ext .js,.jsx * ",
+    "lint:fix": "eslint --ext .js,.jsx --fix *"
   },
   "repository": {
     "type": "git",
@@ -23,12 +29,38 @@
     "@material-ui/core": "^4.9.13",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.54",
+    "babel-jest": "^26.0.1",
     "clsx": "^1.1.0",
     "next": "^9.3.6",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-intl": "^4.6.2",
+    "react-slick": "^0.26.1",
+    "slick-carousel": "^1.8.1",
     "typeface-roboto": "0.0.75"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "@testing-library/jest-dom": "^5.10.0",
+    "@testing-library/react": "^10.2.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "prettier": "2.0.5"
+  },
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
   }
 }

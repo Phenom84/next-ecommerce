@@ -1,5 +1,5 @@
-import React from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import React from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 import {
   IconButton,
   Card,
@@ -10,69 +10,77 @@ import {
   Grid,
   Typography,
   Divider,
-  Button
-} from '@material-ui/core';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { makeStyles } from '@material-ui/core/styles';
-import { useGlobal } from '../src/context/GlobalContext';
-import Link from '../src/Link';
+  Button,
+} from "@material-ui/core";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { makeStyles } from "@material-ui/core/styles";
+import { useGlobal } from "../src/context/GlobalContext";
+import Link from "../src/Link";
 
 const useStyles = makeStyles(() => ({
   card: {
-    height: '100%',
-  }
+    height: "100%",
+  },
 }));
 
 const ProductItem = ({ product }) => {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
   const intl = useIntl();
+  const defaultImg =
+    "https://raw.githubusercontent.com/Cerneaga-Denis/Cerneaga-Denis.github.io/master/default_img/default-product.webp";
 
-  const wishListIcon =
-    (state.wishlist.find(item => item.id === product.id))
-      ? <FavoriteIcon color='secondary' />
-      : <FavoriteBorderOutlinedIcon />
-
+  !product ? (product = "") : product;
+  const wishListIcon = state.wishlist.find((item) => item.id === product.id) ? (
+    <FavoriteIcon color="secondary" />
+  ) : (
+    <FavoriteBorderOutlinedIcon />
+  );
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
       <Card className={classes.card}>
-        <CardActionArea>
-          <Link href="/products/[product]" as={`/products/${product.id}`}>
-            <CardMedia component="img"
+        <Link href="/products/[product]" as={`/products/${product.id}`}>
+          <CardActionArea>
+            <CardMedia
+              component="img"
               className={classes.media}
-              image={product.images[0].src}
-              title={product.images[0].alt}
+              image={product.image || defaultImg}
+              title={product.name || "Product picture"}
+              alt={product.name || "Product picture"}
             />
-          </Link>
-          <CardContent align="center">
-            <Typography gutterBottom variant="h5" component="h2">
-              {product.name}
-            </Typography>
-            <Typography
-              variant="caption"
-              display="block"
-              gutterBottom
-              color={"textSecondary"}
-            >
-              <FormattedMessage id='category' />: {product.category}
-            </Typography>
-            <Divider variant="middle" />
-            <Typography variant='h5' align="center" component='p' color="secondary">
-              {product.price}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+            <CardContent align="center">
+              <Typography gutterBottom variant="h5" component="h2">
+                {product.name || "Product name"}
+              </Typography>
+              <Typography
+                variant="caption"
+                display="block"
+                gutterBottom
+                color={"textSecondary"}
+              >
+                <FormattedMessage id="category" />:{" "}
+                {product.category || "Product category"}
+              </Typography>
+              <Divider variant="middle" />
+              <Typography variant="h5" align="center" component="p">
+                {product.price || "Product price"}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Link>
         <CardActions>
           <Grid container spacing={1}>
-            <Grid item xs={10} align='center'>
+            <Grid item xs={10} align="center">
               <Button
                 size="small"
-                variant='outlined'
+                variant="outlined"
                 fullWidth
-                aria-label={intl.formatMessage({ id: 'add.to.cart' })}
+                aria-label={
+                  intl.formatMessage({ id: "add.to.cart" }) || "Add to cart"
+                }
                 endIcon={<ShoppingCartIcon />}
                 onClick={(evt) => {
                   if (evt) {
@@ -80,18 +88,18 @@ const ProductItem = ({ product }) => {
                   }
 
                   dispatch({
-                    type: 'ADD_TO_CART',
+                    type: "ADD_TO_CART",
                     payload: {
                       id: product.id,
-                      qty: 1
-                    }
+                      qty: 1,
+                    },
                   });
                 }}
               >
-                <FormattedMessage id='add.to.cart' />
+                <FormattedMessage id="add.to.cart" />
               </Button>
             </Grid>
-            <Grid item xs={2} align='center'>
+            <Grid item xs={2} align="center">
               <IconButton
                 size="small"
                 aria-label="Add to wishlist"
@@ -101,11 +109,11 @@ const ProductItem = ({ product }) => {
                   }
 
                   dispatch({
-                    type: 'WISHLIST_HANDLE',
+                    type: "WISHLIST_HANDLE",
                     payload: {
                       id: product.id,
-                      qty: 1
-                    }
+                      qty: 1,
+                    },
                   });
                 }}
               >
@@ -117,6 +125,6 @@ const ProductItem = ({ product }) => {
       </Card>
     </Grid>
   );
-}
+};
 
 export default ProductItem;

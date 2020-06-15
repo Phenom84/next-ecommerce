@@ -8,13 +8,13 @@ export function globalReducer(state, action) {
             let cartItem = updatedCart.find(product => product.id == payload.id);
             if (cartItem) {
                 cartItem.qty += payload.qty
-
+                
             } else {
                 updatedCart.push({
                     ...addedProduct,
                     qty: payload.qty
                 });
-
+                
             }
 
             return {
@@ -28,8 +28,8 @@ export function globalReducer(state, action) {
             let cartItem = updatedCart.find(product => product.id == payload.id);
             if (cartItem.qty > 1) {
                 cartItem.qty -= payload.qty
-
-            }
+                
+            } 
             return {
                 ...state,
                 cart: updatedCart

@@ -13,6 +13,7 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Toolbar,
 } from '@material-ui/core';
 import { FormattedMessage } from 'react-intl';
 import { useGlobal } from '../src/context/GlobalContext';
@@ -37,6 +38,8 @@ export default () => {
   const [state, dispatch] = useGlobal();
 
   return (
+  <React.Fragment>
+    <Toolbar/>
     <Container maxWidth="lg">
       <Grid container spacing={3} justify="center" alignItems="center">
         <Grid item xs={12}>
@@ -47,7 +50,7 @@ export default () => {
           </Typography>
         </Grid>
         <Grid item xs={12} md={10} lg={8}>
-          <TableContainer component={Paper}>
+          <TableContainer component={Paper} elevation={6}>
             <Table className={classes.table} aria-label="Shoping cart">
               <TableHead>
                 <TableRow>
@@ -72,7 +75,7 @@ export default () => {
                     <TableCell align="center"><Counter initialCount={cartItem.qty} id={cartItem.id} /></TableCell>
                     <TableCell align="center">$ {Number(cartItem.price.slice(1)) * Number(cartItem.qty)}</TableCell>
                     <TableCell align="center">
-                      <IconButton size="small" color="primary" variant="contained"
+                      <IconButton size="small"
                         onClick={(evt) => {
                           if (evt) {
                             evt.preventDefault();
@@ -97,5 +100,6 @@ export default () => {
         </Grid>
       </Grid>
     </Container>
+    </React.Fragment>
   );
 };
