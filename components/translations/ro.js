@@ -27,4 +27,8 @@ export const ro = {
   "logo.title": "Link către pagina principală",
   "language.select": "Alege limba",
   "show.more": "Afișați mai mult",
+  "main.page.header": "Ce să faci cu IQ Puzzle?",
+  "step.1": "Pas 1",
+  "step.2": "Pas 2",
+  "step.3": "Pas 3",
 };

@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
 
 export default function WishListItem({ product }) {
   const classes = useStyles();
-  const [state,dispatch] = useGlobal();
+  const [state, dispatch] = useGlobal();
 
   !product ? (product = "") : product;
   const defaultImg =

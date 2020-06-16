@@ -10,6 +10,8 @@ import Link from "../src/Link";
 import LanguageSelect from "./header_components/LanguageSelect";
 import IconGrup from "./header_components/IconGrup";
 import HomeIcon from "@material-ui/icons/Home";
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import Slide from "@material-ui/core/Slide";
 
 const useStyles = makeStyles((theme) => ({
   homeIcon: {
@@ -66,47 +68,68 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ handleChangeLocale, locale }) => {
+function HideOnScroll(props) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({
+    threshold: 0,
+    target: window ? window() : undefined,
+  });
+  const topTrigger = useScrollTrigger({
+    disableHysteresis: true,
+  });
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger} timeout={500}>
+      {React.cloneElement(children, {
+        elevation: topTrigger ? 6 : 0,
+      })}
+    </Slide>
+  );
+}
+
+const Header = ({ handleChangeLocale, locale, props }) => {
   const classes = useStyles();
   const intl = useIntl();
 
   return (
-    <AppBar color="transparent" position="absolute" elevation={0}>
-      <Toolbar>
-        <MainMenu />
-        <Box className={classes.logo}>
-          <Link href="/">
-            <IconButton
-              aria-label={intl.formatMessage({ id: "logo.title" })}
-              color="inherit"
-            >
-              <HomeIcon className={classes.homeIcon}/>
-              <CardMedia
-                component="img"
-                image="/iq_Puzzle.webp"
-                title={intl.formatMessage({ id: "logo.title" })}
-              />
-            </IconButton>
-          </Link>
-        </Box>
-        <Box className={classes.search}>
-          <SearchIcon className={classes.searchIcon} />
-          <InputBase
-            placeholder={intl.formatMessage({ id: "serch.field" })}
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            inputProps={{ "aria-label": "search" }}
+    <HideOnScroll {...props}>
+      <AppBar color="transparent" elevation={0}>
+        <Toolbar>
+          <MainMenu />
+          <Box className={classes.logo}>
+            <Link href="/">
+              <IconButton
+                aria-label={intl.formatMessage({ id: "logo.title" })}
+                color="inherit"
+              >
+                <HomeIcon className={classes.homeIcon} />
+                <CardMedia
+                  component="img"
+                  image="/iq_Puzzle.webp"
+                  title={intl.formatMessage({ id: "logo.title" })}
+                />
+              </IconButton>
+            </Link>
+          </Box>
+          <Box className={classes.search}>
+            <SearchIcon className={classes.searchIcon} />
+            <InputBase
+              placeholder={intl.formatMessage({ id: "serch.field" })}
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ "aria-label": "search" }}
+            />
+          </Box>
+          <LanguageSelect
+            locale={locale}
+            handleChangeLocale={handleChangeLocale}
           />
-        </Box>
-        <LanguageSelect
-          locale={locale}
-          handleChangeLocale={handleChangeLocale}
-        />
-        <IconGrup />
-      </Toolbar>
-    </AppBar>
+          <IconGrup />
+        </Toolbar>
+      </AppBar>
+    </HideOnScroll>
   );
 };
 

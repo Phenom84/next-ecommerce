@@ -29,4 +29,15 @@ export const en = {
   "logo.title": "Link to home page",
   "language.select": "Choose language",
   "show.more": "Show more",
+  "main.page.header": "What to do with IQ Puzzle?",
+  "step.1": "Step 1",
+  "step.2": "Step 2",
+  "step.3": "Step 3",
+  "step.1.description": "Open the box and check for all items",
+  "step.2.description": "Examine the shape and start collecting the puzzle",
+  "step.3.description":
+    "Wipe the tears of happiness and go ahead for a new puzzle!",
+  "solve.puzzles.with.kids": "Solve it with kids",
+  "solve.puzzles.with.colleagues": "Solve it with colleagues",
+  "solve.puzzles.with.friends": "Solve it with friends",
 };

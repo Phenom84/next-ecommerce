@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Container, Typography, Box } from "@material-ui/core";
+import { Grid, Container, Typography, Box, Toolbar } from "@material-ui/core";
 import { useGlobal } from "../src/context/GlobalContext";
 import WishListItem from "../components/WishListItem.jsx";
 import { FormattedMessage } from "react-intl";
@@ -9,6 +9,7 @@ export const WishList = () => {
 
   return (
     <Container maxWidth="lg">
+      <Toolbar/>
       <Typography variant="h5" align="center">
         <Box lineHeight={3} m={1}>
           <FormattedMessage id="wishlist.page.title" />{" "}

@@ -17,9 +17,22 @@ const theme = createMuiTheme({
     },
   },
   overrides: {
+    MuiTypography: {
+      h4: {
+        margin: "0px auto",
+        padding: "32px",
+      },
+    },
     MuiContainer: {
       root: {
         paddingTop: "24px",
+      },
+    },
+    MuiAppBar: {
+      root: {
+        backgroundImage: "url(back.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "top center",
       },
     },
     MuiCssBaseline: {
