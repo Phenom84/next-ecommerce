@@ -5,7 +5,7 @@ export const ru = {
   "serch.field": "Поиск...",
   "product.menu.label": "Товары",
   "home.page.title": "Домашняя страница",
-  "footer.aboutUs": "О нас",
+  "footer.blog": "Блог",
   "footer.delivery": "Доставка",
   "footer.contactUs": "Контакты",
 
@@ -29,11 +29,13 @@ export const ru = {
   "language.select": "Выброр языка",
   "show.more": "Показать больше",
   "main.page.header": "Что делать с IQ Puzzle?",
-  "step.1": "Шаг 1",
-  "step.2": "Шаг 2",
-  "step.3": "Шаг 3",
-  "step.1.description": "Откройте коробку и проверьте наличие всех элементов",
-  "step.2.description": "Изучите фигуру и приступайте к сбору пазла",
+  "step.1": "Задача:",
+  "step.2": "Процесс сборки",
+  "step.3": "Собранный IQ Puzzle",
+  "step.1.description":
+    "Сложить фигуру, указанную в центре рисунка. И не думай что это легко и просто как кажется на первый взгляд!",
+  "step.2.description":
+    "Крути, верти, складывай так, чтобы детали лежали в одной плоскости и у тебя получился рисунок, как в задании!",
   "step.3.description": "Вытрите слёзы счастья и вперед за новым пазлом!",
   "solve.puzzles.with.kids": "Решайте с детьми",
   "solve.puzzles.with.colleagues": "Решайте с коллегами",

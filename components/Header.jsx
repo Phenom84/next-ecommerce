@@ -15,7 +15,7 @@ import Slide from "@material-ui/core/Slide";
 
 const useStyles = makeStyles((theme) => ({
   homeIcon: {
-    marginTop: "-4px",
+    margin: "-4px 4px 0 0",
   },
   logo: {
     position: "fixed",
@@ -29,19 +29,18 @@ const useStyles = makeStyles((theme) => ({
   search: {
     height: theme.spacing(3),
     alignSelf: "flex-end",
-    marginRight: theme.spacing(1),
-    marginLeft: theme.spacing(1),
-    marginBottom: theme.spacing(1),
+    margin: theme.spacing(1),
     width: "100%",
     order: 2,
     [theme.breakpoints.up("sm")]: {
       alignSelf: "center",
       marginBottom: theme.spacing(0),
+      marginTop: theme.spacing(0),
       marginLeft: theme.spacing(1),
-      width: "120px",
+      width: "115px",
     },
     [theme.breakpoints.up("md")]: {
-      width: "210px",
+      width: "200px",
     },
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -62,9 +61,6 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: `calc(1em + ${theme.spacing(1.5)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
   },
 }));
 

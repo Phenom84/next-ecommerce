@@ -5,7 +5,7 @@ export const ro = {
   "serch.field": "Căutare...",
   "product.menu.label": "Producte",
   "home.page.title": "Pagina principala",
-  "footer.aboutUs": "Despre noi",
+  "footer.blog": "Blog",
   "footer.delivery": "Livrare",
   "footer.contactUs": "Contact",
 
@@ -31,4 +31,13 @@ export const ro = {
   "step.1": "Pas 1",
   "step.2": "Pas 2",
   "step.3": "Pas 3",
+  "step.1.description":
+    "Îndoiți forma arătată în centrul imaginii. Și nu credeți că este ușor și simplu așa cum pare la prima vedere!",
+  "step.2.description":
+    "Răsuciți, răsuciți, pliați astfel încât detaliile să se afle în același plan și să obțineți o imagine, ca în sarcină!",
+  "step.3.description":
+    "Ștergeți lacrimile fericirii și mergeți mai departe pentru un nou puzzle!",
+  "solve.puzzles.with.kids": "Rezolvați-le cu copii",
+  "solve.puzzles.with.colleagues": "Rezolvați-le cu colegii",
+  "solve.puzzles.with.friends": "Rezolvați-le cu familie",
 };

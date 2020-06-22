@@ -1,6 +1,10 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { Grid, Typography, Divider } from "@material-ui/core";
+import { Grid, Typography, Divider, IconButton, Button } from "@material-ui/core";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 
 const Footer = () => {
   return (
@@ -14,17 +18,29 @@ const Footer = () => {
       >
         <Grid item xs={4} md={3}>
           <Typography align={"center"} gutterBottom color={"textSecondary"}>
-            <FormattedMessage id="footer.aboutUs" />
+            <FormattedMessage id="footer.blog" />
           </Typography>
         </Grid>
         <Grid item xs={4} md={3}>
           <Typography align={"center"} gutterBottom color={"textSecondary"}>
-            <FormattedMessage id="footer.delivery" />
+            <Button href="tel:+37360583794"
+              startIcon={<PhoneIphoneIcon />}
+              >
+              +37360583794
+            </Button>
           </Typography>
         </Grid>
         <Grid item xs={4} md={3}>
           <Typography align={"center"} gutterBottom color={"textSecondary"}>
-            <FormattedMessage id="footer.contactUs" />
+          <IconButton href="http://www.instagram.com/iqpuzzlemd/" target="_blank">
+              <InstagramIcon />
+            </IconButton>
+            <IconButton href="http://www.facebook.com/iqpuzzlemd" target="_blank">
+              <FacebookIcon />
+            </IconButton>
+            <IconButton href="mailto:info@iqpuzzle.md?subject=Mail from visitor (iqpuzzle.md)">
+              <MailOutlineIcon />
+            </IconButton>
           </Typography>
         </Grid>
       </Grid>

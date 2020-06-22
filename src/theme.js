@@ -4,11 +4,11 @@ const theme = createMuiTheme({
   palette: {
     type: "dark",
     secondary: {
-      main: "#F79548",
+      main: "rgba(247, 149, 72, 1)",
     },
-    // background: {
-    //   paper:'rgba(42, 42, 42, 0.66)',
-    // }
+    background: {
+      paper: "rgba(255, 255, 255, 0.08)",
+    },
   },
   props: {
     MuiLink: {
@@ -17,15 +17,19 @@ const theme = createMuiTheme({
     },
   },
   overrides: {
+    MuiButton: {
+      outlined: {
+        borderColor: "rgba(247, 149, 72, 1)",
+      },
+    },
     MuiTypography: {
       h4: {
-        margin: "0px auto",
-        padding: "32px",
+        lineHeight: "2em",
       },
     },
     MuiContainer: {
       root: {
-        paddingTop: "24px",
+        padding: "1em 0 1em 0",
       },
     },
     MuiAppBar: {
@@ -46,7 +50,18 @@ const theme = createMuiTheme({
     },
     MuiDivider: {
       root: {
-        backgroundColor: "#F79548",
+        backgroundColor: "#FFF",
+      },
+    },
+    MuiToolbar: {
+      root: {
+        height: "66px",
+      },
+    },
+    MuiMenu: {
+      paper: {
+        backgroundColor: "rgba(255, 255, 255, 1)",
+        color: "rgba(0, 0, 0, 1)",
       },
     },
   },

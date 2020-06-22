@@ -40,90 +40,88 @@ const ProductItem = ({ product }) => {
   );
 
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card className={classes.card}>
-        <Link href="/products/[product]" as={`/products/${product.id}`}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              className={classes.media}
-              image={product.image || defaultImg}
-              title={product.name || "Product picture"}
-              alt={product.name || "Product picture"}
-            />
-            <CardContent align="center">
-              <Typography gutterBottom variant="h5" component="h2">
-                {product.name || "Product name"}
-              </Typography>
-              <Typography
-                variant="caption"
-                display="block"
-                gutterBottom
-                color={"textSecondary"}
-              >
-                <FormattedMessage id="category" />:{" "}
-                {product.category || "Product category"}
-              </Typography>
-              <Divider variant="middle" />
-              <Typography variant="h5" align="center" component="p">
-                {product.price || "Product price"}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Link>
-        <CardActions>
-          <Grid container spacing={1}>
-            <Grid item xs={10} align="center">
-              <Button
-                size="small"
-                variant="outlined"
-                fullWidth
-                aria-label={
-                  intl.formatMessage({ id: "add.to.cart" }) || "Add to cart"
+    <Card className={classes.card} raised={true}>
+      <Link href="/products/[product]" as={`/products/${product.id}`}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            className={classes.media}
+            image={product.image || defaultImg}
+            title={product.name || "Product picture"}
+            alt={product.name || "Product picture"}
+          />
+          <CardContent align="center">
+            <Typography gutterBottom variant="h5" component="h2">
+              {product.name || "Product name"}
+            </Typography>
+            <Typography
+              variant="caption"
+              display="block"
+              gutterBottom
+              color={"textSecondary"}
+            >
+              <FormattedMessage id="category" />:{" "}
+              {product.category || "Product category"}
+            </Typography>
+            <Divider variant="middle" />
+            <Typography variant="h5" align="center" component="p">
+              {product.price || "Product price"}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Link>
+      <CardActions>
+        <Grid container spacing={1}>
+          <Grid item xs={10} align="center">
+            <Button
+              size="small"
+              variant="outlined"
+              fullWidth
+              aria-label={
+                intl.formatMessage({ id: "add.to.cart" }) || "Add to cart"
+              }
+              endIcon={<ShoppingCartIcon />}
+              onClick={(evt) => {
+                if (evt) {
+                  evt.preventDefault();
                 }
-                endIcon={<ShoppingCartIcon />}
-                onClick={(evt) => {
-                  if (evt) {
-                    evt.preventDefault();
-                  }
 
-                  dispatch({
-                    type: "ADD_TO_CART",
-                    payload: {
-                      id: product.id,
-                      qty: 1,
-                    },
-                  });
-                }}
-              >
-                <FormattedMessage id="add.to.cart" />
-              </Button>
-            </Grid>
-            <Grid item xs={2} align="center">
-              <IconButton
-                size="small"
-                aria-label="Add to wishlist"
-                onClick={(evt) => {
-                  if (evt) {
-                    evt.preventDefault();
-                  }
-
-                  dispatch({
-                    type: "WISHLIST_HANDLE",
-                    payload: {
-                      id: product.id,
-                      qty: 1,
-                    },
-                  });
-                }}
-              >
-                {wishListIcon}
-              </IconButton>
-            </Grid>
+                dispatch({
+                  type: "ADD_TO_CART",
+                  payload: {
+                    id: product.id,
+                    qty: 1,
+                  },
+                });
+              }}
+            >
+              <FormattedMessage id="add.to.cart" />
+            </Button>
           </Grid>
-        </CardActions>
-      </Card>
-    </Grid>
+          <Grid item xs={2} align="center">
+            <IconButton
+              size="small"
+              aria-label="Add to wishlist"
+              onClick={(evt) => {
+                if (evt) {
+                  evt.preventDefault();
+                }
+
+                dispatch({
+                  type: "WISHLIST_HANDLE",
+                  payload: {
+                    id: product.id,
+                    qty: 1,
+                  },
+                });
+              }}
+            >
+              {wishListIcon}
+            </IconButton>
+          </Grid>
+        </Grid>
+      </CardActions>
+    </Card>
   );
 };
 

@@ -9,9 +9,9 @@ export const WishList = () => {
 
   return (
     <Container maxWidth="lg">
-      <Toolbar/>
+      <Toolbar />
       <Typography variant="h5" align="center">
-        <Box lineHeight={3} m={1}>
+        <Box lineHeight={1} m={1}>
           <FormattedMessage id="wishlist.page.title" />{" "}
           {!state.wishlist.length && (
             <FormattedMessage id="wishlist.page.title.empty" />

@@ -64,7 +64,7 @@ const ProductPage = (props) => {
           spacing={1}
           direction="column"
           justify="space-evenly"
-          alignItems="center"
+          alignItems="left"
         >
           <Grid item xs={12}>
             <Typography variant="h4">{product.name}</Typography>

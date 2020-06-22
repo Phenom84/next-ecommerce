@@ -85,44 +85,6 @@ export const initialState = {
       ],
     },
 
-    // {
-    //   id: '4',
-    //   category: 'Pano',
-    //   name: 'Silk',
-    //   price: '$ 22.60',
-    //   description: 'Silk design belongs to the line of DOUBLE panels, which means that the picture is doubled and occupies two panels, due to this, the repeatability effect is noticeable only on very large installations. 3D panels for walls of the Silk series amaze with the elegance and grace of wavy lines and bends. The material creates an atmosphere of calm and serenity. It seems that these bends are endless, as if they are a continuation of the natural lines of nature. The wall, decorated with decorative plaster, becomes an independent interior item; it does not require decoration or additional processing. At the same time, panels with such a laconic pattern can become an excellent background for original lamps or paintings. To create a unique interior, designers often paint wall panels in a wide variety of colors or use several colors at once. Having decorated the wall with such panels, you can be sure that the interior of your home or office will be unique.',
-    //   rating: 4.9,
-    //   dimentions: '600mm X 600mm X 25mm',
-    //   weight: '5,3 kg',
-    //   src: '/silk_model.png',
-    //   layout:'/silk_layout.png',
-    //   images: [
-    //     {
-    //       src: '/silk_main.png',
-    //       alt: 'Silk 3d panel picture'
-    //     },
-    //     {
-    //       src: '/1.png',
-    //       alt: 'Silk 3d panel picture'
-    //     },
-    //     {
-    //       src: '/2.png',
-    //       alt: 'Silk 3d panel picture'
-    //     },
-    //     {
-    //       src: '/3.png',
-    //       alt: 'Silk 3d panel picture'
-    //     },
-    //     {
-    //       src: '/4.png',
-    //       alt: 'Silk 3d panel picture'
-    //     },
-    //     {
-    //       src: '/5.png',
-    //       alt: 'Silk 3d panel picture'
-    //     },
-    //   ],
-    // },
     {
       id: "5",
       category: "IQ Puzzle",
@@ -159,6 +121,46 @@ export const initialState = {
         },
         {
           src: "/back6.webp",
+          alt: "Back view",
+        },
+      ],
+    },
+    {
+      id: "7",
+      category: "WOODEN PUZZLE",
+      name: "Tangram",
+      price: "$ 6.32",
+      description:
+        'Puzzle "Tangram" will not leave you indifferent! This game will appeal to children, adults and those who have not yet decided on their psychological age! Tangram consists of seven flat figures that must be folded in a certain way to obtain another more complex figure. It develops imagination, attention, visual-figurative thinking, memory and combinatorial abilities.',
+      image: "/tangram.webp",
+      rating: 4.7,
+      images: [
+        {
+          src: "/tangram.webp",
+          alt: "Front view",
+        },
+        {
+          src: "/tangram_2.webp",
+          alt: "Back view",
+        },
+      ],
+    },
+    {
+      id: "8",
+      category: "CHALLENGING PUZZLE",
+      name: "Challenging №1",
+      price: "$ 4.06",
+      description:
+        "You have to smash your head over one knot! Objective: to separate the two planks without untying the ropes.",
+      image: "/challenging_1.webp",
+      rating: 4.1,
+      images: [
+        {
+          src: "/challenging_1.webp",
+          alt: "Front view",
+        },
+        {
+          src: "/challenging_1_2.webp",
           alt: "Back view",
         },
       ],

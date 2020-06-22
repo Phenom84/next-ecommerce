@@ -1,13 +1,37 @@
 import React from "react";
-import { Toolbar, Divider, Typography, Grid } from "@material-ui/core";
+import { Toolbar, Divider, Typography, Grid, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { CardMedia } from "@material-ui/core";
 import { FormattedMessage } from "react-intl";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   bigImg: {
-    width: "66vw",
-    height: "calc(75vw/1.7)",
+    height: "calc(66.66vw/1.7)",
+    padding: "32px",
+  },
+  order1: {
+    order: 1,
+  },
+  order2: {
+    order: 2,
+  },
+  order3: {
+    order: 4,
+    [theme.breakpoints.up("md")]: {
+      order: 3,
+    },
+  },
+  order4: {
+    order: 3,
+    [theme.breakpoints.up("md")]: {
+      order: 4,
+    },
+  },
+  order5: {
+    order: 5,
+  },
+  order6: {
+    order: 6,
   },
   card: {
     height: "100vw",
@@ -17,7 +41,7 @@ const useStyles = makeStyles(() => ({
 export const Index = () => {
   const classes = useStyles();
   return (
-    <React.Fragment>
+    <Box display="flex" flexDirection="column">
       <Toolbar />
       <CardMedia
         component="img"
@@ -40,14 +64,14 @@ export const Index = () => {
           <CardMedia
             component="img"
             className={classes.media}
-            image="/Bann1-300x440.png"
+            image="/step1.webp"
             title="Product picture"
             alt="Product picture"
           />
           <Typography variant="h5" align="center" paragraph>
             <FormattedMessage id="step.1" />
           </Typography>
-          <Typography component="p" variant="h6" align="center">
+          <Typography component="p" variant="body1" align="center">
             <FormattedMessage id="step.1.description" />
           </Typography>
         </Grid>
@@ -55,14 +79,14 @@ export const Index = () => {
           <CardMedia
             component="img"
             className={classes.media}
-            image="/Bann2-300x313.png"
+            image="/step2.webp"
             title="Product picture"
             alt="Product picture"
           />
           <Typography variant="h5" align="center" paragraph>
             <FormattedMessage id="step.2" />
           </Typography>
-          <Typography component="p" variant="h6" align="center">
+          <Typography component="p" variant="body1" align="center">
             <FormattedMessage id="step.2.description" />
           </Typography>
         </Grid>
@@ -70,14 +94,14 @@ export const Index = () => {
           <CardMedia
             component="img"
             className={classes.media}
-            image="/Bann3.png"
+            image="/step3.webp"
             title="Product picture"
             alt="Product picture"
           />
           <Typography variant="h5" align="center" paragraph>
             <FormattedMessage id="step.3" />
           </Typography>
-          <Typography component="p" variant="h6" align="center">
+          <Typography component="p" variant="body1" align="center">
             <FormattedMessage id="step.3.description" />
           </Typography>
         </Grid>
@@ -88,11 +112,20 @@ export const Index = () => {
       <Grid
         container
         style={{ margin: "0px auto" }}
-        justify={"space-between"}
+        justify={"center"}
         alignItems={"center"}
+        spacing={0}
       >
-        <Grid item xs={12} md={5}></Grid>
-        <Grid item xs={12} md={7}>
+        <Grid item xs={9} md={3} className={classes.order1}>
+          <CardMedia
+            component="img"
+            className={classes.media}
+            image="/iqpuzzle_m_splash.webp"
+            title="Product picture"
+            alt="Product picture"
+          />
+        </Grid>
+        <Grid item xs={12} md={9} className={classes.order2}>
           <CardMedia
             component="div"
             className={classes.bigImg}
@@ -106,7 +139,7 @@ export const Index = () => {
           </CardMedia>
         </Grid>
 
-        <Grid item xs={12} md={7}>
+        <Grid item xs={12} md={9} className={classes.order3}>
           <CardMedia
             component="div"
             className={classes.bigImg}
@@ -119,10 +152,26 @@ export const Index = () => {
             </Typography>
           </CardMedia>
         </Grid>
-        <Grid item xs={12} md={5}></Grid>
+        <Grid item xs={9} md={3} className={classes.order4}>
+          <CardMedia
+            component="img"
+            className={classes.media}
+            image="/challenging_1_splash.webp"
+            title="Product picture"
+            alt="Product picture"
+          />
+        </Grid>
 
-        <Grid item xs={12} md={5}></Grid>
-        <Grid item xs={12} md={7}>
+        <Grid item xs={9} md={3} className={classes.order5}>
+          <CardMedia
+            component="img"
+            className={classes.media}
+            image="/tangram_splash.webp"
+            title="Product picture"
+            alt="Product picture"
+          />
+        </Grid>
+        <Grid item xs={12} md={9} className={classes.order6}>
           <CardMedia
             component="div"
             className={classes.bigImg}
@@ -137,7 +186,7 @@ export const Index = () => {
         </Grid>
       </Grid>
       <Divider />
-    </React.Fragment>
+    </Box>
   );
 };
 

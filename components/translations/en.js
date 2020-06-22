@@ -5,7 +5,7 @@ export const en = {
   "serch.field": "Search...",
   "product.menu.label": "Products",
   "home.page.title": "Home page",
-  "footer.aboutUs": "About us",
+  "footer.blog": "Blog",
   "footer.delivery": "Delivery",
   "footer.contactUs": "Contact us",
 
@@ -30,11 +30,13 @@ export const en = {
   "language.select": "Choose language",
   "show.more": "Show more",
   "main.page.header": "What to do with IQ Puzzle?",
-  "step.1": "Step 1",
-  "step.2": "Step 2",
-  "step.3": "Step 3",
-  "step.1.description": "Open the box and check for all items",
-  "step.2.description": "Examine the shape and start collecting the puzzle",
+  "step.1": "The task:",
+  "step.2": "IQ Puzzle Build Process",
+  "step.3": "Assembled IQ Puzzle",
+  "step.1.description":
+    "Assemble the figure indicated in the center of the picture. And do not think that it is easy and simple as it seems at first glance!",
+  "step.2.description":
+    "Twist, twist, fold so that the details lie in the same plane and you get a picture, as in the task!",
   "step.3.description":
     "Wipe the tears of happiness and go ahead for a new puzzle!",
   "solve.puzzles.with.kids": "Solve it with kids",

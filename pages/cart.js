@@ -44,7 +44,7 @@ export const Cart = () => {
         <Grid container spacing={3} justify="center" alignItems="center">
           <Grid item xs={12}>
             <Typography variant="h5" align="center">
-              <Box lineHeight={3} m={1}>
+              <Box lineHeight={1}>
                 <FormattedMessage id="cart.page.title" />{" "}
                 {!state.cart.length && (
                   <FormattedMessage id="cart.page.title.empty" />

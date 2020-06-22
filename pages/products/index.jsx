@@ -15,9 +15,11 @@ export const Index = () => {
         </Box> */}
       </Typography>
 
-      <Grid container spacing={2} justify="center" alignItems="center">
+      <Grid container spacing={1} justify="center" alignItems="center">
         {state.products.map((product, index) => (
-          <ProductItem key={index} product={product} />
+          <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
+            <ProductItem product={product} />
+          </Grid>
         ))}
       </Grid>
     </Container>
