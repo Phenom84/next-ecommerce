@@ -21,6 +21,7 @@ import Link from "../src/Link";
 
 const useStyles = makeStyles(() => ({
   card: {
+    maxWidth: "300px",
     height: "100%",
   },
 }));
@@ -29,8 +30,6 @@ const ProductItem = ({ product }) => {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
   const intl = useIntl();
-  const defaultImg =
-    "https://raw.githubusercontent.com/Cerneaga-Denis/Cerneaga-Denis.github.io/master/default_img/default-product.webp";
 
   !product ? (product = "") : product;
   const wishListIcon = state.wishlist.find((item) => item.id === product.id) ? (
@@ -46,13 +45,13 @@ const ProductItem = ({ product }) => {
           <CardMedia
             component="img"
             className={classes.media}
-            image={product.image || defaultImg}
-            title={product.name || "Product picture"}
-            alt={product.name || "Product picture"}
+            image={product.image}
+            title={product.name}
+            alt={product.name}
           />
           <CardContent align="center">
             <Typography gutterBottom variant="h5" component="h2">
-              {product.name || "Product name"}
+              {product.name}
             </Typography>
             <Typography
               variant="caption"
@@ -60,12 +59,11 @@ const ProductItem = ({ product }) => {
               gutterBottom
               color={"textSecondary"}
             >
-              <FormattedMessage id="category" />:{" "}
-              {product.category || "Product category"}
+              <FormattedMessage id="category" />: {product.category}
             </Typography>
             <Divider variant="middle" />
             <Typography variant="h5" align="center" component="p">
-              {product.price || "Product price"}
+              {product.price}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -77,9 +75,7 @@ const ProductItem = ({ product }) => {
               size="small"
               variant="outlined"
               fullWidth
-              aria-label={
-                intl.formatMessage({ id: "add.to.cart" }) || "Add to cart"
-              }
+              aria-label={intl.formatMessage({ id: "add.to.cart" })}
               endIcon={<ShoppingCartIcon />}
               onClick={(evt) => {
                 if (evt) {

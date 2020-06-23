@@ -3,6 +3,7 @@ import { Toolbar, Divider, Typography, Grid, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { CardMedia } from "@material-ui/core";
 import { FormattedMessage } from "react-intl";
+import Link from "../src/Link";
 
 const useStyles = makeStyles((theme) => ({
   bigImg: {
@@ -117,13 +118,15 @@ export const Index = () => {
         spacing={0}
       >
         <Grid item xs={9} md={3} className={classes.order1}>
-          <CardMedia
-            component="img"
-            className={classes.media}
-            image="/iqpuzzle_m_splash.webp"
-            title="Product picture"
-            alt="Product picture"
-          />
+          <Link href="/products/index">
+            <CardMedia
+              component="img"
+              className={classes.media}
+              image="/iqpuzzle_m_splash.webp"
+              title="Show catalog"
+              alt="IQ puzzle picture"
+            />
+          </Link>
         </Grid>
         <Grid item xs={12} md={9} className={classes.order2}>
           <CardMedia
@@ -153,23 +156,27 @@ export const Index = () => {
           </CardMedia>
         </Grid>
         <Grid item xs={9} md={3} className={classes.order4}>
-          <CardMedia
-            component="img"
-            className={classes.media}
-            image="/challenging_1_splash.webp"
-            title="Product picture"
-            alt="Product picture"
-          />
+          <Link href="/products/index">
+            <CardMedia
+              component="img"
+              className={classes.media}
+              image="/challenging_1_splash.webp"
+              title="Show catalog"
+              alt="Chelenge puzzle picture"
+            />
+          </Link>
         </Grid>
 
         <Grid item xs={9} md={3} className={classes.order5}>
-          <CardMedia
-            component="img"
-            className={classes.media}
-            image="/tangram_splash.webp"
-            title="Product picture"
-            alt="Product picture"
-          />
+          <Link href="/products/index">
+            <CardMedia
+              component="img"
+              className={classes.media}
+              image="/tangram_splash.webp"
+              title="Show catalog"
+              alt="Wooden puzzle picture"
+            />
+          </Link>
         </Grid>
         <Grid item xs={12} md={9} className={classes.order6}>
           <CardMedia
