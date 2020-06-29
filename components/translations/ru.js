@@ -3,7 +3,7 @@ export const ru = {
   account: "Aккаунт",
   category: "Категория",
   "serch.field": "Поиск...",
-  "product.menu.label": "Товары",
+  "products.menu.label": "Товары",
   "home.page.title": "Домашняя страница",
   "footer.blog": "Блог",
   "footer.delivery": "Доставка",

@@ -3,7 +3,7 @@ export const ro = {
   account: "Contul",
   category: "Categorie",
   "serch.field": "Căutare...",
-  "product.menu.label": "Producte",
+  "products.menu.label": "Producte",
   "home.page.title": "Pagina principala",
   "footer.blog": "Blog",
   "footer.delivery": "Livrare",

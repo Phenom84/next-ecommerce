@@ -1,5 +1,6 @@
 import React from "react";
 import ProductItem from "./../components/ProductItem";
+import { withNextRouter } from "./../.storybook/decorators/NextRouterDecorator";
 
 const product = {
   id: "1",
@@ -26,6 +27,7 @@ const product = {
 export default {
   title: "ProductItem",
   component: ProductItem,
+  decorators: [withNextRouter],
 };
 
 export const Default = () => <ProductItem product={product} />;

@@ -3,7 +3,7 @@ export const en = {
   account: "Account",
   category: "Category",
   "serch.field": "Search...",
-  "product.menu.label": "Products",
+  "products.menu.label": "Products",
   "home.page.title": "Home page",
   "footer.blog": "Blog",
   "footer.delivery": "Delivery",

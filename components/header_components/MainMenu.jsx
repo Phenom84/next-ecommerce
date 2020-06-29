@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 const MainMenu = () => {
   const classes = useStyles();
   const intl = useIntl();
+  const active = "products";
 
   return (
     <Box className={classes.menuIcon}>
@@ -30,7 +31,7 @@ const MainMenu = () => {
         >
           <MenuIcon />
           <Typography variant="h6">
-            <FormattedMessage id="product.menu.label" />
+            <FormattedMessage id={`${active}.menu.label`} />
           </Typography>
         </IconButton>
       </Link>
