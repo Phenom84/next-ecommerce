@@ -18,7 +18,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { FormattedMessage } from "react-intl";
-import SlideShow from "../../components/SlideShow";
+import SlideShow from "./../../components/Slideshow";
 
 const StyledRating = withStyles({
   iconFilled: {
