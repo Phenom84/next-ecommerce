@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Index = () => {
+export default () => {
   const classes = useStyles();
   return (
     <Box display="flex" flexDirection="column">
@@ -196,5 +196,3 @@ export const Index = () => {
     </Box>
   );
 };
-
-module.exports = Index;
