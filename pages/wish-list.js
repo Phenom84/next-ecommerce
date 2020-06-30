@@ -4,7 +4,7 @@ import { useGlobal } from "../src/context/GlobalContext";
 import WishListItem from "../components/WishListItem.jsx";
 import { FormattedMessage } from "react-intl";
 
-export const WishList = () => {
+export default () => {
   const [state] = useGlobal();
 
   return (
@@ -27,4 +27,3 @@ export const WishList = () => {
     </Container>
   );
 };
-module.exports = WishList;

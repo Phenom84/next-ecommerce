@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const Cart = () => {
+export default () => {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
 
@@ -131,4 +131,3 @@ export const Cart = () => {
     </React.Fragment>
   );
 };
-module.exports = Cart;

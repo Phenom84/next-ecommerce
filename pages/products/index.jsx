@@ -3,7 +3,7 @@ import { Grid, Container, Typography, Toolbar } from "@material-ui/core";
 import { useGlobal } from "../../src/context/GlobalContext";
 import ProductItem from "../../components/ProductItem";
 
-export const Index = () => {
+export default () => {
   const [state] = useGlobal();
 
   return (
@@ -25,4 +25,3 @@ export const Index = () => {
     </Container>
   );
 };
-module.exports = Index;
