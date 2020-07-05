@@ -32,13 +32,13 @@ const Footer = () => {
         </Grid>
         <Grid item xs={4} md={3}>
           <Typography align={"center"} gutterBottom color={"textSecondary"}>
-          <IconButton href="http://www.instagram.com/iqpuzzlemd/" target="_blank">
+          <IconButton href="http://www.instagram.com/iqpuzzlemd/" target="_blank" rel="noreferrer" alt="instagram">
               <InstagramIcon />
             </IconButton>
-            <IconButton href="http://www.facebook.com/iqpuzzlemd" target="_blank">
+            <IconButton href="http://www.facebook.com/iqpuzzlemd" target="_blank" rel="noreferrer" alt="facebook">
               <FacebookIcon />
             </IconButton>
-            <IconButton href="mailto:info@iqpuzzle.md?subject=Mail from visitor (iqpuzzle.md)">
+            <IconButton href="mailto:info@iqpuzzle.md?subject=Mail from visitor (iqpuzzle.md)" alt="e-mail">
               <MailOutlineIcon />
             </IconButton>
           </Typography>

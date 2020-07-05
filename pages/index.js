@@ -46,8 +46,7 @@ export default () => {
       <Toolbar />
       <CardMedia
         component="img"
-        className={classes.media}
-        image="/Header-IQ-Puzzle2.webp"
+        image="/Header-IQ-Puzzle-1920W.webp"
         title="Product picture"
         alt="Product picture"
       />
