@@ -47,7 +47,7 @@ export default () => {
       <CardMedia
         component="img"
         className={classes.media}
-        image="/Header-IQ-Puzzle2.png"
+        image="/Header-IQ-Puzzle2.webp"
         title="Product picture"
         alt="Product picture"
       />
@@ -132,7 +132,7 @@ export default () => {
           <CardMedia
             component="div"
             className={classes.bigImg}
-            image="/with_family.png"
+            image="/with_family.webp"
             title="Product picture"
             alt="Product picture"
           >
@@ -146,7 +146,7 @@ export default () => {
           <CardMedia
             component="div"
             className={classes.bigImg}
-            image="/with_colleagues.png"
+            image="/with_colleagues.webp"
             title="Product picture"
             alt="Product picture"
           >
@@ -182,7 +182,7 @@ export default () => {
           <CardMedia
             component="div"
             className={classes.bigImg}
-            image="/with_frends.png"
+            image="/with_frends.webp"
             title="Product picture"
             alt="Product picture"
           >
