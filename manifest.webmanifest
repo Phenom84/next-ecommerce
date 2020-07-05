@@ -1,0 +1,26 @@
+{
+  "short_name": "IQ Puzzle",
+  "name": "IQ Puzzle, Brain Fitness",
+  "description": "Unique puzzles IQ puzzle is a daily simulator for your brain. At first glance, it might seem that it's easy, but it's harder than you think.",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#3f51b5",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3f51b5",
+  "shortcuts": [
+    {
+      "short_name": "IQ Puzzle",
+      "name": "IQ Puzzle, Brain Fitness",
+      "description": "Unique puzzles IQ puzzle is a daily simulator for your brain. At first glance, it might seem that it's easy, but it's harder than you think.",
+      "url": "/?source=pwa",
+      "icons": [{ "src": "favicon.png", "sizes": "192x192" }]
+    }
+  ]
+}
