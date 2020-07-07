@@ -1,10 +1,10 @@
-import React from "react";
-import { Grid, Container, Typography, Box, Toolbar } from "@material-ui/core";
-import { useGlobal } from "../src/context/GlobalContext";
-import WishListItem from "../components/WishListItem.jsx";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import { Grid, Container, Typography, Box, Toolbar } from '@material-ui/core';
+import { useGlobal } from '../src/context/GlobalContext';
+import WishListItem from '../components/WishListItem.jsx';
+import { FormattedMessage } from 'react-intl';
 
-export default () => {
+export default function WishList() {
   const [state] = useGlobal();
 
   return (
@@ -12,7 +12,7 @@ export default () => {
       <Toolbar />
       <Typography variant="h5" align="center">
         <Box lineHeight={1} m={1}>
-          <FormattedMessage id="wishlist.page.title" />{" "}
+          <FormattedMessage id="wishlist.page.title" />{' '}
           {!state.wishlist.length && (
             <FormattedMessage id="wishlist.page.title.empty" />
           )}
@@ -26,4 +26,4 @@ export default () => {
       </Grid>
     </Container>
   );
-};
+}

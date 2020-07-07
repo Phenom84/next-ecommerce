@@ -1,9 +1,9 @@
-import React from "react";
-import { Grid, Container, Typography, Toolbar } from "@material-ui/core";
-import { useGlobal } from "../../src/context/GlobalContext";
-import ProductItem from "../../components/ProductItem";
+import React from 'react';
+import { Grid, Container, Typography, Toolbar } from '@material-ui/core';
+import { useGlobal } from '../../src/context/GlobalContext';
+import ProductItem from '../../components/ProductItem';
 
-export default () => {
+export default function ProductIndexPage() {
   const [state] = useGlobal();
 
   return (
@@ -24,4 +24,4 @@ export default () => {
       </Grid>
     </Container>
   );
-};
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Grid,
   Container,
@@ -14,26 +14,26 @@ import {
   TableRow,
   Paper,
   Toolbar,
-} from "@material-ui/core";
-import { FormattedMessage } from "react-intl";
-import { useGlobal } from "../src/context/GlobalContext";
-import { makeStyles } from "@material-ui/core/styles";
-import ClearIcon from "@material-ui/icons/Clear";
+} from '@material-ui/core';
+import { FormattedMessage } from 'react-intl';
+import { useGlobal } from '../src/context/GlobalContext';
+import { makeStyles } from '@material-ui/core/styles';
+import ClearIcon from '@material-ui/icons/Clear';
 
-import Link from "../src/Link";
-import Counter from "./../components/Counter";
+import Link from '../src/Link';
+import Counter from './../components/Counter';
 
 const useStyles = makeStyles({
   table: {
     minWidth: 630,
   },
   cartAvatar: {
-    width: "7rem",
-    height: "7rem",
+    width: '7rem',
+    height: '7rem',
   },
 });
 
-export default () => {
+export default function Cart() {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
 
@@ -45,7 +45,7 @@ export default () => {
           <Grid item xs={12}>
             <Typography variant="h5" align="center">
               <Box lineHeight={1}>
-                <FormattedMessage id="cart.page.title" />{" "}
+                <FormattedMessage id="cart.page.title" />{' '}
                 {!state.cart.length && (
                   <FormattedMessage id="cart.page.title.empty" />
                 )}
@@ -72,7 +72,7 @@ export default () => {
                     </TableCell>
                     <TableCell
                       align="center"
-                      style={{ width: "2rem" }}
+                      style={{ width: '2rem' }}
                     ></TableCell>
                   </TableRow>
                 </TableHead>
@@ -98,7 +98,7 @@ export default () => {
                         <Counter initialCount={cartItem.qty} id={cartItem.id} />
                       </TableCell>
                       <TableCell align="center">
-                        ${" "}
+                        ${' '}
                         {Number(cartItem.price.slice(1)) * Number(cartItem.qty)}
                       </TableCell>
                       <TableCell align="center">
@@ -110,7 +110,7 @@ export default () => {
                             }
 
                             dispatch({
-                              type: "REMOVE_FROM_CART",
+                              type: 'REMOVE_FROM_CART',
                               payload: {
                                 id: cartItem.id,
                               },
@@ -130,4 +130,4 @@ export default () => {
       </Container>
     </React.Fragment>
   );
-};
+}

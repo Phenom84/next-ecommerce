@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-export default () => {
+export default function AboutUs() {
   return (
     <div>
       <h1>About us</h1>
     </div>
   );
-};
+}
