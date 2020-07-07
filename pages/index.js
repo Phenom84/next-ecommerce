@@ -1,14 +1,14 @@
-import React from "react";
-import { Toolbar, Divider, Typography, Grid, Box } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { CardMedia } from "@material-ui/core";
-import { FormattedMessage } from "react-intl";
-import Link from "../src/Link";
+import React from 'react';
+import { Toolbar, Divider, Typography, Grid, Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { CardMedia } from '@material-ui/core';
+import { FormattedMessage } from 'react-intl';
+import Link from '../src/Link';
 
 const useStyles = makeStyles((theme) => ({
   bigImg: {
-    height: "calc(66.66vw/1.7)",
-    padding: "32px",
+    height: 'calc(66.66vw/1.7)',
+    padding: '32px',
   },
   order1: {
     order: 1,
@@ -18,13 +18,13 @@ const useStyles = makeStyles((theme) => ({
   },
   order3: {
     order: 4,
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up('md')]: {
       order: 3,
     },
   },
   order4: {
     order: 3,
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up('md')]: {
       order: 4,
     },
   },
@@ -35,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
     order: 6,
   },
   card: {
-    height: "100vw",
+    height: '100vw',
   },
 }));
 
-export default () => {
+export default function Index() {
   const classes = useStyles();
   return (
     <Box display="flex" flexDirection="column">
@@ -56,9 +56,9 @@ export default () => {
       </Typography>
       <Grid
         container
-        style={{ margin: "0px auto" }}
-        justify={"space-evenly"}
-        alignItems={"center"}
+        style={{ margin: '0px auto' }}
+        justify={'space-evenly'}
+        alignItems={'center'}
       >
         <Grid item xs={7} md={2}>
           <CardMedia
@@ -111,9 +111,9 @@ export default () => {
 
       <Grid
         container
-        style={{ margin: "0px auto" }}
-        justify={"center"}
-        alignItems={"center"}
+        style={{ margin: '0px auto' }}
+        justify={'center'}
+        alignItems={'center'}
         spacing={0}
       >
         <Grid item xs={9} md={3} className={classes.order1}>
@@ -194,4 +194,4 @@ export default () => {
       <Divider />
     </Box>
   );
-};
+}
