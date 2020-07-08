@@ -8,6 +8,7 @@ const MainLayout = ({ children, title = 'IQ Puzzle' }) => {
       <Head>
         <title>{title}</title>
         <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/apple_touch_icon.png"></link>
         <meta name="theme-color" content={theme.palette.primary.main} />
         <meta
           name="viewport"
