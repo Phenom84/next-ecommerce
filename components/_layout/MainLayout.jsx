@@ -9,7 +9,10 @@ const MainLayout = ({ children, title = 'IQ Puzzle' }) => {
         <title>{title}</title>
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/apple_touch_icon.png" />
-        <link rel="manifest" href="/manifest.webmanifest" />
+        <link
+          rel="manifest"
+          href="https://raw.githubusercontent.com/Phenom84/next-ecommerce/master/manifest.webmanifest"
+        />
         <meta name="theme-color" content={theme.palette.primary.main} />
         <meta
           name="viewport"
