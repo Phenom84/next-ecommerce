@@ -14,7 +14,7 @@
       "sizes": "192x192"
     },
     {
-      "src": "apple_touch_icon.png",
+      "src": "apple_touch_icon_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -27,10 +27,17 @@
   "shortcuts": [
     {
       "short_name": "IQ Puzzle",
-      "name": "IQ Puzzle, Brain Fitness",
+      "name": "first_react_project",
       "description": "Unique puzzles IQ puzzle is a daily simulator for your brain. At first glance, it might seem that it's easy, but it's harder than you think.",
       "url": "/?source=pwa",
       "icons": [{ "src": "favicon.png", "sizes": "192x192" }]
     }
-  ]
+  ],
+  "prefer_related_applications": false,
+"related_applications": [
+  {
+    "platform": "play",
+    "id": "com.google.samples.apps.iosched"
+  }
+]
 }
