@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { makeDecorator } from '@storybook/addons';
 import React from 'react';
-import Router, { NextRouter } from 'next/router';
+import Router from 'next/router';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
 
 export const withNextRouter = makeDecorator({

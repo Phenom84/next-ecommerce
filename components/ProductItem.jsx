@@ -1,5 +1,5 @@
-import React from "react";
-import { FormattedMessage, useIntl } from "react-intl";
+import React from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 import {
   IconButton,
   Card,
@@ -11,18 +11,18 @@ import {
   Typography,
   Divider,
   Button,
-} from "@material-ui/core";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import { makeStyles } from "@material-ui/core/styles";
-import { useGlobal } from "../src/context/GlobalContext";
-import Link from "../src/Link";
+} from '@material-ui/core';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { makeStyles } from '@material-ui/core/styles';
+import { useGlobal } from '../src/context/GlobalContext';
+import Link from '../src/Link';
 
 const useStyles = makeStyles(() => ({
   card: {
-    maxWidth: "300px",
-    height: "100%",
+    maxWidth: '300px',
+    height: '100%',
   },
 }));
 
@@ -31,7 +31,7 @@ const ProductItem = ({ product }) => {
   const [state, dispatch] = useGlobal();
   const intl = useIntl();
 
-  !product ? (product = "") : product;
+  !product ? (product = '') : product;
   const wishListIcon = state.wishlist.find((item) => item.id === product.id) ? (
     <FavoriteIcon color="secondary" />
   ) : (
@@ -57,7 +57,7 @@ const ProductItem = ({ product }) => {
               variant="caption"
               display="block"
               gutterBottom
-              color={"textSecondary"}
+              color={'textSecondary'}
             >
               <FormattedMessage id="category" />: {product.category}
             </Typography>
@@ -75,7 +75,7 @@ const ProductItem = ({ product }) => {
               size="small"
               variant="outlined"
               fullWidth
-              aria-label={intl.formatMessage({ id: "add.to.cart" })}
+              aria-label={intl.formatMessage({ id: 'add.to.cart' })}
               endIcon={<ShoppingCartIcon />}
               onClick={(evt) => {
                 if (evt) {
@@ -83,7 +83,7 @@ const ProductItem = ({ product }) => {
                 }
 
                 dispatch({
-                  type: "ADD_TO_CART",
+                  type: 'ADD_TO_CART',
                   payload: {
                     id: product.id,
                     qty: 1,
@@ -104,7 +104,7 @@ const ProductItem = ({ product }) => {
                 }
 
                 dispatch({
-                  type: "WISHLIST_HANDLE",
+                  type: 'WISHLIST_HANDLE',
                   payload: {
                     id: product.id,
                     qty: 1,

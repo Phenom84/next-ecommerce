@@ -1,5 +1,5 @@
-import React from "react";
-import { withRouter } from "next/router";
+import React from 'react';
+import { withRouter } from 'next/router';
 import {
   Grid,
   Container,
@@ -9,27 +9,27 @@ import {
   Button,
   Typography,
   Toolbar,
-} from "@material-ui/core";
-import { useGlobal } from "../../src/context/GlobalContext";
-import { withStyles } from "@material-ui/core/styles";
-import Rating from "@material-ui/lab/Rating";
-import Counter from "../../components/Counter";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import { FormattedMessage } from "react-intl";
-import SlideShow from "./../../components/Slideshow";
+} from '@material-ui/core';
+import { useGlobal } from '../../src/context/GlobalContext';
+import { withStyles } from '@material-ui/core/styles';
+import Rating from '@material-ui/lab/Rating';
+import Counter from '../../components/Counter';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { FormattedMessage } from 'react-intl';
+import SlideShow from './../../components/Slideshow';
 
 const StyledRating = withStyles({
   iconFilled: {
-    color: "#ff9100",
+    color: '#ff9100',
   },
 })(Rating);
 
 const ProductPage = (props) => {
   const [{ products, wishlist }, dispatch] = useGlobal();
   const product = products.find(
-    (item) => item.id === props.router.query.product
+    (item) => item.id === props.router.query.product,
   );
   const wishListIcon = wishlist.find((item) => item.id === product.id) ? (
     <FavoriteIcon color="secondary" />
@@ -72,7 +72,7 @@ const ProductPage = (props) => {
               variant="caption"
               display="block"
               gutterBottom
-              color={"textSecondary"}
+              color={'textSecondary'}
             >
               <FormattedMessage id="category" />: {product.category}
             </Typography>
@@ -124,7 +124,7 @@ const ProductPage = (props) => {
                   }
 
                   dispatch({
-                    type: "ADD_TO_CART",
+                    type: 'ADD_TO_CART',
                     payload: {
                       id: product.id,
                       qty: product.count || 1,
@@ -147,7 +147,7 @@ const ProductPage = (props) => {
                   }
 
                   dispatch({
-                    type: "WISHLIST_HANDLE",
+                    type: 'WISHLIST_HANDLE',
                     payload: {
                       id: product.id,
                       qty: 1,

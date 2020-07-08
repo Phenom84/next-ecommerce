@@ -2,7 +2,6 @@ import 'typeface-roboto';
 import React, { useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
@@ -26,23 +25,7 @@ export default function MyApp(props) {
   }, []);
 
   return (
-    <React.Fragment>
-      <Head>
-        <title>Project e-commerce</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-        <meta
-          name="description"
-          lang="en"
-          content="Unique puzzles IQ puzzle is a daily simulator for your brain.
-          At first glance, it might seem that it's easy, but it's harder than you think."
-        />
-        <meta name="keywords" content="puzzles, brain fitness, iqpuzzle" />
-        <meta name="author" content="Denis Cerneaga" />
-        <meta name="robots" content="index" />
-      </Head>
+    <>
       <ThemeProvider theme={theme}>
         <GlobalProvider>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
@@ -65,7 +48,7 @@ export default function MyApp(props) {
           </IntlProvider>
         </GlobalProvider>
       </ThemeProvider>
-    </React.Fragment>
+    </>
   );
 }
 

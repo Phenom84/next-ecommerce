@@ -38,7 +38,7 @@ export default function Cart() {
   const [state, dispatch] = useGlobal();
 
   return (
-    <React.Fragment>
+    <>
       <Toolbar />
       <Container maxWidth="lg">
         <Grid container spacing={3} justify="center" alignItems="center">
@@ -128,6 +128,6 @@ export default function Cart() {
           </Grid>
         </Grid>
       </Container>
-    </React.Fragment>
+    </>
   );
 }
