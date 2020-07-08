@@ -1,11 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
+import theme from './../../src/theme';
 
-const MainLayout = ({ children, title = 'IQ Puzzle.Brain Fitness' }) => {
+const MainLayout = ({ children, title = 'IQ Puzzle' }) => {
   return (
     <>
       <Head>
         <title>{title}</title>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <meta name="theme-color" content={theme.palette.primary.main} />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"

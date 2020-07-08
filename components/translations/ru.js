@@ -15,7 +15,6 @@ export const ru = {
   "cart.product.amount": "Сумма",
   "cart.page.title": "Корзина",
   "cart.page.title.empty": "пуста...",
-  "add.to.cart": "В корзину",
 
   "wishlist.page.title": "Избранные товары",
   "wishlist.page.title.empty": "отсутствуют...",

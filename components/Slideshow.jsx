@@ -1,39 +1,39 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid, CardMedia, Button, Card } from "@material-ui/core";
-import ArrowBackIosOutlinedIcon from "@material-ui/icons/ArrowBackIosOutlined";
-import ArrowForwardIosOutlinedIcon from "@material-ui/icons/ArrowForwardIosOutlined";
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Grid, CardMedia, Button, Card } from '@material-ui/core';
+import ArrowBackIosOutlinedIcon from '@material-ui/icons/ArrowBackIosOutlined';
+import ArrowForwardIosOutlinedIcon from '@material-ui/icons/ArrowForwardIosOutlined';
 
 const useStyles = makeStyles((theme) => ({
   svg: {
-    color: "#424242",
+    color: '#424242',
   },
   relative: {
-    position: "relative",
-    maxWidth: "600px",
+    position: 'relative',
+    maxWidth: '600px',
   },
   arrowLeft: {
-    position: "absolute",
-    top: "0",
-    left: "0",
-    bottom: "10vw",
-    [theme.breakpoints.up("md")]: {
-      bottom: "75px",
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    bottom: '10vw',
+    [theme.breakpoints.up('md')]: {
+      bottom: '75px',
     },
   },
   arrowRight: {
-    position: "absolute",
-    top: "0",
-    right: "0",
-    bottom: "10vw",
-    [theme.breakpoints.up("md")]: {
-      bottom: "75px",
+    position: 'absolute',
+    top: '0',
+    right: '0',
+    bottom: '10vw',
+    [theme.breakpoints.up('md')]: {
+      bottom: '75px',
     },
   },
   thumbnail: {
-    height: "10vw",
+    height: '10vw',
     opacity: 0.5,
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up('md')]: {
       height: 75,
     },
   },
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     flexGrow: 1,
-    width: "100%",
+    width: '100%',
     backgroundColor: theme.palette.background.paper,
   },
 }));
@@ -61,7 +61,6 @@ const SlideShow = ({ slides = [], thumbnails = [], initialSlide = 0 }) => {
         <Card>
           <CardMedia
             component="img"
-            className={classes.media}
             image={slides[activeSlide].src}
             title={slides[activeSlide].alt}
           />
@@ -74,7 +73,7 @@ const SlideShow = ({ slides = [], thumbnails = [], initialSlide = 0 }) => {
             disableRipple
             onClick={() =>
               setActiveSlide(
-                activeSlide - 1 < 0 ? slides.length - 1 : activeSlide - 1
+                activeSlide - 1 < 0 ? slides.length - 1 : activeSlide - 1,
               )
             }
           >
@@ -89,7 +88,7 @@ const SlideShow = ({ slides = [], thumbnails = [], initialSlide = 0 }) => {
             <Grid key={index} item xs={2}>
               <CardMedia
                 className={`${classes.thumbnail} ${
-                  activeSlide === index ? classes.active : ""
+                  activeSlide === index ? classes.active : ''
                 }`}
                 image={thumbnail.src}
                 title={thumbnail.alt}
@@ -104,7 +103,7 @@ const SlideShow = ({ slides = [], thumbnails = [], initialSlide = 0 }) => {
             disableRipple
             onClick={() =>
               setActiveSlide(
-                activeSlide + 1 === slides.length ? 0 : activeSlide + 1
+                activeSlide + 1 === slides.length ? 0 : activeSlide + 1,
               )
             }
           >

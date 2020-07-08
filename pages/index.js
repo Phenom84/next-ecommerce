@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { CardMedia } from '@material-ui/core';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Link from '../src/Link';
-import MainLayout from '../components/_layout/MainLayout'
+import MainLayout from '../components/_layout/MainLayout';
 
 const useStyles = makeStyles((theme) => ({
   bigImg: {
@@ -52,7 +52,7 @@ export default function Index() {
           srcSet="/Header-IQ-Puzzle-mobile.webp 420w,
                   /Header-IQ-Puzzle-1024w.webp 1024w,
                   /Header-IQ-Puzzle-1920w.webp 1920w"
-          sizes="(max-width: 480px) 420px,
+          sizes="(max-width: 480px) 400px,
                  (max-width: 1024px) 1024px,
                  (max-width: 1920px) 1920px"
           src="/Header-IQ-Puzzle-1920.webp"
@@ -140,7 +140,11 @@ export default function Index() {
             <CardMedia
               component="div"
               className={classes.bigImg}
-              image="/with_family.webp"
+              srcSet="/with_family_1024w.webp 1024w,
+                      /with_family.webp 2048w"
+              sizes="(max-width: 1024px) 1024px,
+                     1025px"
+              src="/with_family_1024w.webp"
               title="Product picture"
               alt="Product picture"
             >
@@ -154,7 +158,11 @@ export default function Index() {
             <CardMedia
               component="div"
               className={classes.bigImg}
-              image="/with_colleagues.webp"
+              srcSet="/with_colleagues_1024w.webp 1024w,
+                      /with_colleagues.webp 2048w"
+              sizes="(max-width: 1024px) 1024px,
+                     1025px"
+              src="/with_colleagues_1024w.webp"
               title="Product picture"
               alt="Product picture"
             >
@@ -190,7 +198,11 @@ export default function Index() {
             <CardMedia
               component="div"
               className={classes.bigImg}
-              image="/with_frends.webp"
+              srcSet="/with_frends_1024w.webp 1024w,
+                      /with_frends.webp 2048w"
+              sizes="(max-width: 1024px) 1024px,
+                     1025px"
+              src="/with_frends_1024w.webp"
               title="Product picture"
               alt="Product picture"
             >

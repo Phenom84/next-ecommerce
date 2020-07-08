@@ -21,8 +21,9 @@ import Link from '../src/Link';
 
 const useStyles = makeStyles(() => ({
   card: {
-    maxWidth: '300px',
+    maxWidth: '430px',
     height: '100%',
+    margin: '0 auto',
   },
 }));
 
@@ -31,7 +32,6 @@ const ProductItem = ({ product }) => {
   const [state, dispatch] = useGlobal();
   const intl = useIntl();
 
-  !product ? (product = '') : product;
   const wishListIcon = state.wishlist.find((item) => item.id === product.id) ? (
     <FavoriteIcon color="secondary" />
   ) : (
@@ -75,7 +75,7 @@ const ProductItem = ({ product }) => {
               size="small"
               variant="outlined"
               fullWidth
-              aria-label={intl.formatMessage({ id: 'add.to.cart' })}
+              aria-label={intl.formatMessage({ id: 'add.to.card.button' })}
               endIcon={<ShoppingCartIcon />}
               onClick={(evt) => {
                 if (evt) {
@@ -91,7 +91,7 @@ const ProductItem = ({ product }) => {
                 });
               }}
             >
-              <FormattedMessage id="add.to.cart" />
+              <FormattedMessage id="add.to.card.button" />
             </Button>
           </Grid>
           <Grid item xs={2} align="center">

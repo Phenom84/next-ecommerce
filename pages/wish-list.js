@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Container, Typography, Box, Toolbar } from '@material-ui/core';
 import { useGlobal } from '../src/context/GlobalContext';
 import WishListItem from '../components/WishListItem.jsx';
-import { FormattedMessage, useIntl} from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import MainLayout from '../components/_layout/MainLayout';
 
 export default function WishList() {

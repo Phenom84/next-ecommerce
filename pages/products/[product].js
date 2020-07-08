@@ -50,21 +50,22 @@ const ProductPage = (props) => {
         container
         spacing={2}
         direction="row"
-        justify="space-between"
-        alignItems="flex-start"
+        justify="center"
+        alignItems="center"
       >
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} sm={8} md={7}>
           <SlideShow slides={product.images} thumbnails={product.images} />
         </Grid>
         <Grid
           item
           xs={12}
-          md={6}
+          sm={8}
+          md={5}
           container
           spacing={1}
           direction="column"
           justify="space-evenly"
-          alignItems="left"
+          alignItems="flex-start"
         >
           <Grid item xs={12}>
             <Typography variant="h4">{product.name}</Typography>

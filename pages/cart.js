@@ -15,13 +15,14 @@ import {
   Paper,
   Toolbar,
 } from '@material-ui/core';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useGlobal } from '../src/context/GlobalContext';
 import { makeStyles } from '@material-ui/core/styles';
 import ClearIcon from '@material-ui/icons/Clear';
 
 import Link from '../src/Link';
 import Counter from './../components/Counter';
+import MainLayout from '../components/_layout/MainLayout';
 
 const useStyles = makeStyles({
   table: {
@@ -36,9 +37,10 @@ const useStyles = makeStyles({
 export default function Cart() {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
+  const intl = useIntl();
 
   return (
-    <>
+    <MainLayout title={intl.formatMessage({ id: 'cart.page.title' })}>
       <Toolbar />
       <Container maxWidth="lg">
         <Grid container spacing={3} justify="center" alignItems="center">
@@ -128,6 +130,6 @@ export default function Cart() {
           </Grid>
         </Grid>
       </Container>
-    </>
+    </MainLayout>
   );
 }
