@@ -140,11 +140,7 @@ export default function Index() {
             <CardMedia
               component="div"
               className={classes.bigImg}
-              srcSet="/with_family_1024w.webp 1024w,
-                      /with_family.webp 2048w"
-              sizes="(max-width: 1024px) 1024px,
-                     1025px"
-              src="/with_family_1024w.webp"
+              image="/with_family_1024w.webp"
               title="Product picture"
               alt="Product picture"
             >
@@ -158,11 +154,7 @@ export default function Index() {
             <CardMedia
               component="div"
               className={classes.bigImg}
-              srcSet="/with_colleagues_1024w.webp 1024w,
-                      /with_colleagues.webp 2048w"
-              sizes="(max-width: 1024px) 1024px,
-                     1025px"
-              src="/with_colleagues_1024w.webp"
+              image="/with_colleagues_1024w.webp"
               title="Product picture"
               alt="Product picture"
             >
@@ -198,11 +190,7 @@ export default function Index() {
             <CardMedia
               component="div"
               className={classes.bigImg}
-              srcSet="/with_frends_1024w.webp 1024w,
-                      /with_frends.webp 2048w"
-              sizes="(max-width: 1024px) 1024px,
-                     1025px"
-              src="/with_frends_1024w.webp"
+              image="/with_frends__1024w.webp"
               title="Product picture"
               alt="Product picture"
             >
