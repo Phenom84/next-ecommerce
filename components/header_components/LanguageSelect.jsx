@@ -1,15 +1,16 @@
-import React from "react";
-import { useIntl } from "react-intl";
-import MenuItem from "@material-ui/core/MenuItem";
-import Select from "@material-ui/core/Select";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { useIntl } from 'react-intl';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import { makeStyles } from '@material-ui/core/styles';
+import { PropTypes } from 'prop-types';
 
 const useStyles = makeStyles(() => ({
   languageSelect: {
     order: 4,
-    color: "#FFFFFF",
-    "& svg": {
-      color: "inherit",
+    color: '#FFFFFF',
+    '& svg': {
+      color: 'inherit',
     },
   },
 }));
@@ -22,9 +23,9 @@ const LanguageSelect = ({ handleChangeLocale, locale }) => {
     <Select
       className={classes.languageSelect}
       disableUnderline
-      label={intl.formatMessage({ id: "language.select" })}
-      labelId={intl.formatMessage({ id: "language.select" })}
-      title={intl.formatMessage({ id: "language.select" })}
+      label={intl.formatMessage({ id: 'language.select' })}
+      labelId={intl.formatMessage({ id: 'language.select' })}
+      title={intl.formatMessage({ id: 'language.select' })}
       id="languageSelect"
       autoWidth
       value={locale}
@@ -38,3 +39,8 @@ const LanguageSelect = ({ handleChangeLocale, locale }) => {
 };
 
 export default LanguageSelect;
+
+LanguageSelect.propTypes = {
+  handleChangeLocale: PropTypes.func,
+  locale: PropTypes.string,
+};

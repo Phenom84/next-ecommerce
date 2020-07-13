@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, CardMedia, Button, Card } from '@material-ui/core';
 import ArrowBackIosOutlinedIcon from '@material-ui/icons/ArrowBackIosOutlined';
 import ArrowForwardIosOutlinedIcon from '@material-ui/icons/ArrowForwardIosOutlined';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   svg: {
@@ -119,3 +120,9 @@ const SlideShow = ({ slides = [], thumbnails = [], initialSlide = 0 }) => {
 };
 
 export default SlideShow;
+
+SlideShow.propTypes = {
+  slides: PropTypes.array,
+  thumbnails: PropTypes.array,
+  initialSlide: PropTypes.number,
+};

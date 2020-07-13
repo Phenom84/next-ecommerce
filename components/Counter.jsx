@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Grid, IconButton, Button } from "@material-ui/core";
-import { useGlobal } from "../src/context/GlobalContext";
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import { Grid, IconButton, Button } from '@material-ui/core';
+import { useGlobal } from '../src/context/GlobalContext';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import PropTypes from 'prop-types';
 
-const Counter = ({ initialCount = 1, step = 1, id }) => {
+const Counter = ({ initialCount = 1, step = 1, id = '0' }) => {
   const [state, dispatch] = useGlobal();
   const [currentCount, setcurrentCount] = useState(initialCount);
 
@@ -28,9 +28,9 @@ const Counter = ({ initialCount = 1, step = 1, id }) => {
               ? (currentProduct.currentCount = 1)
               : (currentProduct.currentCount = counterValue);
             setcurrentCount(counterValue < 1 ? 1 : counterValue);
-            if (currentPath === "/cart") {
+            if (currentPath === '/cart') {
               dispatch({
-                type: "REMOVE_FROM_CART_ONE_ITEM",
+                type: 'REMOVE_FROM_CART_ONE_ITEM',
                 payload: {
                   id: currentCartItem.id,
                   qty: 1,
@@ -38,7 +38,7 @@ const Counter = ({ initialCount = 1, step = 1, id }) => {
               });
             } else {
               dispatch({
-                type: "COUNTER_HANDLE",
+                type: 'COUNTER_HANDLE',
                 payload: {
                   id: currentProduct.id,
                   count: currentProduct.currentCount,
@@ -63,9 +63,9 @@ const Counter = ({ initialCount = 1, step = 1, id }) => {
             counterValue = currentCount + step;
             currentProduct.currentCount = counterValue;
             setcurrentCount(currentCount + step);
-            if (currentPath === "/cart") {
+            if (currentPath === '/cart') {
               dispatch({
-                type: "ADD_TO_CART",
+                type: 'ADD_TO_CART',
                 payload: {
                   id: currentCartItem.id,
                   qty: 1,
@@ -73,7 +73,7 @@ const Counter = ({ initialCount = 1, step = 1, id }) => {
               });
             } else {
               dispatch({
-                type: "COUNTER_HANDLE",
+                type: 'COUNTER_HANDLE',
                 payload: {
                   id: currentProduct.id,
                   count: currentProduct.currentCount,
@@ -94,5 +94,5 @@ export default Counter;
 Counter.propTypes = {
   initialCount: PropTypes.number,
   step: PropTypes.number,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 };

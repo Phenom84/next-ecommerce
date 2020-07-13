@@ -2,9 +2,9 @@ export function globalReducer(state, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case "ADD_TO_CART": {
+    case 'ADD_TO_CART': {
       let addedProduct = state.products.find(
-        (product) => product.id === payload.id
+        (product) => product.id === payload.id,
       );
       let updatedCart = [...state.cart];
       let cartItem = updatedCart.find((product) => product.id == payload.id);
@@ -22,7 +22,7 @@ export function globalReducer(state, action) {
         cart: updatedCart,
       };
     }
-    case "REMOVE_FROM_CART_ONE_ITEM": {
+    case 'REMOVE_FROM_CART_ONE_ITEM': {
       let updatedCart = [...state.cart];
       let cartItem = updatedCart.find((product) => product.id == payload.id);
       if (cartItem.qty > 1) {
@@ -33,26 +33,26 @@ export function globalReducer(state, action) {
         cart: updatedCart,
       };
     }
-    case "REMOVE_FROM_CART": {
+    case 'REMOVE_FROM_CART': {
       const updatedCart = state.cart.filter(
-        (cartItem) => cartItem.id !== payload.id
+        (cartItem) => cartItem.id !== payload.id,
       );
       return {
         ...state,
         cart: updatedCart,
       };
     }
-    case "WISHLIST_HANDLE": {
+    case 'WISHLIST_HANDLE': {
       const addedProduct = state.products.find(
-        (product) => product.id === payload.id
+        (product) => product.id === payload.id,
       );
       let updatedWishlist = [...state.wishlist];
       let wishlistItemExist = updatedWishlist.find(
-        (product) => product.id === payload.id
+        (product) => product.id === payload.id,
       );
       if (wishlistItemExist) {
         updatedWishlist = state.wishlist.filter(
-          (wishlistItem) => wishlistItem.id !== payload.id
+          (wishlistItem) => wishlistItem.id !== payload.id,
         );
       } else {
         updatedWishlist.push({ ...addedProduct, qty: 1 });
@@ -62,9 +62,9 @@ export function globalReducer(state, action) {
         wishlist: updatedWishlist,
       };
     }
-    case "COUNTER_HANDLE": {
+    case 'COUNTER_HANDLE': {
       const addedProduct = state.products.find(
-        (product) => product.id === payload.id
+        (product) => product.id === payload.id,
       );
       let updatedProducts = [...state.products];
       if (addedProduct) {

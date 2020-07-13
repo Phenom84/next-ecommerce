@@ -1,5 +1,5 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
   Typography,
@@ -9,17 +9,17 @@ import {
   Card,
   CardActionArea,
   Button,
-} from "@material-ui/core";
-import { useGlobal } from "../src/context/GlobalContext";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import { FormattedMessage } from "react-intl";
-import Link from "../src/Link";
-import PropTypes from "prop-types";
+} from '@material-ui/core';
+import { useGlobal } from '../src/context/GlobalContext';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { FormattedMessage } from 'react-intl';
+import Link from '../src/Link';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(() => ({
   card: {
-    height: "100%",
+    height: '100%',
   },
 }));
 
@@ -27,9 +27,9 @@ export default function WishListItem({ product }) {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
 
-  !product ? (product = "") : product;
+  // !product ? (product = '') : product;
   const defaultImg =
-    "https://raw.githubusercontent.com/Cerneaga-Denis/Cerneaga-Denis.github.io/master/default_img/default-product.webp";
+    'https://raw.githubusercontent.com/Cerneaga-Denis/Cerneaga-Denis.github.io/master/default_img/default-product.webp';
 
   return (
     <Grid item xs={12} md={6} lg={4}>
@@ -40,13 +40,13 @@ export default function WishListItem({ product }) {
               component="img"
               className={classes.media}
               image={product.image || defaultImg}
-              title={product.name || "Product picture"}
-              alt={product.name || "Product picture"}
+              title={product.name || 'Product picture'}
+              alt={product.name || 'Product picture'}
             />
           </Link>
           <CardContent align="center">
             <Typography gutterBottom variant="h5" component="h2">
-              {product.name || "Product name"}
+              {product.name || 'Product name'}
             </Typography>
             <Typography
               variant="body2"
@@ -54,7 +54,7 @@ export default function WishListItem({ product }) {
               align="center"
               fontSize={16}
             >
-              {product.price || "Product price"}
+              {product.price || 'Product price'}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -72,7 +72,7 @@ export default function WishListItem({ product }) {
                   }
 
                   dispatch({
-                    type: "WISHLIST_HANDLE",
+                    type: 'WISHLIST_HANDLE',
                     payload: {
                       id: product.id,
                     },
@@ -93,14 +93,14 @@ export default function WishListItem({ product }) {
                     evt.preventDefault();
                   }
                   dispatch({
-                    type: "ADD_TO_CART",
+                    type: 'ADD_TO_CART',
                     payload: {
                       id: product.id,
                       qty: 1,
                     },
                   });
                   dispatch({
-                    type: "WISHLIST_HANDLE",
+                    type: 'WISHLIST_HANDLE',
                     payload: {
                       id: product.id,
                     },

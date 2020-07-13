@@ -1,31 +1,31 @@
-import React from "react";
-import { useIntl, FormattedMessage } from "react-intl";
-import { Box, IconButton, Badge, Menu, MenuItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { useIntl, FormattedMessage } from 'react-intl';
+import { Box, IconButton, Badge, Menu, MenuItem } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-import Link from "../../src/Link";
-import { useGlobal } from "../../src/context/GlobalContext";
+import Link from '../../src/Link';
+import { useGlobal } from '../../src/context/GlobalContext';
 
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MoreIcon from "@material-ui/icons/MoreVert";
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import MoreIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
   sectionDesktop: {
     order: 6,
-    marginRight: "-10px",
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
+    marginRight: '-10px',
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
     },
   },
   sectionMobile: {
     order: 6,
-    marginRight: "-10px",
-    display: "flex",
-    [theme.breakpoints.up("md")]: {
-      display: "none",
+    marginRight: '-10px',
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
     },
   },
 }));
@@ -59,14 +59,14 @@ const IconGrup = () => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = "primary-search-account-menu";
+  const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       id={menuId}
       keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
@@ -79,20 +79,20 @@ const IconGrup = () => {
     </Menu>
   );
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
+  const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
-          aria-label={intl.formatMessage({ id: "account" })}
+          aria-label={intl.formatMessage({ id: 'account' })}
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
@@ -134,7 +134,7 @@ const IconGrup = () => {
       <Box className={classes.sectionDesktop}>
         <Link href="/wish-list">
           <IconButton
-            title={intl.formatMessage({ id: "wishlist.page.title" })}
+            title={intl.formatMessage({ id: 'wishlist.page.title' })}
             aria-label={`show ${wishListCounter} product`}
             color="inherit"
           >
@@ -145,7 +145,7 @@ const IconGrup = () => {
         </Link>
         <Link href="/cart">
           <IconButton
-            title={intl.formatMessage({ id: "cart.page.title" })}
+            title={intl.formatMessage({ id: 'cart.page.title' })}
             aria-label={`show ${cartCounter} product`}
             color="inherit"
           >
@@ -155,8 +155,8 @@ const IconGrup = () => {
           </IconButton>
         </Link>
         <IconButton
-          title={intl.formatMessage({ id: "account" })}
-          aria-label={intl.formatMessage({ id: "account" })}
+          title={intl.formatMessage({ id: 'account' })}
+          aria-label={intl.formatMessage({ id: 'account' })}
           aria-controls={menuId}
           aria-haspopup="true"
           onClick={handleProfileMenuOpen}
@@ -167,7 +167,7 @@ const IconGrup = () => {
       </Box>
       <Box className={classes.sectionMobile}>
         <IconButton
-          aria-label={intl.formatMessage({ id: "show.more" })}
+          aria-label={intl.formatMessage({ id: 'show.more' })}
           aria-controls={mobileMenuId}
           aria-haspopup="true"
           onClick={handleMobileMenuOpen}

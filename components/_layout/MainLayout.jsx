@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import theme from './../../src/theme';
+import { PropTypes } from 'prop-types';
 
 const MainLayout = ({ children, title = 'IQ Puzzle' }) => {
   return (
@@ -33,3 +34,8 @@ const MainLayout = ({ children, title = 'IQ Puzzle' }) => {
   );
 };
 export default MainLayout;
+
+MainLayout.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.element,
+};

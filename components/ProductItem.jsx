@@ -18,6 +18,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { makeStyles } from '@material-ui/core/styles';
 import { useGlobal } from '../src/context/GlobalContext';
 import Link from '../src/Link';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -122,3 +123,7 @@ const ProductItem = ({ product }) => {
 };
 
 export default ProductItem;
+
+ProductItem.propTypes = {
+  product: PropTypes.object,
+};
