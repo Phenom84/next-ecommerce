@@ -19,17 +19,17 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://musing-shannon-3f625c.netlify.app",
+  "start_url": "/",
   "background_color": "#3f51b5",
   "display": "standalone",
-  "scope": "https://musing-shannon-3f625c.netlify.app",
+  "scope": "/",
   "theme_color": "#3f51b5",
   "shortcuts": [
     {
       "short_name": "IQ Puzzle",
       "name": "first_react_project",
       "description": "Unique puzzles IQ puzzle is a daily simulator for your brain. At first glance, it might seem that it's easy, but it's harder than you think.",
-      "url": "https://musing-shannon-3f625c.netlify.app",
+      "url": "/",
       "icons": [{ "src": "favicon.png", "sizes": "192x192" }]
     }
   ],

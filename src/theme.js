@@ -35,7 +35,7 @@ const theme = createMuiTheme({
     MuiAppBar: {
       root: {
         backgroundImage: 'url(back.webp)',
-        backgroundSize: 'cover',
+        backgroundSize: '100%',
         backgroundPosition: 'top center',
       },
     },
@@ -43,7 +43,7 @@ const theme = createMuiTheme({
       '@global': {
         body: {
           backgroundImage: 'url(back.webp)',
-          backgroundSize: 'cover',
+          backgroundSize: '100%',
           backgroundPosition: 'top center',
         },
       },
