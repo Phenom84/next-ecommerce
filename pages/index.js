@@ -7,6 +7,9 @@ import Link from '../src/Link';
 import MainLayout from '../components/_layout/MainLayout';
 
 const useStyles = makeStyles((theme) => ({
+  bg: {
+    height: 'calc(100vw/2.12)',
+  },
   bigImg: {
     height: 'calc(66.66vw/1.7)',
     padding: '32px',
@@ -48,15 +51,16 @@ export default function Index() {
       <Box display="flex" flexDirection="column">
         <Toolbar />
         <CardMedia
+          className={classes.bg}
           component="img"
-          srcSet="/Header-IQ-Puzzle-mobile.webp 420w,
-                  /Header-IQ-Puzzle-1024w.webp 1024w,
-                  /Header-IQ-Puzzle-1920w.webp 1920w"
-          sizes="(max-width: 480px) 400px,
-                 (max-width: 1024px) 1024px,
-                 (max-width: 1920px) 1920px"
-          src="/Header-IQ-Puzzle-1920.webp"
-          title="Product picture"
+          sizes="(max-width: 7200px) 100vw, 2880px"
+          srcSet="/images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_480.webp 480w,
+                  /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_993.webp 993w,
+                  /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_1375.webp 1375w,
+                  /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_1809.webp 1809w,
+                  /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_2222.webp 2222w,
+                  /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_2880.webp 2880w"
+          src="/images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_2880.webp"
           alt="Product picture"
         />
         <Divider />
@@ -140,7 +144,13 @@ export default function Index() {
             <CardMedia
               component="div"
               className={classes.bigImg}
-              image="/with_family_1024w.webp"
+              sizes="(max-width: 5120px) 100vw, 2048px"
+              srcSet="/images/with_family_qjpygl/with_family_qjpygl_c_scale,w_480.webp 480w,
+                      /images/with_family_qjpygl/with_family_qjpygl_c_scale,w_1025.webp 1025w,
+                      /images/with_family_qjpygl/with_family_qjpygl_c_scale,w_1516.webp 1516w,
+                      /images/with_family_qjpygl/with_family_qjpygl_c_scale,w_2031.webp 2031w,
+                      /images/with_family_qjpygl/with_family_qjpygl_c_scale,w_2048.webp 2048w"
+              image="/images/with_family_qjpygl/with_family_qjpygl_c_scale,w_2048.webp"
               title="Product picture"
               alt="Product picture"
             >
@@ -154,7 +164,14 @@ export default function Index() {
             <CardMedia
               component="div"
               className={classes.bigImg}
-              image="/with_colleagues_1024w.webp"
+              sizes="(max-width: 2560px) 100vw, 1024px"
+              srcSet="/images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_480.webp 480w,
+                      /images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_1017.webp 1017w,
+                      /images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_1503.webp 1503w,
+                      /images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_1998.webp 1998w,
+                      /images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_2029.webp 2029w,
+                      /images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_2048.webp 2048w"
+              image="/images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_2048.webp"
               title="Product picture"
               alt="Product picture"
             >
@@ -190,7 +207,13 @@ export default function Index() {
             <CardMedia
               component="div"
               className={classes.bigImg}
-              image="/with_frends__1024w.webp"
+              sizes="(max-width: 2560px) 100vw, 1024px"
+              srcSet="/images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_480.webp 480w,
+                      /images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_1060.webp 1060w,
+                      /images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_1637.webp 1637w,
+                      /images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_2034.webp 2034w,
+                      /images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_2048.webp 2048w"
+              image="/images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_2048.webp"
               title="Product picture"
               alt="Product picture"
             >
