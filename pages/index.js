@@ -1,7 +1,13 @@
 import React from 'react';
-import { Toolbar, Divider, Typography, Grid, Box } from '@material-ui/core';
+import {
+  Toolbar,
+  Divider,
+  Typography,
+  Grid,
+  Box,
+  CardMedia,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { CardMedia } from '@material-ui/core';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Link from '../src/Link';
 import MainLayout from '../components/_layout/MainLayout';
@@ -10,9 +16,60 @@ const useStyles = makeStyles((theme) => ({
   bg: {
     height: 'calc(100vw/2.12)',
   },
+  familyImageBg: {
+    backgroundImage:
+      'url(/images/with_family_qjpygl/with_family_qjpygl_ar_4_3,c_fill,g_auto__c_scale,w_538.webp)',
+    [theme.breakpoints.between('sm', 'md')]: {
+      backgroundImage:
+        'url(/images/with_family_qjpygl/with_family_qjpygl_ar_1_1,c_fill,g_auto__c_scale,w_767.webp)',
+    },
+    [theme.breakpoints.between('md', 'lg')]: {
+      backgroundImage:
+        'url(/images/with_family_qjpygl/with_family_qjpygl_c_scale,w_1025.webp)',
+    },
+    [theme.breakpoints.up('lg')]: {
+      backgroundImage:
+        'url(/images/with_family_qjpygl/with_family_qjpygl_c_scale,w_1516.webp)',
+    },
+  },
+  colleaguesImageBg: {
+    backgroundImage:
+      'url(/images/with_colleagues_knovjm/with_colleagues_knovjm_ar_4_3,c_fill,g_auto__c_scale,w_538.webp)',
+    [theme.breakpoints.between('sm', 'md')]: {
+      backgroundImage:
+        'url(/images/with_colleagues_knovjm/with_colleagues_knovjm_ar_16_9,c_fill,g_auto__c_scale,w_720.webp)',
+    },
+    [theme.breakpoints.between('md', 'lg')]: {
+      backgroundImage:
+        'url(/images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_1017.webp)',
+    },
+    [theme.breakpoints.up('lg')]: {
+      backgroundImage:
+        'url(/images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_1503.webp)',
+    },
+  },
+  frendsImageBg: {
+    backgroundImage:
+      'url(/images/with_frends_oqzpxj/with_frends_oqzpxj_ar_4_3,c_fill,g_auto__c_scale,w_538.webp)',
+    [theme.breakpoints.between('sm', 'md')]: {
+      backgroundImage:
+        'url(/images/with_frends_oqzpxj/with_frends_oqzpxj_ar_16_9,c_fill,g_auto__c_scale,w_720.webp)',
+    },
+    [theme.breakpoints.between('md', 'lg')]: {
+      backgroundImage:
+        'url(/images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_1060.webp)',
+    },
+    [theme.breakpoints.up('lg')]: {
+      backgroundImage:
+        'url(/images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_1637.webp)',
+    },
+  },
   bigImg: {
-    height: 'calc(66.66vw/1.7)',
+    height: '100vw',
     padding: '32px',
+    [theme.breakpoints.up('md')]: {
+      height: 'calc(66.66vw/1.7)',
+    },
   },
   order1: {
     order: 1,
@@ -53,14 +110,11 @@ export default function Index() {
         <CardMedia
           className={classes.bg}
           component="img"
-          sizes="(max-width: 7200px) 100vw, 2880px"
           srcSet="/images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_480.webp 480w,
                   /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_993.webp 993w,
                   /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_1375.webp 1375w,
-                  /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_1809.webp 1809w,
-                  /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_2222.webp 2222w,
-                  /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_2880.webp 2880w"
-          src="/images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_2880.webp"
+                  /images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_1809.webp 1809w"
+          src="/images/Header-IQ-Puzzle-2880w_xfmzlk/Header-IQ-Puzzle-2880w_xfmzlk_c_scale,w_1809.webp"
           alt="Product picture"
         />
         <Divider />
@@ -141,19 +195,7 @@ export default function Index() {
             </Link>
           </Grid>
           <Grid item xs={12} md={9} className={classes.order2}>
-            <CardMedia
-              component="div"
-              className={classes.bigImg}
-              sizes="(max-width: 5120px) 100vw, 2048px"
-              srcSet="/images/with_family_qjpygl/with_family_qjpygl_c_scale,w_480.webp 480w,
-                      /images/with_family_qjpygl/with_family_qjpygl_c_scale,w_1025.webp 1025w,
-                      /images/with_family_qjpygl/with_family_qjpygl_c_scale,w_1516.webp 1516w,
-                      /images/with_family_qjpygl/with_family_qjpygl_c_scale,w_2031.webp 2031w,
-                      /images/with_family_qjpygl/with_family_qjpygl_c_scale,w_2048.webp 2048w"
-              image="/images/with_family_qjpygl/with_family_qjpygl_c_scale,w_2048.webp"
-              title="Product picture"
-              alt="Product picture"
-            >
+            <CardMedia className={`${classes.bigImg} ${classes.familyImageBg}`}>
               <Typography component="p" variant="h4" align="left">
                 <FormattedMessage id="solve.puzzles.with.kids" />
               </Typography>
@@ -162,18 +204,7 @@ export default function Index() {
 
           <Grid item xs={12} md={9} className={classes.order3}>
             <CardMedia
-              component="div"
-              className={classes.bigImg}
-              sizes="(max-width: 2560px) 100vw, 1024px"
-              srcSet="/images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_480.webp 480w,
-                      /images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_1017.webp 1017w,
-                      /images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_1503.webp 1503w,
-                      /images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_1998.webp 1998w,
-                      /images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_2029.webp 2029w,
-                      /images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_2048.webp 2048w"
-              image="/images/with_colleagues_knovjm/with_colleagues_knovjm_c_scale,w_2048.webp"
-              title="Product picture"
-              alt="Product picture"
+              className={`${classes.bigImg} ${classes.colleaguesImageBg}`}
             >
               <Typography component="p" variant="h4" align="right">
                 <FormattedMessage id="solve.puzzles.with.colleagues" />
@@ -185,7 +216,10 @@ export default function Index() {
               <CardMedia
                 component="img"
                 className={classes.media}
-                image="/challenging_1_splash.webp"
+                sizes="(max-width: 600px) 100vw, 440px, 750px"
+                srcSet="/images/challenging_1_splash_y0i77g/challenging_1_splash_y0i77g_c_scale,w_480.webp 480w,
+                        /images/challenging_1_splash_y0i77g/challenging_1_splash_y0i77g_c_scale,w_752.webp 752w"
+                src="/images/challenging_1_splash_y0i77g/challenging_1_splash_y0i77g_c_scale,w_480.webp.webp"
                 title="Show catalog"
                 alt="Chelenge puzzle picture"
               />
@@ -204,19 +238,7 @@ export default function Index() {
             </Link>
           </Grid>
           <Grid item xs={12} md={9} className={classes.order6}>
-            <CardMedia
-              component="div"
-              className={classes.bigImg}
-              sizes="(max-width: 2560px) 100vw, 1024px"
-              srcSet="/images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_480.webp 480w,
-                      /images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_1060.webp 1060w,
-                      /images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_1637.webp 1637w,
-                      /images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_2034.webp 2034w,
-                      /images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_2048.webp 2048w"
-              image="/images/with_frends_oqzpxj/with_frends_oqzpxj_c_scale,w_2048.webp"
-              title="Product picture"
-              alt="Product picture"
-            >
+            <CardMedia className={`${classes.bigImg} ${classes.frendsImageBg}`}>
               <Typography component="p" variant="h4" align="left">
                 <FormattedMessage id="solve.puzzles.with.friends" />
               </Typography>
