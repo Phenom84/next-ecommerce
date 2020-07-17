@@ -102,7 +102,7 @@ const Header = ({ handleChangeLocale, locale, props }) => {
                 <HomeIcon className={classes.homeIcon} />
                 <CardMedia
                   component="img"
-                  image="/iq_Puzzle_top.webp"
+                  image="/logo.webp"
                   title={intl.formatMessage({ id: 'logo.title' })}
                 />
               </IconButton>

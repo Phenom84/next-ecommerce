@@ -25,7 +25,7 @@ const MainLayout = ({ children, title = 'IQ Puzzle' }) => {
         <title>{title}</title>
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/apple_touch_icon.png" />
+        <link rel="apple-touch-icon" href="images/icons/icon-192x192.png" />
       </Head>
       <main>{children}</main>
     </>
