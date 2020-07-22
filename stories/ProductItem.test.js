@@ -1,4 +1,4 @@
-import ProductItem from './ProductItem.jsx';
+import ProductItem from '../components/ProductItem.jsx';
 
 describe('ProductItem', () => {
   test('ProductItem should exist and to be typeof function', () => {

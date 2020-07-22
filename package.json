@@ -6,11 +6,12 @@
   "scripts": {
     "test": "npx jest --collectCoverage",
     "test:watch": "npx jest --watchAll",
+    "prebuild:storybook": "npx jest --json --outputFile=.jest-test-results.json",
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
     "export": "next export",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook",
     "lint:check": "eslint  --ext .js,.jsx * ",
     "lint:fix": "eslint --ext .js,.jsx --fix *"
@@ -40,6 +41,7 @@
     "react-dom": "^16.13.1",
     "react-intl": "^4.7.5",
     "storybook-addon-next-router": "^1.0.1",
+    "styled-components": "^5.1.1",
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
@@ -47,7 +49,9 @@
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-jest": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-storyshots": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@testing-library/jest-dom": "^5.11.0",
@@ -58,7 +62,10 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.1",
+    "file-loader": "^6.0.0",
+    "jest": "^25.0.0",
     "prettier": "2.0.5",
+    "react-test-renderer": "^16.13.1",
     "storybook-addon-apollo-client": "^1.0.1",
     "storybook-react-router": "^1.0.8"
   },

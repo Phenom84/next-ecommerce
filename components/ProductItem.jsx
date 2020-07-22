@@ -33,6 +33,17 @@ const ProductItem = ({ product }) => {
   const [state, dispatch] = useGlobal();
   const intl = useIntl();
 
+  const defaulProduct = {
+    id: '0',
+    image: '/default-product.webp',
+    name: 'Default Name',
+    category: 'default',
+    price: '$ 0.00',
+  };
+  if (!product) {
+    product = defaulProduct;
+  }
+
   const wishListIcon = state.wishlist.find((item) => item.id === product.id) ? (
     <FavoriteIcon color="secondary" />
   ) : (
@@ -125,5 +136,11 @@ const ProductItem = ({ product }) => {
 export default ProductItem;
 
 ProductItem.propTypes = {
-  product: PropTypes.object,
+  product: PropTypes.shape({
+    id: PropTypes.string,
+    image: PropTypes.string,
+    name: PropTypes.string,
+    category: PropTypes.string,
+    price: PropTypes.string,
+  }),
 };

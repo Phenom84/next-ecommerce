@@ -48,12 +48,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SlideShow = ({ slides = [], thumbnails = [], initialSlide = 0 }) => {
+const SlideShow = ({ slides, thumbnails, initialSlide = 0 }) => {
   const [activeSlide, setActiveSlide] = useState(initialSlide);
   const classes = useStyles();
 
-  if (!slides.length || !thumbnails.length) {
-    return null;
+  const defaulSlides = [
+    {
+      src: '/default-product.webp',
+      alt: 'Back view',
+    },
+    {
+      src: '/default-product.webp',
+      alt: 'Back view',
+    },
+    {
+      src: '/default-product.webp',
+      alt: 'Back view',
+    },
+    {
+      src: '/default-product.webp',
+      alt: 'Back view',
+    },
+  ];
+  if (!slides) {
+    slides = defaulSlides;
+    thumbnails = defaulSlides;
   }
 
   return (

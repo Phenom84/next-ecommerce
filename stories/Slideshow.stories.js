@@ -1,42 +1,26 @@
-import React from "react";
-import SlideShow from "../components/Slideshow";
+import React from 'react';
+import SlideShow from '../components/Slideshow';
+import { withNextRouter } from './../.storybook/decorators/NextRouterDecorator';
 
 const slides = [
   {
-    src:
-      "https://raw.githubusercontent.com/Phenom84/next-ecommerce/master/public/p1.webp",
-    alt: "Alternative text 1dd",
+    src: '/p1_600w.webp',
+    alt: 'Front view',
   },
   {
-    src:
-      "https://raw.githubusercontent.com/Phenom84/next-ecommerce/master/public/p2.webp",
-    alt: "Alternative text 2",
-  },
-  {
-    src:
-      "https://raw.githubusercontent.com/Phenom84/next-ecommerce/master/public/p3.webp",
-    alt: "Alternative text 3",
-  },
-  {
-    src:
-      "https://raw.githubusercontent.com/Phenom84/next-ecommerce/master/public/p4.webp",
-    alt: "Alternative text 4",
-  },
-  {
-    src:
-      "https://raw.githubusercontent.com/Phenom84/next-ecommerce/master/public/p5.webp",
-    alt: "Alternative text 5",
-  },
-  {
-    src:
-      "https://raw.githubusercontent.com/Phenom84/next-ecommerce/master/public/p6.webp",
-    alt: "Alternative text 6",
+    src: '/back1_600w.webp',
+    alt: 'Back view',
   },
 ];
 
 export default {
-  title: "Slideshow",
+  title: 'Slideshow',
   component: SlideShow,
+  decorators: [withNextRouter],
 };
 
-export const Default = () => <SlideShow slides={slides} thumbnails={slides} />;
+export const Default = () => <SlideShow />;
+
+export const WithProps = () => (
+  <SlideShow slides={slides} thumbnails={slides} />
+);

@@ -5,6 +5,9 @@ import { GlobalProvider } from "../src/context/GlobalContext";
 import theme from "../src/theme";
 import { IntlProvider } from "react-intl";
 import translations from "../components/translations";
+import { withTests } from '@storybook/addon-jest';
+
+import results from '../.jest-test-results.json';
 
 addDecorator((storyFn) => (
   <ThemeProvider theme={theme}>
@@ -18,3 +21,9 @@ addDecorator((storyFn) => (
     </GlobalProvider>
   </ThemeProvider>
 ));
+
+addDecorator(
+  withTests({
+    results,
+  })
+);
