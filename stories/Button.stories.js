@@ -1,14 +1,14 @@
-import React from "react";
-import { action } from "@storybook/addon-actions";
-import { Button, Grid } from "@material-ui/core";
+import React from 'react';
+import { action } from '@storybook/addon-actions';
+import { Button, Grid } from '@material-ui/core';
 
 export default {
-  title: "Button",
+  title: 'Button',
   component: Button,
 };
 
 export const Text = () => (
-  <Button onClick={action("clicked")}>text button</Button>
+  <Button onClick={action('clicked')}>text button</Button>
 );
 <React.Fragment>
   <Button>default</Button>
