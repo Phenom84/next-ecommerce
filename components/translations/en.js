@@ -7,7 +7,6 @@ export const en = {
   'home.page.title': 'Home page',
   'footer.contact-us': 'Contact Form',
   'footer.delivery': 'Delivery',
-  'footer.contactUs': 'Contact us',
 
   'cart.product.name': 'Name',
   'cart.product.price': 'Price',

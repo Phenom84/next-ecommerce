@@ -7,7 +7,6 @@ export const ru = {
   'home.page.title': 'Домашняя страница',
   'footer.contact-us': 'Обратная связь',
   'footer.delivery': 'Доставка',
-  'footer.contactUs': 'Форма обратной связи',
 
   'cart.product.name': 'Наименование',
   'cart.product.price': 'Цена',

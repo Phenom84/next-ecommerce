@@ -41,8 +41,8 @@ export default function Cart() {
 
   return (
     <MainLayout title={intl.formatMessage({ id: 'cart.page.title' })}>
-      <Toolbar />
       <Container maxWidth="lg">
+        <Toolbar />
         <Grid container spacing={3} justify="center" alignItems="center">
           <Grid item xs={12}>
             <Typography variant="h5" align="center">

@@ -3,13 +3,16 @@ import ContactForm from '../components/ContactForm';
 import { useIntl } from 'react-intl';
 
 import { Toolbar } from '@material-ui/core';
+import MainLayout from '../components/_layout/MainLayout';
 
 export default function Contact() {
   const intl = useIntl();
   return (
-    <>
-      <Toolbar />
-      <ContactForm />
-    </>
+    <MainLayout title={intl.formatMessage({ id: 'footer.contact-us' })}>
+      <>
+        <Toolbar />
+        <ContactForm />
+      </>
+    </MainLayout>
   );
 }

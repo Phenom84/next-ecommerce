@@ -11,7 +11,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
-import Link from 'next/link';
+import Link from '../src/Link';
 
 const Footer = () => {
   return (
@@ -27,7 +27,9 @@ const Footer = () => {
         <Grid item xs={4} md={3}>
           <Link href="/contact">
             <Typography align={'center'} gutterBottom color={'textSecondary'}>
-              <FormattedMessage id="footer.contact-us" />
+              <Button>
+                <FormattedMessage id="footer.contact-us" />
+              </Button>
             </Typography>
           </Link>
         </Grid>

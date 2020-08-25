@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import { Container, Box, TextField, Button } from '@material-ui/core';
 import Head from 'next/head';
-// import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-// const useStyles = makeStyles(() => ({
-//   captcha: {
-//     height: '78px',
-//   },
-// }));
+const useStyles = makeStyles(() => ({
+  captcha: {
+    margin: '8px auto',
+    width: '304px',
+    height: '78px',
+  },
+  form: {
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+  },
+}));
 
 const ContactForm = () => {
-  //const classes = useStyles();
+  const classes = useStyles();
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -29,8 +34,8 @@ const ContactForm = () => {
       <Head>
         <script
           src="https://www.google.com/recaptcha/api.js"
-          // async
-          // defer
+          async
+          defer
         ></script>
       </Head>
       <Box display="flex" flexDirection="column">
@@ -41,6 +46,7 @@ const ContactForm = () => {
             action="https://europe-west1-organic-setup-287317.cloudfunctions.net/Contact_form"
           >
             <TextField
+              className={classes.form}
               type="text"
               label="Name"
               name="name"
@@ -55,6 +61,7 @@ const ContactForm = () => {
               onChange={updateInputState}
             />
             <TextField
+              className={classes.form}
               type="email"
               label="E-mail"
               name="email"
@@ -69,6 +76,7 @@ const ContactForm = () => {
               onChange={updateInputState}
             />
             <TextField
+              className={classes.form}
               type="tel"
               label="Phone"
               name="phone"
@@ -82,6 +90,7 @@ const ContactForm = () => {
               onChange={updateInputState}
             />
             <TextField
+              className={classes.form}
               type="text"
               label="Message"
               name="message"
@@ -99,7 +108,7 @@ const ContactForm = () => {
               onChange={updateInputState}
             />
             <div
-              className="g-recaptcha"
+              className={`g-recaptcha ${classes.captcha}`}
               data-sitekey="6LeW1sIZAAAAAEEVirzFMNoSfMVQz7ZcvW0rDfCG"
             ></div>
             <Button type="submit" form="contact" variant="contained" fullWidth>

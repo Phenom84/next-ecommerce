@@ -7,7 +7,6 @@ export const ro = {
   'home.page.title': 'Pagina principala',
   'footer.contact-us': 'Formular de contact',
   'footer.delivery': 'Livrare',
-  'footer.contactUs': 'Contact',
 
   'cart.product.name': 'Numele produsului',
   'cart.product.price': 'Preț',
