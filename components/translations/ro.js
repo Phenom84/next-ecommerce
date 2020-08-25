@@ -5,7 +5,7 @@ export const ro = {
   'serch.field': 'Căutare...',
   'products.menu.label': 'Producte',
   'home.page.title': 'Pagina principala',
-  'footer.blog': 'Blog',
+  'footer.contact-us': 'Formular de contact',
   'footer.delivery': 'Livrare',
   'footer.contactUs': 'Contact',
 

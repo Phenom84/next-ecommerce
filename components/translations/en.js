@@ -5,7 +5,7 @@ export const en = {
   'serch.field': 'Search...',
   'products.menu.label': 'Products',
   'home.page.title': 'Home page',
-  'footer.blog': 'Blog',
+  'footer.contact-us': 'Contact Form',
   'footer.delivery': 'Delivery',
   'footer.contactUs': 'Contact us',
 

@@ -5,9 +5,9 @@ export const ru = {
   'serch.field': 'Поиск...',
   'products.menu.label': 'Товары',
   'home.page.title': 'Домашняя страница',
-  'footer.blog': 'Блог',
+  'footer.contact-us': 'Обратная связь',
   'footer.delivery': 'Доставка',
-  'footer.contactUs': 'Контакты',
+  'footer.contactUs': 'Форма обратной связи',
 
   'cart.product.name': 'Наименование',
   'cart.product.price': 'Цена',
