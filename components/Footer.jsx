@@ -12,19 +12,31 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 import Link from '../src/Link';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  smBreakpointUp: {
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row',
+    },
+  },
+}));
 
 const Footer = () => {
+  const classes = useStyles();
   return (
     <React.Fragment>
       <Divider style={{ width: '92%', margin: '-1px auto 16px auto' }} />
       <Grid
+        direction={'column'}
+        className={classes.smBreakpointUp}
         container
         style={{ margin: '0px auto' }}
         spacing={0}
         justify={'center'}
         alignItems={'center'}
       >
-        <Grid item xs={4} md={3}>
+        <Grid item xs={10} sm={4}>
           <Link href="/contact">
             <Typography align={'center'} gutterBottom color={'textSecondary'}>
               <Button>
@@ -34,7 +46,7 @@ const Footer = () => {
           </Link>
         </Grid>
 
-        <Grid item xs={4} md={3}>
+        <Grid item xs={10} sm={4}>
           <Typography align={'center'} gutterBottom color={'textSecondary'}>
             <Button href="tel:+37360583794" startIcon={<PhoneIphoneIcon />}>
               +37360583794
@@ -42,7 +54,7 @@ const Footer = () => {
           </Typography>
         </Grid>
 
-        <Grid item xs={4} md={3}>
+        <Grid item xs={10} sm={4}>
           <Typography align={'center'} gutterBottom color={'textSecondary'}>
             <IconButton
               href="http://www.instagram.com/iqpuzzlemd/"

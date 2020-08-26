@@ -4,8 +4,8 @@ import { Formik, Form, Field } from 'formik';
 import Head from 'next/head';
 import { TextField } from 'formik-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
-
-let Recaptcha = require('react-recaptcha');
+import { object, string } from 'yup';
+import Recaptcha from 'react-recaptcha';
 
 const useStyles = makeStyles(() => ({
   captcha: {
@@ -34,6 +34,21 @@ const ContactForm = () => {
       <Box display="flex" flexDirection="column">
         <Container maxWidth="xs">
           <Formik
+            validationSchema={object({
+              name: string().required().min(2).max(50),
+              email: string()
+                .email()
+                .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)
+                .required()
+                .min(6)
+                .max(50),
+              tel: string()
+                .matches(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]*$/g)
+                .min(6)
+                .max(20),
+              message: string().required().min(2),
+              'g-recaptcha-response': string().required(),
+            })}
             initialValues={{
               name: '',
               email: '',
@@ -41,57 +56,39 @@ const ContactForm = () => {
               'g-recaptcha-response': '',
               message: '',
             }}
-            validate={(values) => {
-              const errors = {};
-              if (!values.email) {
-                errors.email = 'Required';
-              } else if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-              ) {
-                errors.email = 'Invalid email address';
-              }
-              if (!values.name) {
-                errors.name = 'Required';
-              }
-              if (!values.message) {
-                errors.message = 'Required';
-              }
-              return errors;
-            }}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
                 setSubmitting(false);
-                let searchParams = new URLSearchParams();
-                for (let pair of Object.entries(values)) {
-                  searchParams.append(pair[0], pair[1]);
-                }
-                fetch(
-                  'https://europe-west1-organic-setup-287317.cloudfunctions.net/Contact_form',
-                  {
-                    method: 'POST',
-                    body: searchParams,
-                  },
-                )
-                  .then((response) => response.json())
-                  .then((result) => alert(result.message))
-                  .catch((error) => alert(error));
-                // alert(JSON.stringify(values, null, 2));
-              }, 0);
+              }, 2000);
+              let searchParams = new URLSearchParams();
+              for (let pair of Object.entries(values)) {
+                searchParams.append(pair[0], pair[1]);
+              }
+              fetch(
+                'https://europe-west1-organic-setup-287317.cloudfunctions.net/Contact_form',
+                {
+                  method: 'POST',
+                  body: searchParams,
+                },
+              )
+                .then((response) => response.json())
+                .then((result) => alert(result.message))
+                .catch((error) => alert(error))
+                .finally(() => setSubmitting(false));
             }}
           >
-            {({ submitForm, isSubmitting, errors, setFieldValue }) => (
+            {({ submitForm, isSubmitting, setFieldValue }) => (
               <Form>
                 <Field
                   component={TextField}
                   color="secondary"
                   name="name"
-                  type="name"
+                  type="text"
                   label="Name"
                   variant="outlined"
                   margin="dense"
                   fullWidth
                 />
-                {errors.name ? errors.name : null}
                 <Field
                   component={TextField}
                   color="secondary"
@@ -106,8 +103,8 @@ const ContactForm = () => {
                 <Field
                   component={TextField}
                   color="secondary"
-                  name="phone"
-                  type="phone"
+                  name="tel"
+                  type="tel"
                   label="Phone number"
                   variant="outlined"
                   margin="dense"
@@ -127,18 +124,20 @@ const ContactForm = () => {
                   rowsMax="12"
                   multiline
                 />
-                <Recaptcha
-                  name="recaptcha"
-                  type="recaptcha"
-                  label="Recaptcha"
-                  sitekey="6LeW1sIZAAAAAEEVirzFMNoSfMVQz7ZcvW0rDfCG"
-                  render="explicit"
-                  theme="dark"
-                  onloadCallback={callback}
-                  verifyCallback={(response) => {
-                    setFieldValue('g-recaptcha-response', response);
-                  }}
-                />
+                <div className={classes.captcha}>
+                  <Recaptcha
+                    name="recaptcha"
+                    type="recaptcha"
+                    label="Recaptcha"
+                    sitekey="6LeW1sIZAAAAAEEVirzFMNoSfMVQz7ZcvW0rDfCG"
+                    render="explicit"
+                    theme="dark"
+                    onloadCallback={callback}
+                    verifyCallback={(response) => {
+                      setFieldValue('g-recaptcha-response', response);
+                    }}
+                  />
+                </div>
                 <Button
                   variant="contained"
                   disabled={isSubmitting}

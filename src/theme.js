@@ -50,6 +50,7 @@ const theme = createMuiTheme({
     MuiCssBaseline: {
       '@global': {
         body: {
+          minWidth: '334px',
           backgroundImage: 'url(back.webp)',
           backgroundSize: '100%',
           backgroundPosition: 'top center',
