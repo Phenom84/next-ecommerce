@@ -32,6 +32,14 @@ const theme = createMuiTheme({
         padding: '1em 0 1em 0',
       },
     },
+    MuiOutlinedInput: {
+      input: {
+        '&:-webkit-autofill': {
+          WebkitBoxShadow: '0 0 0 100px rgba(34, 34, 34, 1) inset',
+        },
+      },
+    },
+
     MuiAppBar: {
       root: {
         backgroundImage: 'url(back.webp)',
