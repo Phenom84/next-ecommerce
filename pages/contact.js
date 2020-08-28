@@ -5,13 +5,13 @@ import { useIntl } from 'react-intl';
 import { Toolbar } from '@material-ui/core';
 import MainLayout from '../components/_layout/MainLayout';
 
-export default function Contact() {
+export default function Contact({ locale }) {
   const intl = useIntl();
   return (
     <MainLayout title={intl.formatMessage({ id: 'footer.contact-us' })}>
       <>
         <Toolbar />
-        <ContactForm />
+        <ContactForm locale={locale} />
       </>
     </MainLayout>
   );

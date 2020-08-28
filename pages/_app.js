@@ -39,7 +39,7 @@ export default function MyApp(props) {
                 />
               </Box>
               <Box flexGrow={1}>
-                <Component {...pageProps} />
+                <Component locale={locale} {...pageProps} />
               </Box>
               <Box>
                 <Footer />
