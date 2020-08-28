@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-let previousLocale = 'en';
+let previousLocale = undefined;
 
 const ContactForm = ({ locale }) => {
   const intl = useIntl();
@@ -31,8 +31,7 @@ const ContactForm = ({ locale }) => {
       min: ({ min }) => `${intl.formatMessage({ id: 'validate.min' })} ${min}`,
       max: ({ max }) => `${intl.formatMessage({ id: 'validate.max' })} ${max}`,
       email: () => `${intl.formatMessage({ id: 'validate.email' })}`,
-      matches: ({ Regex }) =>
-        `${intl.formatMessage({ id: 'validate.matches' })}`,
+      matches: () => `${intl.formatMessage({ id: 'validate.matches' })}`,
     },
   });
 
@@ -60,8 +59,8 @@ const ContactForm = ({ locale }) => {
   });
 
   schema.validate({ name: 'jimmy', age: 11 }).catch(function (err) {
-    err.name; // => 'ValidationError'
-    err.errors; // => ['Deve ser maior que 18']
+    err.name;
+    err.errors;
   });
 
   return (
@@ -83,6 +82,7 @@ const ContactForm = ({ locale }) => {
               'g-recaptcha-response': '',
               message: '',
             }}
+            validationSchema={schema}
             onSubmit={(values, { setSubmitting }) => {
               let searchParams = new URLSearchParams();
               for (let pair of Object.entries(values)) {
@@ -100,7 +100,6 @@ const ContactForm = ({ locale }) => {
                 .catch((error) => alert(error))
                 .finally(() => setSubmitting(false));
             }}
-            validationSchema={schema}
           >
             {({ submitForm, isSubmitting, setFieldTouched, setFieldValue }) => {
               if (locale !== previousLocale) {
@@ -164,6 +163,7 @@ const ContactForm = ({ locale }) => {
                       sitekey="6LeW1sIZAAAAAEEVirzFMNoSfMVQz7ZcvW0rDfCG"
                       render="explicit"
                       theme="dark"
+                      onloadCallback={() => true}
                       verifyCallback={(response) => {
                         setFieldValue('g-recaptcha-response', response);
                       }}
