@@ -4,23 +4,13 @@ import { Button, Container, Box } from '@material-ui/core';
 import { Formik, Form, Field } from 'formik';
 import Head from 'next/head';
 import { TextField } from 'formik-material-ui';
-import { makeStyles } from '@material-ui/core/styles';
 import Recaptcha from 'react-recaptcha';
 import { string, object, setLocale } from 'yup';
-
-const useStyles = makeStyles(() => ({
-  captcha: {
-    margin: '8px auto',
-    width: '304px',
-    height: '78px',
-  },
-}));
 
 let previousLocale = undefined;
 
 const ContactForm = ({ locale }) => {
   const intl = useIntl();
-  const classes = useStyles();
 
   setLocale({
     mixed: {
@@ -101,7 +91,13 @@ const ContactForm = ({ locale }) => {
                 .finally(() => setSubmitting(false));
             }}
           >
-            {({ submitForm, isSubmitting, setFieldTouched, setFieldValue }) => {
+            {({
+              submitForm,
+              isSubmitting,
+              setFieldTouched,
+              values,
+              setFieldValue,
+            }) => {
               if (locale !== previousLocale) {
                 schema.validate().catch(() => {
                   setFieldTouched();
@@ -109,7 +105,7 @@ const ContactForm = ({ locale }) => {
                 });
               }
               return (
-                <Form>
+                <Form name="contactForm">
                   <Field
                     component={TextField}
                     color="secondary"
@@ -155,20 +151,27 @@ const ContactForm = ({ locale }) => {
                     rowsMax="12"
                     multiline
                   />
-                  <div className={classes.captcha}>
-                    <Recaptcha
-                      name="recaptcha"
-                      type="recaptcha"
-                      label="Recaptcha"
-                      sitekey="6LeW1sIZAAAAAEEVirzFMNoSfMVQz7ZcvW0rDfCG"
-                      render="explicit"
-                      theme="dark"
-                      onloadCallback={() => true}
-                      verifyCallback={(response) => {
-                        setFieldValue('g-recaptcha-response', response);
-                      }}
-                    />
-                  </div>
+                  <Recaptcha
+                    ref={(response) => {
+                      if (response) {
+                        response.execute();
+                      }
+                    }}
+                    name="recaptcha"
+                    type="recaptcha"
+                    label="Recaptcha"
+                    //6LeW1sIZAAAAAEEVirzFMNoSfMVQz7ZcvW0rDfCG
+                    sitekey="6LcIiMQZAAAAAH3te4WEVgURGe6rmpT8rO-Ytf4C"
+                    size="invisible"
+                    onloadCallback={(response) => {
+                      if (response) {
+                        response.execute();
+                      }
+                    }}
+                    verifyCallback={(response) => {
+                      setFieldValue('g-recaptcha-response', response);
+                    }}
+                  />
                   <Button
                     variant="contained"
                     disabled={isSubmitting}
