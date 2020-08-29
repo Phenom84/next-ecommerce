@@ -14,7 +14,7 @@ const ContactForm = ({ locale }) => {
 
   setLocale({
     mixed: {
-      default: 'field_invalid',
+      default: `${intl.formatMessage({ id: 'validate.required' })}`,
     },
     string: {
       required: () => `${intl.formatMessage({ id: 'validate.min' })}`,
@@ -46,11 +46,6 @@ const ContactForm = ({ locale }) => {
     'g-recaptcha-response': string().required(
       intl.formatMessage({ id: 'validate.required' }),
     ),
-  });
-
-  schema.validate({ name: 'jimmy', age: 11 }).catch(function (err) {
-    err.name;
-    err.errors;
   });
 
   return (
@@ -86,18 +81,16 @@ const ContactForm = ({ locale }) => {
                 },
               )
                 .then((response) => response.json())
-                .then((result) => alert(result.message))
+                .then(
+                  (result) =>
+                    (document.getElementById('submit').innerHTML =
+                      result.message),
+                )
                 .catch((error) => alert(error))
                 .finally(() => setSubmitting(false));
             }}
           >
-            {({
-              submitForm,
-              isSubmitting,
-              setFieldTouched,
-              values,
-              setFieldValue,
-            }) => {
+            {({ submitForm, isSubmitting, setFieldTouched, setFieldValue }) => {
               if (locale !== previousLocale) {
                 schema.validate().catch(() => {
                   setFieldTouched();
@@ -163,16 +156,12 @@ const ContactForm = ({ locale }) => {
                     //6LeW1sIZAAAAAEEVirzFMNoSfMVQz7ZcvW0rDfCG
                     sitekey="6LcIiMQZAAAAAH3te4WEVgURGe6rmpT8rO-Ytf4C"
                     size="invisible"
-                    onloadCallback={(response) => {
-                      if (response) {
-                        response.execute();
-                      }
-                    }}
                     verifyCallback={(response) => {
                       setFieldValue('g-recaptcha-response', response);
                     }}
                   />
                   <Button
+                    id="submit"
                     variant="contained"
                     disabled={isSubmitting}
                     onClick={submitForm}
