@@ -25,30 +25,25 @@ export default function MyApp(props) {
   }, []);
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalProvider>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <IntlProvider locale={locale} messages={translations[locale]}>
-            <Box display="flex" flexDirection="column" height="98vh">
-              <Box>
-                <Header
-                  locale={locale}
-                  handleChangeLocale={handleChangeLocale}
-                />
-              </Box>
-              <Box flexGrow={1}>
-                <Component locale={locale} {...pageProps} />
-              </Box>
-              <Box>
-                <Footer />
-              </Box>
+    <ThemeProvider theme={theme}>
+      <GlobalProvider>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <IntlProvider locale={locale} messages={translations[locale]}>
+          <Box display="flex" flexDirection="column" height="98vh">
+            <Box>
+              <Header locale={locale} handleChangeLocale={handleChangeLocale} />
             </Box>
-          </IntlProvider>
-        </GlobalProvider>
-      </ThemeProvider>
-    </>
+            <Box flexGrow={1}>
+              <Component locale={locale} {...pageProps} />
+            </Box>
+            <Box>
+              <Footer />
+            </Box>
+          </Box>
+        </IntlProvider>
+      </GlobalProvider>
+    </ThemeProvider>
   );
 }
 
