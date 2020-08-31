@@ -6,7 +6,10 @@
   "scripts": {
     "test": "npx jest --collectCoverage",
     "test:watch": "npx jest --watchAll",
-    "prebuild:storybook": "npx jest --json --outputFile=.jest-test-results.json",
+    "test:generate-output": "npx jest --json --outputFile=.jest-test-results.json || true",
+    "prebuild:storybook": "npm run test:generate-output",
+    "build:storybook": "build-storybook -c .storybook -o build/",
+    "predeploy": "npm run build:storybook",
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
