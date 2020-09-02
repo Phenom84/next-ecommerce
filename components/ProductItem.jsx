@@ -16,8 +16,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { makeStyles } from '@material-ui/core/styles';
-import { useGlobal } from '../src/context/GlobalContext';
-import Link from '../src/Link';
+import { useGlobal } from 'src/context/GlobalContext';
+import Link from 'src/Link';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(() => ({

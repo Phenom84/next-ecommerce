@@ -33,14 +33,10 @@ export const Default = () => <ProductItem />;
 
 export const WithProps = () => <ProductItem product={product} />;
 
-Default.story = {
-  parameters: {
-    jest: ['ProductItem.test.js'],
-  },
+Default.parameters = {
+  jest: ['ProductItem.test.js'],
 };
 
-WithProps.story = {
-  parameters: {
-    jest: ['ProductItem.test.js'],
-  },
+WithProps.parameters = {
+  jest: ['ProductItem.test.js'],
 };

@@ -11,7 +11,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
-import Link from '../src/Link';
+import Link from 'src/Link';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({

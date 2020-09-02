@@ -2,6 +2,10 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
+  moduleNameMapper: {
+    '^components[/](.+)': '<rootDir>/components/$1',
+    '^src[/](.+)': '<rootDir>/src/$1',
+  },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 

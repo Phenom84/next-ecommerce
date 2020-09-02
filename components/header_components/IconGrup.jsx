@@ -3,8 +3,8 @@ import { useIntl, FormattedMessage } from 'react-intl';
 import { Box, IconButton, Badge, Menu, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import Link from '../../src/Link';
-import { useGlobal } from '../../src/context/GlobalContext';
+import Link from 'src/Link';
+import { useGlobal } from 'src/context/GlobalContext';
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';

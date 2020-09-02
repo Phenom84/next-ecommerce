@@ -5,8 +5,8 @@ import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MainMenu from '../components/header_components/MainMenu';
-import Link from '../src/Link';
+import MainMenu from 'components/header_components/MainMenu';
+import Link from 'src/Link';
 import LanguageSelect from './header_components/LanguageSelect';
 import IconGrup from './header_components/IconGrup';
 import HomeIcon from '@material-ui/icons/Home';
@@ -66,10 +66,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function HideOnScroll(props) {
-  const { children, window } = props;
+  const { children } = props;
   const trigger = useScrollTrigger({
     threshold: 0,
-    target: window ? window() : undefined,
   });
   const topTrigger = useScrollTrigger({
     disableHysteresis: true,

@@ -16,13 +16,13 @@ import {
   Toolbar,
 } from '@material-ui/core';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { useGlobal } from '../src/context/GlobalContext';
+import { useGlobal } from 'src/context/GlobalContext';
 import { makeStyles } from '@material-ui/core/styles';
 import ClearIcon from '@material-ui/icons/Clear';
 
-import Link from '../src/Link';
-import Counter from './../components/Counter';
-import MainLayout from '../components/_layout/MainLayout';
+import Link from 'src/Link';
+import Counter from 'components/Counter';
+import MainLayout from 'components/_layout/MainLayout';
 
 const useStyles = makeStyles({
   table: {

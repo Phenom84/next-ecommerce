@@ -14,7 +14,7 @@ import { useGlobal } from '../src/context/GlobalContext';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { FormattedMessage } from 'react-intl';
-import Link from '../src/Link';
+import Link from 'src/Link';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(() => ({

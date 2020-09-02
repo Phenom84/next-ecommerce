@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Grid, IconButton, Button } from '@material-ui/core';
-import { useGlobal } from '../src/context/GlobalContext';
+import { useGlobal } from 'src/context/GlobalContext';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import PropTypes from 'prop-types';

@@ -78,7 +78,7 @@ typings/
 # Next.js build output
 .next
 out/
-storybook-static/
+build/
 
 # Nuxt.js build / generate output
 .nuxt

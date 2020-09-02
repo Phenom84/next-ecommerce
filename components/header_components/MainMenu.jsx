@@ -3,7 +3,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { IconButton, Typography, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import Link from '../../src/Link';
+import Link from 'src/Link';
 
 const useStyles = makeStyles((theme) => ({
   menuIcon: {

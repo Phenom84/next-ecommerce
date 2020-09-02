@@ -2,19 +2,25 @@
 
 My first react project
 
+## Requirements
+
+For development, you will need [Node.js(v12.16.0)](https://nodejs.org/) and a node package manager NPM(6.13.4), installed in your environement.
+
 ## Installation
 
-Clone repository
+Clone repository, and then run the following commands
 
 ```bash
 npm install
 ```
 
+## Running the project
+
 ```bash
 npm run build && npm run start
 ```
 
-For runing tests
+## Running tests
 
 ```bash
 npx jest
@@ -31,4 +37,4 @@ Contact us form in this project uses serverless approach. It uses function runni
 
 1.[app](https://next-ecommerce-sigma.vercel.app/)
 
-2.[storybook](https://next-e-commerce-storybook.vercel.app/)
+2.[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://next-e-commerce-storybook.vercel.app/)
