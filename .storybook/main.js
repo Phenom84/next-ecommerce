@@ -18,5 +18,6 @@ module.exports = {
     '@storybook/addon-jest',
     '@storybook/addon-viewport',
     '@storybook/addon-a11y',
+    '@storybook/addon-backgrounds',
   ],
 };

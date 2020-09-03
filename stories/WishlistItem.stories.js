@@ -1,5 +1,5 @@
 import React from 'react';
-import WishListItem from './../components/WishListItem';
+import WishListItem from 'components/WishListItem';
 import { withNextRouter } from './../.storybook/decorators/NextRouterDecorator';
 
 const product = {
