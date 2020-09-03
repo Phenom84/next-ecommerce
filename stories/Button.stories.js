@@ -4,52 +4,50 @@ import { Button, Grid } from '@material-ui/core';
 
 export default {
   title: 'Button',
-  argTypes: {
-    variant: {
-      control: {
-        type: 'inline-radio',
-        options: ['text', 'contained', 'outlined'],
-      },
-    },
-    color: {
-      control: {
-        type: 'inline-radio',
-        options: ['default', 'inherit', 'primary', 'secondary'],
-      },
-    },
-    size: {
-      control: {
-        type: 'inline-radio',
-        options: ['small', 'medium', 'large'],
-      },
-    },
-    fullWidth: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    disableRipple: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    disableElevation: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    disabled: {
-      control: {
-        type: 'boolean',
-      },
-    },
-  },
   component: Button,
 };
 
-const Template = (args) => <Button {...args}>Primary</Button>;
-
-export const WithControls = Template.bind({});
+export const WithControls = (args) => <Button {...args}>Primary</Button>;
+WithControls.argTypes = {
+  variant: {
+    control: {
+      type: 'inline-radio',
+      options: ['text', 'contained', 'outlined'],
+    },
+  },
+  color: {
+    control: {
+      type: 'inline-radio',
+      options: ['default', 'inherit', 'primary', 'secondary'],
+    },
+  },
+  size: {
+    control: {
+      type: 'inline-radio',
+      options: ['small', 'medium', 'large'],
+    },
+  },
+  fullWidth: {
+    control: {
+      type: 'boolean',
+    },
+  },
+  disableRipple: {
+    control: {
+      type: 'boolean',
+    },
+  },
+  disableElevation: {
+    control: {
+      type: 'boolean',
+    },
+  },
+  disabled: {
+    control: {
+      type: 'boolean',
+    },
+  },
+};
 
 WithControls.args = {
   variant: 'text',
