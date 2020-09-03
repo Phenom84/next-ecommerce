@@ -10,13 +10,6 @@ export default {
 export const Text = () => (
   <Button onClick={action('clicked')}>text button</Button>
 );
-<React.Fragment>
-  <Button>default</Button>
-  <Button color="primary">primary</Button>
-  <Button color="secondary">secondary</Button>
-  <Button disabled>disabled</Button>
-  <Button href="#contained-buttons">link</Button>
-</React.Fragment>;
 
 export const Contained = () => (
   <React.Fragment>

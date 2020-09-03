@@ -40,6 +40,7 @@ const ProductItem = ({ product }) => {
     category: 'default',
     price: '$ 0.00',
   };
+
   if (!product) {
     product = defaulProduct;
   }

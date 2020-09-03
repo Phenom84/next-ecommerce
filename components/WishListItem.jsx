@@ -27,9 +27,17 @@ export default function WishListItem({ product }) {
   const classes = useStyles();
   const [state, dispatch] = useGlobal();
 
-  // !product ? (product = '') : product;
-  const defaultImg =
-    'https://raw.githubusercontent.com/Cerneaga-Denis/Cerneaga-Denis.github.io/master/default_img/default-product.webp';
+  const defaulProduct = {
+    id: '0',
+    image: '/default-product.webp',
+    name: 'Default Name',
+    category: 'default',
+    price: '$ 0.00',
+  };
+
+  if (!product) {
+    product = defaulProduct;
+  }
 
   return (
     <Grid item xs={12} md={6} lg={4}>
@@ -39,9 +47,9 @@ export default function WishListItem({ product }) {
             <CardMedia
               component="img"
               className={classes.media}
-              image={product.image || defaultImg}
-              title={product.name || 'Product picture'}
-              alt={product.name || 'Product picture'}
+              image={product.image}
+              title={product.name}
+              alt={product.name}
             />
           </Link>
           <CardContent align="center">

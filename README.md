@@ -4,7 +4,7 @@ My first react project
 
 ## Requirements
 
-For development, you will need [Node.js(v12.16.0)](https://nodejs.org/) and a node package manager NPM(6.13.4), installed in your environement.
+For development, you will need [Node.js(v11+)](https://nodejs.org/) and a node package manager NPM, installed in your environement.
 
 ## Installation
 
@@ -24,6 +24,12 @@ npm run build && npm run start
 
 ```bash
 npx jest
+```
+
+## For development
+
+```bash
+npx run dev
 ```
 
 # Description
